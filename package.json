@@ -19,7 +19,8 @@
     "react-router-dom": "^6.21.0",
     "react-scripts": "5.0.1",
     "styled-components": "^6.1.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "homepage": "https://jebershon.github.io/Culinary-Delights"
   },
   "scripts": {
     "start": "react-scripts start",

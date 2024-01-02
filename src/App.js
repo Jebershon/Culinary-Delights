@@ -11,7 +11,7 @@ import Signin from './Components/Signin.jsx';
 import Signup from './Components/Signup.jsx';
 function App() {
   return (
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL="/"}>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/Glocery/*" element={<Glocery/>} />

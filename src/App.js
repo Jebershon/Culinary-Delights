@@ -1,4 +1,4 @@
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Aboutus from './Components/Aboutus';
 import Cart from './Components/Cart-Details.jsx';
@@ -11,7 +11,7 @@ import Signin from './Components/Signin.jsx';
 import Signup from './Components/Signup.jsx';
 function App() {
   return (
-      <HashRouter basename="/Culinary-Delights">
+      <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/Glocery/*" element={<Glocery/>} />
@@ -23,7 +23,7 @@ function App() {
         <Route path='/Cart/*' element={<Cart/>}/>
         <Route path='/MyProfile/*' element={<MyProfile/>}/>
       </Routes>
-      </HashRouter>
+      </BrowserRouter>
   );
 }
 

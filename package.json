@@ -21,7 +21,8 @@
     "react-scripts": "5.0.1",
     "styled-components": "^6.1.1",
     "web-vitals": "^2.1.4",
-    "homepage": "https://Jebershon.github.io/Culinary-Delights/"
+    "homepage": "https://Jebershon.github.io/Culinary-Delights/",
+    "terser": "3.14.1"
   },
   "scripts": {
     "predeploy": "npm run build",

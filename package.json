@@ -20,7 +20,11 @@
     "react-router-dom": "^6.21.0",
     "react-scripts": "5.0.1",
     "styled-components": "^6.1.1",
+<<<<<<< HEAD
     "web-vitals": "^2.1.4",
+=======
+    "web-vitals": "^2.1.4"
+>>>>>>> 798029e865d156d336035add79ffb1e574602574
     "homepage": "https://Jebershon.github.io/Culinary-Delights/"
   },
   "scripts": {

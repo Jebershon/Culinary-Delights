@@ -68,7 +68,7 @@ function Aboutus(){
             <br/>
             <Row>
                 <Col lg={4}>
-                <Card className='card-bg'>
+                <Card className='card-bg' data-aos="fade-right">
                 <Card.Img variant="top" src={image1} width={100} height={300} className='ig'/>
                 <Card.Body>
                     <Card.Title>Card Title</Card.Title>
@@ -94,7 +94,7 @@ function Aboutus(){
                 </Card>
                 </Col>
                 <Col lg={4}>
-                <Card className='card-bg'>
+                <Card className='card-bg' data-aos="fade-left">
                 <Card.Img variant="top" src={image3} width={100} height={300} className='ig'/>
                 <Card.Body>
                     <Card.Title>Card Title</Card.Title>

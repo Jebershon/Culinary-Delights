@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Aboutus from './Components/Aboutus';
+import AdminDash from './Components/AdminDash.jsx';
 import Cart from './Components/Cart-Details.jsx';
 import Glocery from './Components/Glocery.jsx';
 import Home from './Components/Home.jsx';
@@ -22,6 +23,7 @@ function App() {
         <Route path="/Signin/*" element={<Signin/>} />
         <Route path='/Cart/*' element={<Cart/>}/>
         <Route path='/MyProfile/*' element={<MyProfile/>}/>
+        <Route path='/AdminDash/*' element={<AdminDash/>}/>
       </Routes>
       </BrowserRouter>
   );

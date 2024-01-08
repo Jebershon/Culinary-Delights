@@ -88,7 +88,7 @@ const NutritionCalculator = () => {
       <Container>
         <Row>
           <Col lg='6'>
-            <Card className='Nutri-card'>
+            <Card className='Nutri-card' data-aos="zoom-in-right">
               <Card.Header className='nutri-font'>Enter food items (comma-separated):</Card.Header>
               <Card.Body>
                 <form onSubmit={handleFormSubmit}>
@@ -104,7 +104,7 @@ const NutritionCalculator = () => {
 
           <Col lg='6'>
             {/* Replace the spinner with the hamster animation component */}
-            <Card className='Nutri-card'>
+            <Card className='Nutri-card' data-aos="zoom-in-left">
               <Card.Header className='nutri-font'>Nutritional Information:</Card.Header>
               <Card.Body>
                 <center>

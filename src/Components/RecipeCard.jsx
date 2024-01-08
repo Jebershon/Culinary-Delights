@@ -6,11 +6,11 @@ const RecipeCard = ({ recipe }) => {
   const { name, description, ingredients, steps, servings, prep_time, cook_time, total_time } = recipe;
   return (
     <div>
-        <Card className="recipe-card">
+        <Card className="recipe-card" data-aos="fade-up" data-aos-duration="1000">
         <Card.Body>
             <Card.Title>{name}</Card.Title>
             <Card.Text>{description}</Card.Text>
-            <div className='overflow-y-scroll' style={{height:"10cm"}}>
+            <div className='scroll' style={{height:"10cm"}}>
             <Card.Text>
             <strong>Ingredients:</strong>
             </Card.Text>

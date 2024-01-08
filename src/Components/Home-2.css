@@ -67,3 +67,98 @@ input:hover {
   width: 1rem;
   height: 1rem;
 }
+/* --------------------------------------------------------------------------------------- */
+.checkbox-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.checkbox-wrapper.checked .background {
+  fill: green;
+}
+
+.checkbox-wrapper.checked .stroke {
+  stroke-dashoffset: 0;
+}
+
+.checkbox-wrapper.checked .check {
+  stroke-dashoffset: 0;
+}
+
+.checkbox-wrapper:hover .check {
+  stroke-dashoffset: 0;
+}
+
+.checkbox-wrapper .background {
+  fill: red;
+  transition: ease all 0.6s;
+  -webkit-transition: ease all 0.6s;
+}
+
+.checkbox-wrapper .stroke {
+  fill: none;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  stroke-width: 2px;
+  stroke-dashoffset: 100;
+  stroke-dasharray: 100;
+  transition: ease all 0.6s;
+  -webkit-transition: ease all 0.6s;
+}
+
+.checkbox-wrapper .check {
+  fill: none;
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+  stroke-dashoffset: 22;
+  stroke-dasharray: 22;
+  transition: ease all 0.6s;
+  -webkit-transition: ease all 0.6s;
+}
+
+.checkbox-label {
+  font-family: cursive;
+  font-size: 20px;
+  margin: 5px;
+}
+/* -----------------------------Side-bar-------------------------------------------- */
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav .sidenav-text{
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #6c6c6c;
+  display: block;
+}
+
+.sidenav .sidenav-text:hover {
+  color: #f1f1f1;
+  cursor: pointer;
+}
+
+.dashboard{
+  margin-left: 160px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav .sidenav-text {font-size: 18px;}
+}
+

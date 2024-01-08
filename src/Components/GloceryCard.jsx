@@ -29,7 +29,7 @@ const GloceryCard=({ingre})=>{
         setData(selected);
       };
     return(
-        <div id={product_id}>
+        <div id={product_id} data-aos="zoom-in">
         <Card className="recipe-card">
         <Card.Img variant="top" src={image_url} width={30} height={350} />
         <Card.Body>

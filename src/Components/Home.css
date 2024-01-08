@@ -30,16 +30,6 @@
     font-weight: 400;
     color: #fc8019;
 }
-.drop-bton{
-  background-color: white;
-  color: #fc8019;
-  border-color: white;
-}
-.drop-bton:hover{
-  border-color:#000000 ;
-  background-color: #fc8019;
-  color: white;
-}
 .butn-round{
   border-radius: 2rem;
   background-color: white;
@@ -107,6 +97,31 @@
     color: #000000;
     -webkit-text-stroke: 3px rgb(255, 255, 255);
     font-size:60px;
+}
+.scroll{
+  overflow-y: scroll;
+}
+::-webkit-scroll {
+  background: black;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ffffff; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #000000; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #000000; 
 }
 /* ----------------------------------------Nutri-CSS----------------------------------- */
 .foot{

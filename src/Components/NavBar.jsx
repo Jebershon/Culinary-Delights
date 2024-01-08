@@ -49,13 +49,15 @@ function NavBar(){
                 <center><Nav.Link className='navi'><Link to='./Aboutus' className='nav-text'>About us</Link></Nav.Link></center>
                 <br/>
               </Nav>
-              <NavDropdown className='navi1 nav-text' title="Profile" id="basic-nav-dropdown">
+              <NavDropdown className='navi1 nav-text' title="Profile" id="basic-nav-dropdown" menuVariant='dark'>
                 <center>
-                  <NavDropdown.Item className='drop-bton' href="./Signin">Sign In</NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item className='drop-bton' href="./Signup">Sign Up</NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item className='drop-bton' href="./MyProfile"><AccountCircle/></NavDropdown.Item>
+                  <NavDropdown.Item ><Link to="./Signin" className='nav-text'>Sign In</Link></NavDropdown.Item>
+                  <NavDropdown.Divider/>
+                  <NavDropdown.Item ><Link to="./Signup" className='nav-text'>Sign Up</Link></NavDropdown.Item>
+                  <NavDropdown.Divider/>
+                  <NavDropdown.Item ><Link to="./MyProfile" className='nav-text'><AccountCircle/></Link></NavDropdown.Item>
+                  <NavDropdown.Divider/>
+                  <NavDropdown.Item ><Link to="./AdminDash" className='nav-text'><AccountCircle/></Link></NavDropdown.Item>
                   </center>
               </NavDropdown>
             </Navbar.Collapse>

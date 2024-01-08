@@ -118,8 +118,6 @@ function Home() {
         </div>
         </center>
 
-        <br/>
-
         <center>
         <div className='foot'>
         <Footer/>

@@ -27,7 +27,8 @@ const recipe_book=[{
     "servings": 4,
     "prep_time": "10 minutes",
     "cook_time": "30 minutes",
-    "total_time": "40 minutes"
+    "total_time": "40 minutes",
+    "rating":0
 },{
     "name": "Chicken Curry",
     "description": "A flavorful Indian chicken curry served with fragrant Basmati rice.",
@@ -56,7 +57,8 @@ const recipe_book=[{
     "servings": 4,
     "prep_time": "15 minutes",
     "cook_time": "40 minutes",
-    "total_time": "55 minutes"
+    "total_time": "55 minutes",
+    "rating":0
   },{
     "name": "Spicy Chickpea Curry",
     "description": "A flavorful and hearty chickpea curry with a blend of spices.",
@@ -83,7 +85,8 @@ const recipe_book=[{
     "servings": 4,
     "prep_time": "15 minutes",
     "cook_time": "25 minutes",
-    "total_time": "40 minutes"
+    "total_time": "40 minutes" ,
+    "rating":0
   },{
     "name": "Vegetable Biryani",
     "description": "A fragrant and flavorful one-pot dish with mixed vegetables and aromatic basmati rice.",
@@ -110,7 +113,8 @@ const recipe_book=[{
     "servings": 4,
     "prep_time": "20 minutes",
     "cook_time": "35 minutes",
-    "total_time": "55 minutes"
+    "total_time": "55 minutes",
+    "rating":0
   },{
     "name": "Palak Paneer",
     "description": "A creamy spinach curry with chunks of paneer (Indian cottage cheese).",
@@ -140,7 +144,8 @@ const recipe_book=[{
     "servings": 4,
     "prep_time": "15 minutes",
     "cook_time": "30 minutes",
-    "total_time": "45 minutes"
+    "total_time": "45 minutes",
+    "rating":0
   },{
     "name": "Aloo Gobi",
     "description": "A simple and delicious dry curry made with potatoes (aloo) and cauliflower (gobi).",
@@ -169,7 +174,8 @@ const recipe_book=[{
     "servings": 4,
     "prep_time": "15 minutes",
     "cook_time": "25 minutes",
-    "total_time": "40 minutes"
+    "total_time": "40 minutes",
+    "rating":0
   },{
     "name": "Sushi Rolls",
     "description": "Delicious Japanese sushi rolls with fresh fish, avocado, and seaweed.",
@@ -193,7 +199,8 @@ const recipe_book=[{
     ],
     "servings": 4,
     "prep_time": "30 minutes",
-    "total_time": "30 minutes"
+    "total_time": "30 minutes",
+    "rating":0
   },{
     "name": "Margherita Pizza",
     "description": "Classic Italian pizza topped with tomatoes, fresh mozzarella, and basil.",
@@ -219,7 +226,8 @@ const recipe_book=[{
     "servings": 4,
     "prep_time": "20 minutes",
     "cook_time": "15 minutes",
-    "total_time": "35 minutes"
+    "total_time": "35 minutes",
+    "rating":0
   },{
     "name": "Chicken Tikka Masala",
     "description": "A popular Indian dish with marinated grilled chicken in a creamy tomato sauce.",
@@ -246,7 +254,8 @@ const recipe_book=[{
     "servings": 4,
     "prep_time": "30 minutes",
     "cook_time": "20 minutes",
-    "total_time": "50 minutes"
+    "total_time": "50 minutes",
+    "rating":0
   },{
     "name": "Beef Stir-Fry with Vegetables",
     "description": "A quick and delicious beef stir-fry with a colorful array of vegetables.",
@@ -274,7 +283,8 @@ const recipe_book=[{
     "servings": 4,
     "prep_time": "20 minutes",
     "cook_time": "15 minutes",
-    "total_time": "35 minutes"
+    "total_time": "35 minutes",
+    "rating":0
   },
   {
     "name": "Classic Beef Lasagna",
@@ -304,7 +314,8 @@ const recipe_book=[{
     "servings": 8,
     "prep_time": "30 minutes",
     "cook_time": "45 minutes",
-    "total_time": "75 minutes"
+    "total_time": "75 minutes",
+    "rating":0
   },
   {
     "name": "Beef and Vegetable Kebabs",
@@ -333,7 +344,8 @@ const recipe_book=[{
     "servings": 6,
     "prep_time": "20 minutes",
     "cook_time": "10-12 minutes",
-    "total_time": "40 minutes"
+    "total_time": "40 minutes",
+    "rating":0
   },{
     "name": "Grilled Salmon with Lemon-Dill Sauce",
     "description": "Delicious grilled salmon fillets topped with a zesty lemon-dill sauce.",
@@ -356,7 +368,8 @@ const recipe_book=[{
     "servings": 4,
     "prep_time": "10 minutes",
     "cook_time": "10 minutes",
-    "total_time": "20 minutes"
+    "total_time": "20 minutes",
+    "rating":0
   },
   {
     "name": "Fish Tacos with Mango Salsa",
@@ -385,7 +398,8 @@ const recipe_book=[{
     "servings": 4,
     "prep_time": "15 minutes",
     "cook_time": "8 minutes",
-    "total_time": "23 minutes"
+    "total_time": "23 minutes",
+    "rating":0
   },
   {
     "name": "Baked Lemon Garlic Butter Shrimp",
@@ -410,7 +424,8 @@ const recipe_book=[{
     "servings": 4,
     "prep_time": "10 minutes",
     "cook_time": "15 minutes",
-    "total_time": "25 minutes"
+    "total_time": "25 minutes",
+    "rating":0
   },{
     "name": "Mutton Rogan Josh",
     "description": "A rich and aromatic Kashmiri mutton curry with a blend of spices.",
@@ -446,7 +461,8 @@ const recipe_book=[{
     "servings": 4,
     "prep_time": "20 minutes",
     "cook_time": "1 hour",
-    "total_time": "1 hour 20 minutes"
+    "total_time": "1 hour 20 minutes",
+    "rating":0
   },
   {
     "name": "Mutton Biryani",
@@ -483,7 +499,8 @@ const recipe_book=[{
     "servings": 6,
     "prep_time": "30 minutes",
     "cook_time": "1 hour",
-    "total_time": "1 hour 30 minutes"
+    "total_time": "1 hour 30 minutes",
+    "rating":0
   },
   {
     "name": "Mutton Korma",
@@ -518,7 +535,8 @@ const recipe_book=[{
     "servings": 4,
     "prep_time": "25 minutes",
     "cook_time": "1 hour",
-    "total_time": "1 hour 25 minutes"
+    "total_time": "1 hour 25 minutes",
+    "rating":0
   },{
     "name": "Garlic Butter Prawns",
     "description": "Juicy prawns cooked in a flavorful garlic butter sauce.",
@@ -543,7 +561,8 @@ const recipe_book=[{
     "servings": 4,
     "prep_time": "15 minutes",
     "cook_time": "10 minutes",
-    "total_time": "25 minutes"
+    "total_time": "25 minutes",
+    "rating":0
   },
   {
     "name": "Prawn Curry",
@@ -574,7 +593,8 @@ const recipe_book=[{
     "servings": 4,
     "prep_time": "20 minutes",
     "cook_time": "15 minutes",
-    "total_time": "35 minutes"
+    "total_time": "35 minutes",
+    "rating":0
   },
   {
     "name": "Prawn Stir-Fry",
@@ -604,7 +624,8 @@ const recipe_book=[{
     "servings": 4,
     "prep_time": "15 minutes",
     "cook_time": "10 minutes",
-    "total_time": "25 minutes"
+    "total_time": "25 minutes",
+    "rating":0
   },{
     "name": "Lobster Thermidor",
     "description": "A classic French dish featuring lobster meat in a creamy brandy-infused sauce.",
@@ -633,7 +654,8 @@ const recipe_book=[{
     "servings": 4,
     "prep_time": "20 minutes",
     "cook_time": "15 minutes",
-    "total_time": "35 minutes"
+    "total_time": "35 minutes",
+    "rating":0
   },
   {
     "name": "Grilled Lobster Tails",
@@ -659,7 +681,8 @@ const recipe_book=[{
     "servings": 4,
     "prep_time": "15 minutes",
     "cook_time": "7 minutes",
-    "total_time": "22 minutes"
+    "total_time": "22 minutes",
+    "rating":0
   },
   {
     "name": "Lobster Mac and Cheese",
@@ -688,7 +711,8 @@ const recipe_book=[{
     "servings": 6,
     "prep_time": "20 minutes",
     "cook_time": "25 minutes",
-    "total_time": "45 minutes"
+    "total_time": "45 minutes",
+    "rating":0
   },{
     "name": "Tandoori Chicken",
     "description": "Classic Indian dish featuring marinated and grilled chicken with aromatic spices.",
@@ -719,7 +743,8 @@ const recipe_book=[{
     "prep_time": "15 minutes",
     "marination_time": "2 hours",
     "cook_time": "25 minutes",
-    "total_time": "2 hours 40 minutes"
+    "total_time": "2 hours 40 minutes",
+    "rating":0
   },
   {
     "name": "Grilled Vegetable Skewers",
@@ -749,7 +774,8 @@ const recipe_book=[{
     "prep_time": "20 minutes",
     "marination_time": "30 minutes",
     "cook_time": "15 minutes",
-    "total_time": "1 hour 5 minutes"
+    "total_time": "1 hour 5 minutes",
+    "rating":0
   },
   {
     "name": "Tandoori Shrimp",
@@ -779,6 +805,7 @@ const recipe_book=[{
     "prep_time": "15 minutes",
     "marination_time": "30 minutes",
     "cook_time": "6 minutes",
-    "total_time": "51 minutes"
+    "total_time": "51 minutes",
+    "rating":0
   }];
   export default recipe_book;

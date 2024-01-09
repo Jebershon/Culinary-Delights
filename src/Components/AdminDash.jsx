@@ -1,6 +1,7 @@
 import { BarChart, HomeOutlined, LocalDining, LocalGroceryStore, Settings } from '@mui/icons-material';
 import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import AddGrocery from './AddGrocery';
 import AddRecipe from './AddRecipe';
 import logo from './Asserts/dinner.png';
@@ -28,11 +29,13 @@ function AdminDash() {
                   <span style={{color:"#ee7752",fontSize:"25px"}}>D</span>elights
       </center>
         <hr/>
-        <a className="sidenav-text" onClick={() => handleNavClick('Home')}><HomeOutlined style={{color:"#ee7752"}}/> Home</a>
+        <a onClick={() => handleNavClick('Home')}><Link to='/' className='nav-brand sidenav-text'><HomeOutlined style={{color:"#ee7752"}}/>  Home</Link></a>
         <hr/>
         <a className="sidenav-text" onClick={() => handleNavClick('AddRecipe')}><LocalDining style={{color:"#ee7752"}}/> AddRecipe</a>
         <hr/>
         <a className="sidenav-text" onClick={() => handleNavClick('AddGrocery')}><LocalGroceryStore style={{color:"#ee7752"}}/> AddGrocery</a>
+        <hr/>
+        <a className="sidenav-text" onClick={() => handleNavClick('Chart')}><BarChart style={{color:"#ee7752"}}/> Visual Data</a>
         <hr/>
         <a className="sidenav-text" onClick={() => handleNavClick('Chart')}><BarChart style={{color:"#ee7752"}}/> Visual Data</a>
         <hr/>

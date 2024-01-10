@@ -2,6 +2,9 @@
   color:white;
   background-image: url("C:\project_college\React projects\culinary-delights\src\Components\Asserts\shutterstock_download.jpg");
 }
+#basic-nav-dropdown::after{
+  display: none !important; 
+}
 /* ---------------------------------------Background----------------------------------- */
 .navi{
     margin-left: 1rem;
@@ -145,7 +148,7 @@
     box-sizing: border-box;
     border-radius: 16px;
     background-size: 200% 100%;
-    animation: gradient 5s ease infinite;
+    animation: gradient .7s ease infinite;
   }
   
   @keyframes gradient {

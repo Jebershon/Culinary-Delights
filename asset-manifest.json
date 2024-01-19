@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.32a8fad3.css",
-    "main.js": "/static/js/main.750f3397.js",
+    "main.css": "/static/css/main.84cf8388.css",
+    "main.js": "/static/js/main.8bdba4ff.js",
     "static/js/787.0b7d99b9.chunk.js": "/static/js/787.0b7d99b9.chunk.js",
     "static/media/img1.jpeg": "/static/media/img1.3c26f22b563f34ec6706.jpeg",
     "static/media/img2.jpg": "/static/media/img2.1b46d1905fdd066d365a.jpg",
@@ -9,18 +9,15 @@
     "static/media/ad1.jpg": "/static/media/ad1.f6c8ca8bc4b21714b4f2.jpg",
     "static/media/shutterstock_download.jpg": "/static/media/shutterstock_download.09ffde87f476553e5a63.jpg",
     "static/media/image.jpg": "/static/media/image.11667155db2663454cd2.jpg",
-    "static/media/ad2.jpg": "/static/media/ad2.00c7540dce8ba6d91932.jpg",
     "static/media/dinner.png": "/static/media/dinner.ab3a666ed1d4f329d837.png",
-    "static/media/female.jpg": "/static/media/female.98ad3155494315b2ca72.jpg",
     "static/media/img3.jpeg": "/static/media/img3.56f577a39357e9a3c0f6.jpeg",
-    "static/media/sigma-male.jpg": "/static/media/sigma-male.18f7d92527775686bbad.jpg",
     "index.html": "/index.html",
-    "main.32a8fad3.css.map": "/static/css/main.32a8fad3.css.map",
-    "main.750f3397.js.map": "/static/js/main.750f3397.js.map",
+    "main.84cf8388.css.map": "/static/css/main.84cf8388.css.map",
+    "main.8bdba4ff.js.map": "/static/js/main.8bdba4ff.js.map",
     "787.0b7d99b9.chunk.js.map": "/static/js/787.0b7d99b9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.32a8fad3.css",
-    "static/js/main.750f3397.js"
+    "static/css/main.84cf8388.css",
+    "static/js/main.8bdba4ff.js"
   ]
 }

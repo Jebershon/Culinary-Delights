@@ -161,4 +161,9 @@ input:hover {
   .sidenav {padding-top: 15px;}
   .sidenav .sidenav-text {font-size: 18px;}
 }
-
+/* --------------------------------------------------------------------------------- */
+.gip{
+  font-size: 15px;
+  font-weight: 800;
+  font-variant: small-caps;
+}

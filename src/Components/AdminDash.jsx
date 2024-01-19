@@ -1,4 +1,4 @@
-import { BarChart, HomeOutlined, LocalDining, LocalGroceryStore, Settings } from '@mui/icons-material';
+import { BarChart, HomeOutlined, LocalDining, LocalGroceryStore, Shop } from '@mui/icons-material';
 import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -8,7 +8,7 @@ import logo from './Asserts/dinner.png';
 import ChartComponent from './ChartComponent.jsx';
 import './Home-2.css'; // Make sure to fix the import path
 import './Home.css';
-
+import SoldDetails from './Sold-details.jsx';
 function AdminDash() {
   const [activeComponent, setActiveComponent] = useState('AddRecipe');
 
@@ -29,7 +29,7 @@ function AdminDash() {
                   <span style={{color:"#ee7752",fontSize:"25px"}}>D</span>elights
       </center>
         <hr/>
-        <a onClick={() => handleNavClick('Home')}><Link to='/' className='nav-brand sidenav-text'><HomeOutlined style={{color:"#ee7752"}}/>  Home</Link></a>
+        <a onClick={() => handleNavClick('Home')}><Link to='/' className='sidenav-text'><HomeOutlined style={{color:"#ee7752"}}/> Home</Link></a>
         <hr/>
         <a className="sidenav-text" onClick={() => handleNavClick('AddRecipe')}><LocalDining style={{color:"#ee7752"}}/> AddRecipe</a>
         <hr/>
@@ -37,9 +37,7 @@ function AdminDash() {
         <hr/>
         <a className="sidenav-text" onClick={() => handleNavClick('Chart')}><BarChart style={{color:"#ee7752"}}/> Visual Data</a>
         <hr/>
-        <a className="sidenav-text" onClick={() => handleNavClick('Chart')}><BarChart style={{color:"#ee7752"}}/> Visual Data</a>
-        <hr/>
-        <a className="sidenav-text" onClick={() => handleNavClick('AddRecipe')}><Settings style={{color:"#ee7752"}}/> Setting</a>
+        <a className="sidenav-text" onClick={() => handleNavClick('Sold')}><Shop style={{color:"#ee7752"}}/> Sold</a>
       </div>
       <Container className="dashboard">
         {activeComponent === 'AddRecipe' && (
@@ -55,6 +53,11 @@ function AdminDash() {
         {activeComponent === 'Chart' && (
           <div className='mt-3 mb-3'>
             <ChartComponent/>
+          </div>
+        )}
+        {activeComponent === 'Sold' && (
+          <div className='mt-3 mb-3'>
+            <SoldDetails/>
           </div>
         )}
       </Container>

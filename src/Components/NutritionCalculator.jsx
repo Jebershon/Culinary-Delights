@@ -5,11 +5,27 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
+import Navbar from 'react-bootstrap/Navbar';
 import Row from 'react-bootstrap/Row';
 import Table from 'react-bootstrap/Table';
 import './/Home.css';
 import Footer from './Footer.jsx';
-
+const BackBtn=()=>{
+  return(
+    <div>
+        <a href='/' style={{ textDecoration: "none" }}>
+          <button class="bookmarkBtn">
+            <span class="IconContainer">
+              <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
+              </svg>
+            </span>
+            <p class="book-text">Back</p>
+          </button>
+        </a>
+      </div>
+  )
+}
 const HamsterAnimation = () => {
   return (
     <div aria-label="Orange and tan hamster running in a metal wheel" role="img" className="wheel-and-hamster">
@@ -65,25 +81,17 @@ const NutritionCalculator = () => {
 
   return (
     <div className='a-body bg-c'>
-      <header style={{ backgroundColor: "#212529" }}>
-        <div>
-          <center>
-            <h1 className='n-head-text'>Nutritional Calculator</h1>
-          </center>
-        </div>
-      </header>
-      <div className="Back-button">
-        <a href='/' style={{ textDecoration: "none" }}>
-          <button class="bookmarkBtn">
-            <span class="IconContainer">
-              <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
-                <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
-              </svg>
-            </span>
-            <p class="book-text">Back</p>
-          </button>
-        </a>
-      </div>
+      <Navbar className="transparent-Nav">
+        <Container>
+          <Navbar.Brand>
+           <BackBtn/>
+          </Navbar.Brand>
+          <div>
+              <h1 className='n-head-text'>Nutritional Calculator</h1>
+          </div>
+        </Container>
+      </Navbar>
+      
       <br />
       <Container>
         <Row>

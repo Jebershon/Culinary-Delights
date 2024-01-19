@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
-import profile1 from './Asserts/female.jpg';
 import profile3 from './Asserts/girl-Female.jpeg';
+import img from './Asserts/img-def.jpg';
 import profile4 from './Asserts/male-avatar-profile.jpg';
-import profile2 from './Asserts/sigma-male.jpg';
 import Footer from './Footer';
 import GroceryPurchaseCard from './GroceryPurchaseCard';
 import purchaseDetails from './purchaseDetails.js';
 
 function UserProfile() {
-  const [avatar, setAvatar] = useState(profile1);
+  const [avatar, setAvatar] = useState(img);
   const [externalAvatar, setExternalAvatar] = useState('');
   const [storedProfile, setStoredProfile] = useState(null);
 
@@ -35,12 +34,13 @@ function UserProfile() {
     setExternalAvatar('');
   };
 
-  const avatars = [profile1, profile2, profile3, profile4];
+  const avatars = [profile3, profile4];
 
   // =============================================================
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [location, setLocation] = useState('');
+  const [phno, setPhno] = useState('');
   const [joined, setJoined] = useState('');
 
   const handleNameChange = (event) => {
@@ -49,6 +49,10 @@ function UserProfile() {
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
+  };
+
+  const handlePhnoChange = (event) => {
+    setPhno(event.target.value);
   };
 
   const handleLocationChange = (event) => {
@@ -63,16 +67,15 @@ function UserProfile() {
     const userProfile = {
       name,
       email,
+      phno,
       location,
       joined: currentDate,
     };
     setStoredProfile(userProfile);
   };
 
-  const handleRetrieve = () => {
-    // Retrieve stored profile data and display
     console.log('Retrieved Profile:', storedProfile);
-  };
+
   // =============================================================
   const [isFormVisible, setFormVisibility] = useState(false);
   const toggleForm = () => {
@@ -134,6 +137,9 @@ function UserProfile() {
                   <strong>Email:</strong> {storedProfile?.email}
                 </Card.Text>
                 <Card.Text>
+                  <strong>Ph no:</strong> {storedProfile?.phno}
+                </Card.Text>
+                <Card.Text>
                   <strong>Location:</strong> {storedProfile?.location}
                 </Card.Text>
                 <Card.Text>
@@ -166,6 +172,11 @@ function UserProfile() {
                   <Form.Group controlId="email" className="mb-3">
                     <Form.Label>Email</Form.Label>
                     <Form.Control type="email" placeholder="Enter your email" value={email} onChange={handleEmailChange} />
+                  </Form.Group>
+
+                  <Form.Group controlId="number" className="mb-3">
+                    <Form.Label>Phone Number:</Form.Label>
+                    <Form.Control type="number" placeholder="Enter your email" value={phno} onChange={handlePhnoChange} />
                   </Form.Group>
 
                   <Form.Group controlId="location" className="mb-3">

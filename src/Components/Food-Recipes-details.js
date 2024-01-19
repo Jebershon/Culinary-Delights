@@ -3,17 +3,17 @@ const recipe_book=[{
     "description": "A classic Italian dish made with spaghetti and a tomato-based meat sauce.",
     "isVegetarian": false,
     "ingredients": [
-        {"name": "spaghetti","quantity": "1 lb"},
-        {"name": "ground beef","quantity": "1 lb"},
-        {"name": "canned crushed tomatoes","quantity": "28 oz"},
-        {"name": "tomato paste","quantity": "6 oz"},
-        {"name": "onion","quantity": "1"},
-        {"name": "garlic","quantity": "3 cloves"},
-        {"name": "red wine","quantity": "1/2 cup"},
-        {"name": "olive oil","quantity": "2 tbsp"},
-        {"name": "dried basil","quantity": "1 tsp"},
-        {"name": "salt","quantity": "1 tsp"},
-        {"name": "black pepper","quantity": "1/2 tsp"}
+      { "name": "spaghetti", "quantity": "500g" },
+      { "name": "ground beef", "quantity": "500g" },
+      { "name": "canned crushed tomatoes", "quantity": "400g" },
+      { "name": "tomato paste","quantity": "170g" },
+      { "name": "onion", "quantity": "1" },
+      {"name": "garlic", "quantity": "3 cloves" },
+      { "name": "red wine", "quantity": "120ml" },
+      { "name": "olive oil", "quantity": "30ml" },
+      { "name": "dried basil", "quantity": "5g" },
+      { "name": "salt", "quantity": "5g" },
+      { "name": "black pepper", "quantity": "2.5g" },
     ],
     "steps": [
         "Cook the spaghetti according to package instructions.",
@@ -28,25 +28,25 @@ const recipe_book=[{
     "prep_time": "10 minutes",
     "cook_time": "30 minutes",
     "total_time": "40 minutes",
-    "rating":0
+    "rating":[3,4,2,4,2,4]
 },{
     "name": "Chicken Curry",
     "description": "A flavorful Indian chicken curry served with fragrant Basmati rice.",
     "isVegetarian": false,
     "ingredients": [
-      {"name": "Chicken pieces", "quantity": "1.5 lbs"},
+      {"name": "Chicken pieces", "quantity": "680g"},
       {"name": "Onion", "quantity": "1, finely chopped"},
       {"name": "Tomato", "quantity": "2, diced"},
-      {"name": "Ginger-garlic paste", "quantity": "1 tbsp"},
-      {"name": "Cumin powder", "quantity": "1 tsp"},
-      {"name": "Coriander powder", "quantity": "1 tsp"},
-      {"name": "Garam masala", "quantity": "1/2 tsp"},
-      {"name": "Turmeric powder", "quantity": "1/2 tsp"},
-      {"name": "Red chili powder", "quantity": "1 tsp"},
-      {"name": "Yogurt", "quantity": "1/2 cup"},
+      {"name": "Ginger-garlic paste", "quantity": "15g"},
+      {"name": "Cumin powder", "quantity": "5g"},
+      {"name": "Coriander powder", "quantity": "5g"},
+      {"name": "Garam masala", "quantity": "2.5g"},
+      {"name": "Turmeric powder", "quantity": "2.5g"},
+      {"name": "Red chili powder", "quantity": "5g"},
+      {"name": "Yogurt", "quantity": "120ml"},
       {"name": "Fresh cilantro", "quantity": "2 tbsp, chopped"},
-      {"name": "Vegetable oil", "quantity": "3 tbsp"}
-    ],
+      {"name": "Vegetable oil", "quantity": "45ml"}
+    ],    
     "steps": [
       "In a pan, heat oil and sauté onions until golden brown.",
       "Add ginger-garlic paste, tomatoes, and spices. Cook until tomatoes are soft.",
@@ -58,7 +58,7 @@ const recipe_book=[{
     "prep_time": "15 minutes",
     "cook_time": "40 minutes",
     "total_time": "55 minutes",
-    "rating":0
+    "rating":[3,4,2,4,2,4]
   },{
     "name": "Spicy Chickpea Curry",
     "description": "A flavorful and hearty chickpea curry with a blend of spices.",
@@ -67,15 +67,15 @@ const recipe_book=[{
       {"name": "Chickpeas", "quantity": "2 cans, drained and rinsed"},
       {"name": "Onion", "quantity": "1, finely chopped"},
       {"name": "Tomato", "quantity": "2, diced"},
-      {"name": "Ginger-garlic paste", "quantity": "1 tbsp"},
-      {"name": "Cumin powder", "quantity": "1 tsp"},
-      {"name": "Coriander powder", "quantity": "1 tsp"},
-      {"name": "Turmeric powder", "quantity": "1/2 tsp"},
-      {"name": "Red chili powder", "quantity": "1 tsp"},
-      {"name": "Coconut milk", "quantity": "1 cup"},
-      {"name": "Vegetable oil", "quantity": "2 tbsp"},
+      {"name": "Ginger-garlic paste", "quantity": "15g"},
+      {"name": "Cumin powder", "quantity": "5g"},
+      {"name": "Coriander powder", "quantity": "5g"},
+      {"name": "Turmeric powder", "quantity": "2.5g"},
+      {"name": "Red chili powder", "quantity": "5g"},
+      {"name": "Coconut milk", "quantity": "240ml"},
+      {"name": "Vegetable oil", "quantity": "30ml"},
       {"name": "Fresh cilantro", "quantity": "2 tbsp, chopped"}
-    ],
+    ],    
     "steps": [
       "In a pan, sauté onions until golden.",
       "Add ginger-garlic paste, tomatoes, and spices. Cook until tomatoes are soft.",
@@ -86,23 +86,23 @@ const recipe_book=[{
     "prep_time": "15 minutes",
     "cook_time": "25 minutes",
     "total_time": "40 minutes" ,
-    "rating":0
+    "rating":[3,4,4,4,5,4]
   },{
     "name": "Vegetable Biryani",
     "description": "A fragrant and flavorful one-pot dish with mixed vegetables and aromatic basmati rice.",
     "isVegetarian": true,
     "ingredients": [
-      {"name": "Basmati rice", "quantity": "2 cups"},
-      {"name": "Mixed vegetables (carrots, peas, beans)", "quantity": "1 cup"},
+      {"name": "Basmati rice", "quantity": "400g"},
+      {"name": "Mixed vegetables (carrots, peas, beans)", "quantity": "150g"},
       {"name": "Onion", "quantity": "1, thinly sliced"},
       {"name": "Tomato", "quantity": "1, chopped"},
-      {"name": "Ginger", "quantity": "1-inch piece, grated"},
+      {"name": "Ginger", "quantity": "2.5cm piece, grated"},
       {"name": "Garlic", "quantity": "3 cloves, minced"},
-      {"name": "Biryani masala", "quantity": "2 tsp"},
-      {"name": "Ghee", "quantity": "2 tbsp"},
-      {"name": "Cashews", "quantity": "1/4 cup"},
-      {"name": "Fresh mint leaves", "quantity": "1/4 cup"}
-    ],
+      {"name": "Biryani masala", "quantity": "10g"},
+      {"name": "Ghee", "quantity": "30ml"},
+      {"name": "Cashews", "quantity": "30g"},
+      {"name": "Fresh mint leaves", "quantity": "15g"}
+    ],    
     "steps": [
       "Cook basmati rice until 70% done. Drain and set aside.",
       "Sauté onions until golden, add ginger-garlic, and tomatoes.",
@@ -114,7 +114,7 @@ const recipe_book=[{
     "prep_time": "20 minutes",
     "cook_time": "35 minutes",
     "total_time": "55 minutes",
-    "rating":0
+    "rating":[3,3,2,4,3,3]
   },{
     "name": "Palak Paneer",
     "description": "A creamy spinach curry with chunks of paneer (Indian cottage cheese).",
@@ -125,13 +125,13 @@ const recipe_book=[{
       {"name": "Onion", "quantity": "1, finely chopped"},
       {"name": "Tomato", "quantity": "2, pureed"},
       {"name": "Green chili", "quantity": "2, chopped"},
-      {"name": "Ginger", "quantity": "1 tbsp, grated"},
+      {"name": "Ginger", "quantity": "15g, grated"},
       {"name": "Garlic", "quantity": "3 cloves, minced"},
-      {"name": "Cumin powder", "quantity": "1 tsp"},
-      {"name": "Coriander powder", "quantity": "1 tsp"},
-      {"name": "Garam masala", "quantity": "1/2 tsp"},
-      {"name": "Cream", "quantity": "1/4 cup"},
-      {"name": "Vegetable oil", "quantity": "2 tbsp"}
+      {"name": "Cumin powder", "quantity": "5g"},
+      {"name": "Coriander powder", "quantity": "5g"},
+      {"name": "Garam masala", "quantity": "2.5g"},
+      {"name": "Cream", "quantity": "60ml"},
+      {"name": "Vegetable oil", "quantity": "30ml"}
     ],
     "steps": [
       "In a pan, heat oil and sauté onions until golden brown.",
@@ -145,7 +145,7 @@ const recipe_book=[{
     "prep_time": "15 minutes",
     "cook_time": "30 minutes",
     "total_time": "45 minutes",
-    "rating":0
+    "rating":[1,1,1,2,1,2]
   },{
     "name": "Aloo Gobi",
     "description": "A simple and delicious dry curry made with potatoes (aloo) and cauliflower (gobi).",
@@ -175,7 +175,7 @@ const recipe_book=[{
     "prep_time": "15 minutes",
     "cook_time": "25 minutes",
     "total_time": "40 minutes",
-    "rating":0
+    "rating":[3,3,2,3,2,1]
   },{
     "name": "Sushi Rolls",
     "description": "Delicious Japanese sushi rolls with fresh fish, avocado, and seaweed.",
@@ -200,7 +200,7 @@ const recipe_book=[{
     "servings": 4,
     "prep_time": "30 minutes",
     "total_time": "30 minutes",
-    "rating":0
+    "rating":[5,5,5,4,5,4]
   },{
     "name": "Margherita Pizza",
     "description": "Classic Italian pizza topped with tomatoes, fresh mozzarella, and basil.",
@@ -227,7 +227,7 @@ const recipe_book=[{
     "prep_time": "20 minutes",
     "cook_time": "15 minutes",
     "total_time": "35 minutes",
-    "rating":0
+    "rating":[4,5,3,4,5,4]
   },{
     "name": "Chicken Tikka Masala",
     "description": "A popular Indian dish with marinated grilled chicken in a creamy tomato sauce.",
@@ -255,7 +255,7 @@ const recipe_book=[{
     "prep_time": "30 minutes",
     "cook_time": "20 minutes",
     "total_time": "50 minutes",
-    "rating":0
+    "rating":[3,5,2,4,5,4]
   },{
     "name": "Beef Stir-Fry with Vegetables",
     "description": "A quick and delicious beef stir-fry with a colorful array of vegetables.",
@@ -284,7 +284,7 @@ const recipe_book=[{
     "prep_time": "20 minutes",
     "cook_time": "15 minutes",
     "total_time": "35 minutes",
-    "rating":0
+    "rating":[3,4,1,2,5,4]
   },
   {
     "name": "Classic Beef Lasagna",
@@ -315,7 +315,7 @@ const recipe_book=[{
     "prep_time": "30 minutes",
     "cook_time": "45 minutes",
     "total_time": "75 minutes",
-    "rating":0
+    "rating":[4,4,5,4,5,4]
   },
   {
     "name": "Beef and Vegetable Kebabs",
@@ -345,7 +345,7 @@ const recipe_book=[{
     "prep_time": "20 minutes",
     "cook_time": "10-12 minutes",
     "total_time": "40 minutes",
-    "rating":0
+    "rating":[4,4,4,4,5,4]
   },{
     "name": "Grilled Salmon with Lemon-Dill Sauce",
     "description": "Delicious grilled salmon fillets topped with a zesty lemon-dill sauce.",
@@ -369,7 +369,7 @@ const recipe_book=[{
     "prep_time": "10 minutes",
     "cook_time": "10 minutes",
     "total_time": "20 minutes",
-    "rating":0
+    "rating":[4,4,4,4,5,4]
   },
   {
     "name": "Fish Tacos with Mango Salsa",
@@ -399,7 +399,7 @@ const recipe_book=[{
     "prep_time": "15 minutes",
     "cook_time": "8 minutes",
     "total_time": "23 minutes",
-    "rating":0
+    "rating":[4,4,4,4,5,4]
   },
   {
     "name": "Baked Lemon Garlic Butter Shrimp",
@@ -425,7 +425,7 @@ const recipe_book=[{
     "prep_time": "10 minutes",
     "cook_time": "15 minutes",
     "total_time": "25 minutes",
-    "rating":0
+    "rating":[4,4,4,4,5,4]
   },{
     "name": "Mutton Rogan Josh",
     "description": "A rich and aromatic Kashmiri mutton curry with a blend of spices.",
@@ -462,7 +462,7 @@ const recipe_book=[{
     "prep_time": "20 minutes",
     "cook_time": "1 hour",
     "total_time": "1 hour 20 minutes",
-    "rating":0
+    "rating":[3,5,5,4,5,4]
   },
   {
     "name": "Mutton Biryani",
@@ -500,7 +500,7 @@ const recipe_book=[{
     "prep_time": "30 minutes",
     "cook_time": "1 hour",
     "total_time": "1 hour 30 minutes",
-    "rating":0
+    "rating":[5,4,5,4,5,4]
   },
   {
     "name": "Mutton Korma",
@@ -536,7 +536,7 @@ const recipe_book=[{
     "prep_time": "25 minutes",
     "cook_time": "1 hour",
     "total_time": "1 hour 25 minutes",
-    "rating":0
+    "rating":[3,4,5,4,5,4]
   },{
     "name": "Garlic Butter Prawns",
     "description": "Juicy prawns cooked in a flavorful garlic butter sauce.",
@@ -562,7 +562,7 @@ const recipe_book=[{
     "prep_time": "15 minutes",
     "cook_time": "10 minutes",
     "total_time": "25 minutes",
-    "rating":0
+    "rating":[5,4,5,4,5,4]
   },
   {
     "name": "Prawn Curry",
@@ -594,7 +594,7 @@ const recipe_book=[{
     "prep_time": "20 minutes",
     "cook_time": "15 minutes",
     "total_time": "35 minutes",
-    "rating":0
+    "rating":[3,4,2,4,5,4]
   },
   {
     "name": "Prawn Stir-Fry",
@@ -625,7 +625,7 @@ const recipe_book=[{
     "prep_time": "15 minutes",
     "cook_time": "10 minutes",
     "total_time": "25 minutes",
-    "rating":0
+    "rating":[5,5,5,5,5,5]
   },{
     "name": "Lobster Thermidor",
     "description": "A classic French dish featuring lobster meat in a creamy brandy-infused sauce.",
@@ -655,7 +655,7 @@ const recipe_book=[{
     "prep_time": "20 minutes",
     "cook_time": "15 minutes",
     "total_time": "35 minutes",
-    "rating":0
+    "rating":[3,4,3,4,3,4]
   },
   {
     "name": "Grilled Lobster Tails",
@@ -682,7 +682,7 @@ const recipe_book=[{
     "prep_time": "15 minutes",
     "cook_time": "7 minutes",
     "total_time": "22 minutes",
-    "rating":0
+    "rating":[3,4,2,4,3,4]
   },
   {
     "name": "Lobster Mac and Cheese",
@@ -712,7 +712,7 @@ const recipe_book=[{
     "prep_time": "20 minutes",
     "cook_time": "25 minutes",
     "total_time": "45 minutes",
-    "rating":0
+    "rating":[5,4,5,5,5,4]
   },{
     "name": "Tandoori Chicken",
     "description": "Classic Indian dish featuring marinated and grilled chicken with aromatic spices.",
@@ -744,7 +744,7 @@ const recipe_book=[{
     "marination_time": "2 hours",
     "cook_time": "25 minutes",
     "total_time": "2 hours 40 minutes",
-    "rating":0
+    "rating":[5,4,5,4,5,4]
   },
   {
     "name": "Grilled Vegetable Skewers",
@@ -775,7 +775,7 @@ const recipe_book=[{
     "marination_time": "30 minutes",
     "cook_time": "15 minutes",
     "total_time": "1 hour 5 minutes",
-    "rating":0
+    "rating":[5,4,5,4,5,4]
   },
   {
     "name": "Tandoori Shrimp",
@@ -806,6 +806,6 @@ const recipe_book=[{
     "marination_time": "30 minutes",
     "cook_time": "6 minutes",
     "total_time": "51 minutes",
-    "rating":0
+    "rating":[3,4,3,2,5,3]
   }];
   export default recipe_book;

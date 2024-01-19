@@ -16,8 +16,8 @@ function Recipes() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
   const [recipes, setRecipes] = useState(recipe_book);
+
   const [filter, setFilter] = useState('all'); // 'all', 'vegetarian', 'nonvegetarian'
   const [searchTerm, setSearchTerm] = useState('');
 

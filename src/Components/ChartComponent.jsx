@@ -1,14 +1,33 @@
 import React, { useEffect, useRef } from 'react';
 import Chart from 'react-apexcharts';
 import { Card, CardBody, CardHeader } from 'react-bootstrap';
+import recipe_book from './Food-Recipes-details';
 const ChartComponent = () => {
   const chartRef = useRef(null);
   const donutChartRef = useRef(null);
-    const label1= ["vegetable", "fruit", "dairy", "meat", "grains", "beverages"];
+    
+
+
+    const recipeNames = recipe_book.map((recipe) =>(recipe.name));
+    console.trace(recipeNames); 
+
+    const label1= [...recipeNames];
+
+    const rating = recipe_book.map((recipe) =>{
+      let sum=0;
+      for(var i=0;i<recipe.rating.length;i++)
+      {
+      sum=recipe.rating[i]+sum;
+      }
+      return Math.round(sum/recipe.rating.length);
+    });
+
+    console.trace(rating);
+
     const dataset1=[
       {
-        name: 'Products Sold in Each Category',
-        data: [30, 50, 20,12,23,4],
+        name: 'Recipe rated',
+        data: rating,
       },
     ];
 
@@ -61,9 +80,9 @@ const ChartComponent = () => {
   return(
   <div>
     <Card bg='grey' className='mt-3 mb-3'>
-        <CardHeader>Category Analysis : Products Sold in Each Category</CardHeader>
+        <CardHeader>Rating of Each Recipe</CardHeader>
         <CardBody>
-        <Chart options={barChartOptions} series={dataset1.map((dataset) => dataset.data)} type="area" height={400} ref={chartRef} />
+        <Chart options={barChartOptions} series={dataset1.map((dataset) => dataset.data)} type="area" height={400} width={1000} ref={chartRef} />
         </CardBody>
     </Card>
     <Card bg='grey' className='mt-3 mb-3'>

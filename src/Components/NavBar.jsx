@@ -1,4 +1,4 @@
-import { AccountCircle } from '@mui/icons-material';
+import { AccountCircle, AccountCircleOutlined, AdminPanelSettings, AppRegistrationTwoTone, Login, Logout } from '@mui/icons-material';
 import { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
@@ -49,15 +49,22 @@ function NavBar(){
                 <center><Nav.Link className='navi'><Link to='./Aboutus' className='nav-text'>About us</Link></Nav.Link></center>
                 <br/>
               </Nav>
-              <NavDropdown className='navi1 nav-text' title="Profile" id="basic-nav-dropdown" menuVariant='dark'>
+              <Nav>
+              <Link to="./Signin" className='nav-text' style={{marginRight:"40px"}}><Login/></Link>
+
+              <Link to="./Signup" className='nav-text'><AppRegistrationTwoTone/></Link>
+              </Nav>
+              <NavDropdown className='navi1 nav-text' title={<AccountCircle/>} id="basic-nav-dropdown" menuVariant='dark' align="end">
                 <center>
-                  <NavDropdown.Item ><Link to="./Signin" className='nav-text'>Sign In</Link></NavDropdown.Item>
+                  {/* <NavDropdown.Item ><Link to="./Signin" className='nav-text'><Login/>Sign In</Link></NavDropdown.Item>
                   <NavDropdown.Divider/>
-                  <NavDropdown.Item ><Link to="./Signup" className='nav-text'>Sign Up</Link></NavDropdown.Item>
+                  <NavDropdown.Item ><Link to="./Signup" className='nav-text'><AppRegistrationTwoTone/>Sign Up</Link></NavDropdown.Item>
+                  <NavDropdown.Divider/> */}
+                  <NavDropdown.Item ><Link to="./MyProfile" className='nav-text'><AccountCircleOutlined/></Link></NavDropdown.Item>
                   <NavDropdown.Divider/>
-                  <NavDropdown.Item ><Link to="./MyProfile" className='nav-text'><AccountCircle/></Link></NavDropdown.Item>
+                  <NavDropdown.Item ><Link to="./AdminDash" className='nav-text'><AdminPanelSettings/></Link></NavDropdown.Item>
                   <NavDropdown.Divider/>
-                  <NavDropdown.Item ><Link to="./AdminDash" className='nav-text'><AccountCircle/></Link></NavDropdown.Item>
+                  <NavDropdown.Item ><Logout/></NavDropdown.Item>
                   </center>
               </NavDropdown>
             </Navbar.Collapse>

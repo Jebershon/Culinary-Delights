@@ -268,13 +268,6 @@ else{
     // setPrepTime('');
     // setCookTime('');
   };
-
-  <InputGroup className="mb-3">
-      <InputGroup.Text>First and last name</InputGroup.Text>
-      <Form.Control aria-label="First name" />
-      <Form.Control aria-label="Last name" />
-    </InputGroup>
-
   return (
       <Card  className='card-bg'>
       <Card.Header><h1 style={{ fontFamily: "cursive"}}>Recipe Dashboard</h1></Card.Header>
@@ -283,7 +276,7 @@ else{
         <Form>
 
         <InputGroup className="mb-3">
-        <InputGroup.Text><Form.Label style={{ fontFamily: "cursive",width:"150px"}}>Recipe's Title</Form.Label></InputGroup.Text>
+        <InputGroup.Text><Form.Label style={{ fontFamily: "cursive"}}>Recipe's Title</Form.Label></InputGroup.Text>
           <Form.Control
             inline
             type="text"
@@ -293,11 +286,11 @@ else{
           </InputGroup>
 
           <InputGroup className="mb-3">
-          <InputGroup.Text><Form.Label style={{ fontFamily: "cursive",width:"150px"}}>Description</Form.Label></InputGroup.Text>
+          <InputGroup.Text><Form.Label style={{ fontFamily: "cursive"}}>Description</Form.Label></InputGroup.Text>
           <Form.Control
             inline
             as="textarea"
-            rows={3}
+            rows={5}
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
@@ -305,14 +298,12 @@ else{
 
           <br/>
 
-          <center>
           <h2><label style={{ fontFamily: "cursive"}}>Is Vegetarian</label></h2>
           <div>
           <CustomCheckbox
             checked={isVegetarian}
             onChange={() => setIsVegetarian(!isVegetarian)}/>
           </div>
-          </center>
 
           <br/>
 

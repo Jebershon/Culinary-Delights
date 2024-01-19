@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
+import Navbar from 'react-bootstrap/Navbar';
 import Row from 'react-bootstrap/Row';
 import './/Home.css';
 import image from './Asserts/image.jpg';
@@ -11,6 +12,22 @@ import image2 from './Asserts/img2.jpg';
 import image3 from './Asserts/img3.jpeg';
 import CarouselSale from './Carousel-Sale';
 import Footer from './Footer';
+const BackBtn=()=>{
+    return(
+      <div>
+          <a href='/' style={{ textDecoration: "none" }}>
+            <button class="bookmarkBtn">
+              <span class="IconContainer">
+                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                  <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
+                </svg>
+              </span>
+              <p class="book-text">Back</p>
+            </button>
+          </a>
+        </div>
+    )
+  }
 function Aboutus(){
     const [index, setIndex] = useState(0);
 
@@ -18,32 +35,25 @@ function Aboutus(){
     setIndex(selectedIndex);
   };
     return (
-        <div className='a-body bg-c'>
-        <header style={{backgroundColor:"#212529"}}>
-        <div>
-        <center>
+        <div className='bg-c'>
+        <Navbar className="transparent-Nav">
+            <Container>
+            <Navbar.Brand>
+            <BackBtn/>
+            </Navbar.Brand>
+            <div className='ABout-us-text'>
+            <center>
                <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
-                    <p style={{fontSize:"50px",color:"#ee7752"}}>About Us</p>
+                    <p style={{fontSize:"50px"}}>About Us</p>
                     </div>
                 <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
-                    <p style={{color:"white",letterSpacing:"1rem",fontSize:"20px"}}>Eat The Best</p>
+                    <p style={{letterSpacing:"1rem",fontSize:"20px"}}>Eat The Best</p>
                     </div>
-        </center>
-        </div>
-        </header>
-        <div>
-            &nbsp;
-        </div>
-                <a href='/' style={{textDecoration:"none"}}>
-                    <button class="bookmarkBtn">
-                    <span class="IconContainer"> 
-                    <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
-                    <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
-                    </svg>
-                    </span>
-                    <p class="book-text">Back</p>
-                    </button>
-                </a>
+            </center>
+            </div>
+            </Container>
+        </Navbar>
+
             <Container>
                 <Row>
                     <Col>

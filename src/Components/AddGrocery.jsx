@@ -82,7 +82,7 @@ export default function AddGrocery() {
             </InputGroup>
             </Col>
             <Col lg="3">
-            <img src={image_url} className="mt-1 mb-2" style={{width:"220px", height:"220px"}}></img>
+            <img src={image_url} className="mt-1 mb-2" style={{width:"220px", height:"220px",borderRadius:"5px"}}></img>
             </Col>
     </Row>
             <Row>

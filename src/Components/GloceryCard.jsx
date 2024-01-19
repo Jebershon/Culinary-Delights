@@ -9,8 +9,8 @@ import './/Home.css';
 import Anim from './Asserts/Anim.jsx';
 const GloceryCard=({ingre})=>{
     const {product_id,name,quantity,price,image_url}=ingre;
-    let [count, setCount] = useState(0);
-    const [Data,setData]=useState(100);
+    let [count, setCount] = useState(1);
+    const [Data,setData]=useState(50);
     const pro_price=price/100*Data*count;
     function incrementCount() {
       count = count + 1;
@@ -47,6 +47,8 @@ const GloceryCard=({ingre})=>{
                             id="input-group-dropdown-1"
                             onSelect={handleChange}
                             >
+                            <Dropdown.Item eventKey="50">50g</Dropdown.Item>
+                            <Dropdown.Divider />
                             <Dropdown.Item eventKey="100">100g</Dropdown.Item>
                             <Dropdown.Divider />
                             <Dropdown.Item eventKey="500">500g</Dropdown.Item>

@@ -1,3 +1,7 @@
+Hosted at:https://culinarydelights.netlify.app/
+
+![image](https://github.com/Jebershon/Culinary-Delights/assets/123262772/bb8eee3a-559d-4fc7-aaa8-df79a191f508)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

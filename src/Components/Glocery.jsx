@@ -60,14 +60,11 @@ function Glocery() {
         <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto nav-underline">
           <center><Nav.Link className='navi'><Link to='/' className='nav-text'>Home</Link></Nav.Link></center>
-          <br/>
           <center><Nav.Link className='navi'><Link to='/Glocery' className='nav-text'>Grocery</Link></Nav.Link></center>
-          <br/>
-          <center><Nav.Link className="navi nav-text"  onClick={handleShow}><Cart/></Nav.Link></center>
-          <br/>
+          <center><Nav.Link className="navi" style={{color:"white"}}  onClick={handleShow}><Cart/></Nav.Link></center>
           </Nav>
+          <br/>
           <center>
-          {/* title={`Filter by ${filter}`} */}
           <NavDropdown className='navi nav-text' title="Filter" onSelect={handleFilterChange} id="basic-nav-dropdown">
             <NavDropdown.Item className='drop-bton' eventKey="all">All</NavDropdown.Item>
             <NavDropdown.Item className='drop-bton' eventKey="meat">Meat</NavDropdown.Item>

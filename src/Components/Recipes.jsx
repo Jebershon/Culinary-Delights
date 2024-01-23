@@ -73,17 +73,14 @@ function Recipes() {
         </Container>
       </Navbar>
         <br/>
-        <br/>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto nav-underline">
           <center><Nav.Link className='navi'><Link to='/' className='nav-text'>Home</Link></Nav.Link></center>
-          <br/>
           <center><Nav.Link className='navi'><Link to='/Recipes' className='nav-text'>Recipes</Link></Nav.Link></center>
-          <br/>
           <center><Nav.Link className="navi nav-text"  onClick={handleShow}><Cart/></Nav.Link></center>
-          <br/>
           </Nav>
+          <br/>
           <center>
           <NavDropdown title="Filter" className='navi nav-text'  id="basic-nav-dropdown" onSelect={handleFilterChange}>
               <NavDropdown.Item eventKey="all" className='drop-bton'>All</NavDropdown.Item>
@@ -104,6 +101,7 @@ function Recipes() {
               onChange={handleSearch}
             />
           </Form>
+
           </center>
     </Navbar>
 

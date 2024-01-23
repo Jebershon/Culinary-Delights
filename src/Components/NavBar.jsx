@@ -38,28 +38,18 @@ function NavBar(){
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto nav-underline">
-              <center><Nav.Link className='navi'><Link to='/' className='nav-text'>Home</Link></Nav.Link></center>
-                <br/>
+                <center><Nav.Link className='navi'><Link to='/' className='nav-text'>Home</Link></Nav.Link></center>
                 <center><Nav.Link className='navi'><Link to='./Glocery' className='nav-text'>Grocery</Link></Nav.Link></center>
-                <br/>
                 <center><Nav.Link className='navi'><Link to='./Recipes' className='nav-text'>Recipes</Link></Nav.Link></center>
-                <br/>
                 <center><Nav.Link className='navi'><Link to='./NutriCalc' className='nav-text'>NutriCalc</Link></Nav.Link></center>
-                <br/>
                 <center><Nav.Link className='navi'><Link to='./Aboutus' className='nav-text'>About us</Link></Nav.Link></center>
-                <br/>
               </Nav>
               <Nav>
-              <Link to="./Signin" className='nav-text' style={{marginRight:"40px"}}><Login/></Link>
-
-              <Link to="./Signup" className='nav-text'><AppRegistrationTwoTone/></Link>
+                <center><Nav.Link className='navi'><Link to="./Signin" className='nav-text'><Login/></Link></Nav.Link></center>
+                <center><Nav.Link className='navi'><Link to="./Signup" className='nav-text'><AppRegistrationTwoTone/></Link></Nav.Link></center>
               </Nav>
-              <NavDropdown className='navi1 nav-text' title={<AccountCircle/>} id="basic-nav-dropdown" menuVariant='dark' align="end">
+              <NavDropdown className='navi nav-text' title={<AccountCircle/>} id="basic-nav-dropdown" menuVariant='dark' align="end">
                 <center>
-                  {/* <NavDropdown.Item ><Link to="./Signin" className='nav-text'><Login/>Sign In</Link></NavDropdown.Item>
-                  <NavDropdown.Divider/>
-                  <NavDropdown.Item ><Link to="./Signup" className='nav-text'><AppRegistrationTwoTone/>Sign Up</Link></NavDropdown.Item>
-                  <NavDropdown.Divider/> */}
                   <NavDropdown.Item ><Link to="./MyProfile" className='nav-text'><AccountCircleOutlined/></Link></NavDropdown.Item>
                   <NavDropdown.Divider/>
                   <NavDropdown.Item ><Link to="./AdminDash" className='nav-text'><AdminPanelSettings/></Link></NavDropdown.Item>

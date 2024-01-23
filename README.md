@@ -1,7 +1,3 @@
-Hosted at:https://culinarydelights.netlify.app/
-
-![image](https://github.com/Jebershon/Culinary-Delights/assets/123262772/bb8eee3a-559d-4fc7-aaa8-df79a191f508)
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -66,6 +62,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/m
 This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
 ### Deployment
+### Example
+![image](https://github.com/Jebershon/Culinary-Delights/assets/123262772/bb8eee3a-559d-4fc7-aaa8-df79a191f508)
+![image](https://github.com/Jebershon/Culinary-Delights/assets/123262772/277bcbf6-4bd6-424d-b6ae-032b0f25b0c0)
+![image](https://github.com/Jebershon/Culinary-Delights/assets/123262772/7994b3aa-288c-4774-8ad1-e2e4c84304be)
+
+
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 

@@ -1,3 +1,4 @@
+import { Construction, FitnessCenter } from '@mui/icons-material';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import GoogleIcon from '@mui/icons-material/Google';
@@ -13,7 +14,8 @@ function Footer(){
                 <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
                     <div class="me-5 d-none d-lg-block">
                     <span>Get connected with us on social networks:</span>
-                    </div>                <div>
+                    </div>                
+                    <div>
                     <a href="#!" class="me-4 text-reset">
                     <FacebookIcon/>
                     </a>
@@ -51,6 +53,12 @@ function Footer(){
                         </p>
                         <p>
                             <a href="#!" class="text-reset">Recipes</a>
+                        </p>
+                        <p>
+                            <a href="https://ded-lift.netlify.app" class="text-reset"><FitnessCenter/></a>
+                        </p>
+                        <p>
+                            <a href="https://powertoolsrental.netlify.app/" class="text-reset"><Construction/></a>
                         </p>
                         </div>
                     </Col>

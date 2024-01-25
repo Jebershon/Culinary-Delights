@@ -5,7 +5,6 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
-import Navbar from 'react-bootstrap/Navbar';
 import Row from 'react-bootstrap/Row';
 import Table from 'react-bootstrap/Table';
 import './/Home.css';
@@ -77,16 +76,16 @@ const NutritionCalculator = () => {
 
   return (
     <div className='a-body bg-c'>
-      <Navbar className="transparent-Nav">
-        <Container>
-          <Navbar.Brand>
+      <div className="transparent-Nav">
+           <div>
            <BackBtn/>
-          </Navbar.Brand>
+           </div>
+           <center>
           <div>
               <h1 className='n-head-text'>Nutritional Calculator</h1>
           </div>
-        </Container>
-      </Navbar>
+          </center>
+      </div>
       
       <br />
       <Container>

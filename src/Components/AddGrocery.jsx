@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Card, Col, Dropdown, Form, FormControl, FormLabel, InputGroup, Row } from 'react-bootstrap';
+import './/external.css';
 import img from './Asserts/img-def.jpg';
-
 const categories = ["vegetable", "fruit", "dairy", "meat", "grains", "beverages"];
 const quantityUnits = ["50g", "100g", "500g", "750g"];
 const measuringUnits = ["g", "kg", "liters", "pieces", "tbsp"];
@@ -36,7 +36,7 @@ export default function AddGrocery() {
   };
 
   return (
-    <Card className='card-bg'>
+    <Card className='Admincard-bg'>
     <Card.Header><h1 style={{ fontFamily: "cursive"}}>Grocery Dashboard</h1></Card.Header>
     <Card.Body>
     <Form>

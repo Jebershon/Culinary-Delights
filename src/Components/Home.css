@@ -55,16 +55,13 @@
 }
 /* --------------------------------------------Nav-Bar-CSS------------------------------------- */
 .a-div1{
-  background-color: white;
- color: #ee7752;
+  margin-top: 70px;
+ color: white;
+ backdrop-filter: blur(5px) saturate(105%);
+ -webkit-backdrop-filter: blur(2px) saturate(105%);
+ background-color: rgba(186, 77, 172, 0.05); 
  font-size: medium;
  letter-spacing: 2px;
- font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-.ABout-us-text{
-  margin-right: 400px;
-  line-height: 20px;
-  font-variant: small-caps;
 }
 /* -----------------------------------------------About us----------------------------------------- */
 .recipe-card{ 
@@ -105,7 +102,6 @@
     color: black;
     -webkit-text-stroke: 3px black;
     font-size:60px;
-    margin-right: 230px;
 }
 .scroll{
   overflow-y: scroll;
@@ -265,7 +261,7 @@
     backdrop-filter: blur(2px) saturate(180%);
     -webkit-backdrop-filter: blur(2px) saturate(180%);
     background-color: rgba(17, 25, 40, 0.54);
-
+    transition: transform .7s;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.125);
     color: aliceblue;
@@ -273,6 +269,9 @@
     border-style: solid;
     border-width: 3px;
     border-color: #000000;
+  }
+  .card-bg:hover{
+    transform: scale(1.1);
   }
   /* -----------------------------------------------------Home-Card-CSS------------------------------------- */
   .ig{

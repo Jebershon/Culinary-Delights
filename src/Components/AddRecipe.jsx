@@ -11,6 +11,7 @@ import {
   Row
 } from 'react-bootstrap';
 import './/Home.css';
+import './/external.css';
 const availableIngredients = [
   "Chicken pieces",
   "Onion",
@@ -269,7 +270,7 @@ else{
     // setCookTime('');
   };
   return (
-      <Card  className='card-bg'>
+      <Card  className='Admincard-bg'>
       <Card.Header><h1 style={{ fontFamily: "cursive"}}>Recipe Dashboard</h1></Card.Header>
       <Card.Body>
       <Row className='mt-5'>

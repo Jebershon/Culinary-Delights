@@ -3,14 +3,10 @@ import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
-import Navbar from 'react-bootstrap/Navbar';
 import Row from 'react-bootstrap/Row';
 import './/Home.css';
-import image from './Asserts/image.jpg';
-import image1 from './Asserts/img1.jpeg';
-import image2 from './Asserts/img2.jpg';
-import image3 from './Asserts/img3.jpeg';
-import CarouselSale from './Carousel-Sale';
+import './/external.css';
+import image from './Asserts/image.png';
 import Footer from './Footer';
 const BackBtn=()=>{
     return(
@@ -31,96 +27,96 @@ function Aboutus(){
     setIndex(selectedIndex);
   };
     return (
-        <div className='bg-c'>
-        <Navbar className="transparent-Nav">
-            <Container>
-            <Navbar.Brand>
+        <div className='banner'>
+
+        <div className="transparent-banner-over">
+            <div>
             <BackBtn/>
-            </Navbar.Brand>
+            </div>
+
             <div className='ABout-us-text'>
             <center>
-               <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
+               <div>
                     <p style={{fontSize:"50px"}}>About Us</p>
-                    </div>
-                <hr/>
-                <div style={{display:"flex",alignItems:"center",justifyContent:"center",color:"white"}}>
-                    <p style={{letterSpacing:"1rem",fontSize:"30px"}}>Eat The Best</p>
-                    </div>
+                </div>
+                <div>
+                    &nbsp;
+                <hr style={{width:"250px"}}/>
+                </div>
+                <div>
+                    <p style={{fontSize:"20px",letterSpacing:"10px"}}>Eat The Best</p>
+                </div>
+                <div>
+                <h3 className='banner-text'>Fresh and Delicious Food For your Health</h3>
+                </div>
             </center>
             </div>
-            </Container>
-        </Navbar>
+            </div>
 
             <Container>
-                <Row>
-                    <Col>
-                    <center>
-                    <CarouselSale/>
-                    </center>
-                    <br/>
-                    </Col>
-                </Row>
             <div className='a-div1'>
             <Row>
-               <Col> <center><img src={image} width={300} height={350}></img></center></Col>
-               <Col><p style={{fontSize:"15px"}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus perspiciatis cum repellat quod? Quos nulla perspiciatis est, optio ut soluta doloribus, ad placeat minus totam itaque officia reiciendis dolores vel.
+               <Col data-aos="fade-right" data-aos-duration="3000"> <center><img src={image} width={300} height={350}></img></center></Col>
+               <Col data-aos="fade-left" data-aos-duration="3000"><p style={{fontSize:"15px"}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus perspiciatis cum repellat quod? Quos nulla perspiciatis est, optio ut soluta doloribus, ad placeat minus totam itaque officia reiciendis dolores vel.
                Officia, maiores error est nulla perspiciatis porro, quasi dolorem consequuntur incidunt tenetur explicabo temporibus aperiam exercitationem consequatur corrupti labore debitis, quaerat veniam. Eum exercitationem quas nisi accusantium delectus laboriosam laborum!
                Harum perferendis totam cupiditate reiciendis ratione culpa blanditiis quaerat, unde molestiae numquam, obcaecati maxime assumenda possimus. Blanditiis illum doloremque excepturi quasi ut qui sunt aut asperiores ratione minima, numquam dolor?
-               Laboriosam commodi nihil autem velit cupiditate nam, inventore maiores dolores modi quisquam nisi distinctio iure fugiat placeat eaque deleniti. Nisi quam cupiditate sunt error, vitae repellendus non consequuntur tempora numquam!
-               Ipsam enim, eos amet animi explicabo mollitia eveniet minima necessitatibus harum! Hic tempore ad quo blanditiis! Voluptates, exercitationem ex ratione aspernatur harum explicabo reprehenderit dignissimos. Fugit ullam asperiores vero provident.
                </p>
                </Col>
             </Row>
             </div>
             <br/>
+            <Container>
             <Row>
                 <Col lg={4}>
-                <Card className='card-bg' data-aos="fade-right">
-                <Card.Img variant="top" src={image1} width={100} height={300} className='ig'/>
+                <Card className='card-bg'>
+                <Card.Img variant="top" src="https://i.pinimg.com/originals/c6/aa/54/c6aa54eb19ad8e30b13e498820fb0ff7.gif" width={100} height={300} className='ig'/>
                 <Card.Body>
                     <Card.Title>Card Title</Card.Title>
                     <Card.Text>
                     Some quick example text to build on the card title and make up the
                     bulk of the card's content.
                     </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
+                    <Button variant="warning">Go somewhere</Button>
                 </Card.Body>
                 </Card>
                 </Col>
                 <Col lg={4}>
                 <Card className='card-bg'>
-                <Card.Img variant="top" src={image2} width={100} height={300} className='ig'/>
+                <Card.Img variant="top" src="https://i.pinimg.com/originals/46/b0/e2/46b0e27c295627353b54b73810c5dbf2.gif" width={100} height={300} className='ig'/>
                 <Card.Body>
                     <Card.Title>Card Title</Card.Title>
                     <Card.Text>
                     Some quick example text to build on the card title and make up the
                     bulk of the card's content.
                     </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
+                    <Button variant="warning">Go somewhere</Button>
                 </Card.Body>
                 </Card>
                 </Col>
                 <Col lg={4}>
-                <Card className='card-bg' data-aos="fade-left">
-                <Card.Img variant="top" src={image3} width={100} height={300} className='ig'/>
+                <Card className='card-bg'>
+                <Card.Img variant="top" src="https://cdn.dribbble.com/users/3951514/screenshots/7288432/media/866b49d81c982fdecd5a22de44c5e677.gif" width={100} height={300} className='ig'/>
                 <Card.Body>
                     <Card.Title>Card Title</Card.Title>
                     <Card.Text>
                     Some quick example text to build on the card title and make up the
                     bulk of the card's content.
                     </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
+                    <Button variant="warning">Go somewhere</Button>
                 </Card.Body>
                 </Card>
                 </Col>
             </Row>
+            </Container>
             <br/>
             </Container>
-            <center>
+
+        <center>
         <div className='foot'>
         <Footer/>
         </div>
         </center>
+
         </div>
     );
 }

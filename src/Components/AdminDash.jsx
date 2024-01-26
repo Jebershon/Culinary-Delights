@@ -1,6 +1,8 @@
-import { BarChart, HomeOutlined, LocalDining, LocalGroceryStore, Shop } from '@mui/icons-material';
+import { BarChart, LocalDining, LocalGroceryStore, Shop } from '@mui/icons-material';
 import React, { useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import AddGrocery from './AddGrocery';
 import AddRecipe from './AddRecipe';
@@ -17,46 +19,66 @@ function AdminDash() {
   };
   return (
     <div>
-      <div className="sidenav">
-      <center>
-      <img
+      <Row>
+      <Col>
+      <div>
+        <Navbar collapseOnSelect expand="lg" className="transparent-Nav" fixed='top'>
+        <Navbar>
+            <Container>
+              <Navbar.Brand className='text-white' style={{fontSize:"20px"}}>
+              <Link to='/' className='nav-brand'>
+              <img
                   alt="logo"
                   src={logo}
                   width="40"
                   height="40"
-                  className="d-inline-block align-top brand"/>&nbsp;
-                  <span style={{color:"#ee7752",fontSize:"25px"}}>C</span>ulinary&nbsp;
-                  <span style={{color:"#ee7752",fontSize:"25px"}}>D</span>elights
-      </center>
-        <hr/>
-        <a onClick={() => handleNavClick('Home')}><Link to='/' className='sidenav-text'><HomeOutlined style={{color:"#ee7752"}}/> Home</Link></a>
-        <hr/>
-        <a className="sidenav-text" onClick={() => handleNavClick('AddRecipe')}><LocalDining style={{color:"#ee7752"}}/> AddRecipe</a>
-        <hr/>
-        <a className="sidenav-text" onClick={() => handleNavClick('AddGrocery')}><LocalGroceryStore style={{color:"#ee7752"}}/> AddGrocery</a>
-        <hr/>
-        <a className="sidenav-text" onClick={() => handleNavClick('Chart')}><BarChart style={{color:"#ee7752"}}/> Visual Data</a>
-        <hr/>
-        <a className="sidenav-text" onClick={() => handleNavClick('Sold')}><Shop style={{color:"#ee7752"}}/> Sold</a>
-      </div>
-      <Container className="dashboard">
+                  className="d-inline-block align-top brand"
+                />&nbsp;
+                <span style={{color:"#ee7752"}}>C</span>ulinary&nbsp;
+                <span style={{color:"#ee7752"}}>D</span>elights
+                </Link>
+              </Navbar.Brand>
+            </Container>
+          </Navbar>
+            <br/>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav className="me-auto nav-underline">
+                {/* <center><Nav.Link className='navi'><Link to='/' className='nav-text'><HomeOutlined style={{color:"white"}}/> Home</Link></Nav.Link></center> */}
+                <center><Nav.Link className='navi nav-text' onClick={() => handleNavClick('AddRecipe')}><LocalDining style={{color:"white"}}/> AddRecipe</Nav.Link></center>
+                <center><Nav.Link className='navi nav-text' onClick={() => handleNavClick('AddGrocery')}><LocalGroceryStore style={{color:"white"}}/> AddGrocery</Nav.Link></center>
+                <center><Nav.Link className='navi nav-text' onClick={() => handleNavClick('Chart')}><BarChart style={{color:"white"}}/> Visual Data</Nav.Link></center>
+                <center><Nav.Link className='navi nav-text' onClick={() => handleNavClick('Sold')}><Shop style={{color:"white"}}/> Sold</Nav.Link></center>
+              </Nav>
+              {/* <Nav>
+                  <center><Nav.Link className='navi' style={{color:"white"}}><Link to="./MyProfile" className='nav-text'><AccountCircleOutlined/></Link></Nav.Link></center>
+              </Nav> */}
+            </Navbar.Collapse>
+        </Navbar>
+        </div>
+        </Col>
+    </Row>
+    <br/>
+    <br/>
+    <br/>
+      <Container>
         {activeComponent === 'AddRecipe' && (
-          <div className='mt-3 mb-3'>
+          <div className='mt-5 mb-3'>
             <AddRecipe />
           </div>
         )}
         {activeComponent === 'AddGrocery' && (
-          <div className='mt-3 mb-3'>
+          <div className='mt-5 mb-3'>
             <AddGrocery />
           </div>
         )}
         {activeComponent === 'Chart' && (
-          <div className='mt-3 mb-3'>
+          <div className='mt-5 mb-3'>
             <ChartComponent/>
           </div>
         )}
         {activeComponent === 'Sold' && (
-          <div className='mt-3 mb-3'>
+          <div className='mt-5 mb-3'>
             <SoldDetails/>
           </div>
         )}

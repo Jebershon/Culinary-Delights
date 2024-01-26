@@ -114,3 +114,6 @@ a, a:focus, a:hover {
     border-width: 3px;
     border-color: #000000;
   }
+  .btn-outline-warning {
+    --bs-btn-color: #fc8019;
+  }

@@ -5,7 +5,7 @@ import './/Home.css';
 import { ColorGoo, Mail, User } from "./Asserts/Anim";
 function Signup(){
     return(
-            <Container style={{color:"black"}} className='justify-content-center'>
+            <Container style={{color:"#fc8019"}} className='justify-content-center'>
             <br/>
             <Row>
             <Col></Col>
@@ -57,7 +57,7 @@ function Signup(){
                 <Col xs={2}></Col>
                 <Col>
                 <span class="span-l">
-                    <a href='#' style={{textDecoration:"none"}}>Forgot password?</a>
+                    <a href='#' style={{textDecoration:"none",color:"#fc8019"}}>Forgot password?</a>
                 </span>
                 </Col>
                 </Row>

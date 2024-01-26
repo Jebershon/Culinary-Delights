@@ -271,35 +271,37 @@ else{
   };
   return (
       <Card  className='Admincard-bg'>
-      <Card.Header><h1 style={{ fontFamily: "cursive"}}>Recipe Dashboard</h1></Card.Header>
+      <Card.Header><h1 style={{ fontVariant:"small-caps"}}>Recipe Dashboard</h1></Card.Header>
       <Card.Body>
       <Row className='mt-5'>
         <Form>
 
         <InputGroup className="mb-3">
-        <InputGroup.Text><Form.Label style={{ fontFamily: "cursive"}}>Recipe's Title</Form.Label></InputGroup.Text>
+        <InputGroup.Text><Form.Label style={{ fontVariant:"small-caps"}}>Recipe's Title</Form.Label></InputGroup.Text>
           <Form.Control
             inline
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            className='rem-border'
           />
           </InputGroup>
 
           <InputGroup className="mb-3">
-          <InputGroup.Text><Form.Label style={{ fontFamily: "cursive"}}>Description</Form.Label></InputGroup.Text>
+          <InputGroup.Text><Form.Label style={{ fontVariant:"small-caps"}}>Description</Form.Label></InputGroup.Text>
           <Form.Control
             inline
             as="textarea"
             rows={5}
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+            className='rem-border'
           />
           </InputGroup>
 
           <br/>
 
-          <h2><label style={{ fontFamily: "cursive"}}>Is Vegetarian</label></h2>
+          <h2><label style={{ fontVariant:"small-caps"}}>Is Vegetarian</label></h2>
           <div>
           <CustomCheckbox
             checked={isVegetarian}
@@ -308,7 +310,7 @@ else{
 
           <br/>
 
-          <h2><label style={{ fontFamily: "cursive"}}>Ingredients</label></h2>
+          <h2><label style={{ fontVariant:"small-caps"}}>Ingredients</label></h2>
           <Row>
             {availableIngredients.map((ingredient) => (
               <Col lg={3} className='mt-4 mb-4' key={ingredient}>
@@ -380,9 +382,9 @@ else{
           </Row>
 
             <center>
-            <InputGroup className="mb-3" style={{ fontFamily: "cursive" }}>
+            <InputGroup className="mb-3" style={{ fontVariant:"small-caps" }}>
             <InputGroup.Text><Form.Label style={{width:"auto"}}>Custom Ingredient</Form.Label></InputGroup.Text>
-            <Button variant="warning" onClick={handleAddCustomIngredient}>Add Custom Ingredient</Button>
+            <Button  variant='warning' onClick={handleAddCustomIngredient}>Add Custom Ingredient</Button>
             </InputGroup>
             </center>
 
@@ -394,6 +396,7 @@ else{
                           <InputGroup.Text>Name</InputGroup.Text>
                           <Form.Control
                             type="text"
+                            className='rem-border'
                             placeholder="Enter Ingredient Name"
                             value={customIngredient.name}
                             onChange={(e) => {
@@ -405,6 +408,7 @@ else{
                           <InputGroup.Text>Quantity</InputGroup.Text>
                           <Form.Control
                           type="text"
+                          className='rem-border'
                           placeholder={`Enter quantity for ${customIngredient.name}`}
                           value={customIngredient.quantity}
                           onChange={(e) => {
@@ -442,18 +446,18 @@ else{
                 </Col>
             </Row>
            <hr/>
-           <h2><label style={{ fontFamily: "cursive"}}>Step by Step Instructions</label></h2>
+           <h2><label style={{ fontVariant:"small-caps"}}>Step by Step Instructions</label></h2>
             <div>
                 <h3><Form.Label>Step Count:</Form.Label></h3>
                 <InputGroup className="mb-3 input-group">
-                <Button variant="warning" id="button-addon1" onClick={decrementCount}>-</Button>
+                <Button  variant='warning' id="button-addon1" onClick={decrementCount}>-</Button>
                   <Form.Control
                     aria-label="Example text with button addon"
                     aria-describedby="basic-addon1"
                     style={{width:"20%"}}
-                    className="quantity-field"
+                    className="quantity-field rem-border"
                     value={count}/>
-                <Button variant="warning" id="button-addon2" onClick={incrementCount}>+</Button>
+                <Button  variant='warning' id="button-addon2" onClick={incrementCount}>+</Button>
                 </InputGroup>
               </div>
 
@@ -461,7 +465,7 @@ else{
             {[...Array(count)].map((_, index) => (
               <InputGroup key={index} className="mb-3">
                 <InputGroup.Text>
-                  <Form.Label style={{ fontFamily: "cursive", width: "150px" }}>
+                  <Form.Label style={{ fontVariant:"small-caps", width: "150px" }}>
                     Step {index + 1}
                   </Form.Label>
                 </InputGroup.Text>
@@ -469,6 +473,7 @@ else{
                   type='text'
                   rows={3}
                   placeholder={`Enter preparation step ${index + 1}`}
+                  className='rem-border'
                   value={preparationSteps[index]}
                   onChange={(e) => handleStepChange(index, e.target.value)}
                 />
@@ -476,12 +481,13 @@ else{
             ))}
 
           <InputGroup className="mb-3">
-          <InputGroup.Text><Form.Label style={{ fontFamily: "cursive",width:"150px" }}>
+          <InputGroup.Text><Form.Label style={{ fontVariant:"small-caps",width:"150px" }}>
             Servings
           </Form.Label>
           </InputGroup.Text>
           <Form.Control
             type="number"
+            className='rem-border'
             placeholder="Enter number of servings"
             value={servings}
             onChange={(e) => setServings(e.target.value)}
@@ -491,12 +497,13 @@ else{
           <Row>
               <Col lg={4}>
               <InputGroup className="mb-3">
-              <InputGroup.Text><Form.Label style={{ fontFamily: "cursive",width:"150px"}}>
+              <InputGroup.Text><Form.Label style={{ fontVariant:"small-caps",width:"150px"}}>
                 Prep Time (min)
                 </Form.Label>
                 </InputGroup.Text>
                 <Form.Control
                 type="number"
+                className='rem-border'
                 placeholder="Enter preparation time"
                 value={prepTime}
                 onChange={(e) => setPrepTime(e.target.value)}
@@ -506,9 +513,10 @@ else{
 
               <Col lg={4}>
               <InputGroup className="mb-3">
-              <InputGroup.Text><Form.Label style={{ fontFamily: "cursive",width:"150px"}}>Cooking Time (min)</Form.Label></InputGroup.Text>
+              <InputGroup.Text><Form.Label style={{ fontVariant:"small-caps",width:"150px"}}>Cooking Time (min)</Form.Label></InputGroup.Text>
                 <Form.Control
                 type="number"
+                className='rem-border'
                 placeholder="Enter cooking time"
                 value={cookTime}
                 onChange={(e) => setCookTime(e.target.value)}/>
@@ -517,9 +525,10 @@ else{
 
               <Col lg={4}>
               <InputGroup className="mb-3">
-              <InputGroup.Text><Form.Label style={{ fontFamily: "cursive",width:"150px"}}>Total Time (min)</Form.Label></InputGroup.Text>
+              <InputGroup.Text><Form.Label style={{ fontVariant:"small-caps",width:"150px"}}>Total Time (min)</Form.Label></InputGroup.Text>
                 <Form.Control
                 type="number"
+                className='rem-border'
                 placeholder="Total time is calculated automatically"
                 value={Number(prepTime) + Number(cookTime)}
                 readOnly/>
@@ -533,7 +542,7 @@ else{
           <Row>
           <Col></Col>
           <Col lg={4}>
-          <Button variant="warning" onClick={handleAddRecipe} style={{width:"100%"}}>Add Recipe</Button>
+          <Button  onClick={handleAddRecipe} variant="warning" style={{width:"100%"}}>Add Recipe</Button>
           </Col>
           <Col></Col>
           </Row>

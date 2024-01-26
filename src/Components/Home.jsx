@@ -11,6 +11,7 @@ import Footer from './Footer.jsx';
 import Navbar from './NavBar.jsx';
 function Home() {
   /////////////////the price is must be specified per 100g
+  
   return (
     <div className='bg-c'>
     <Container>

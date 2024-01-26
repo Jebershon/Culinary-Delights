@@ -5,12 +5,12 @@ import { Mail, User } from "./Asserts/Anim";
 // #ff5858
 function Login(){
     return(
-        <Container style={{color:"black"}}>
+        <Container style={{color:"#fc8019"}}>
             <br/>
             <Row>
             <Col></Col>
             <Col lg={5}>
-            <Container style={{color:"black"}}>
+            <Container style={{color:"#fc8019"}}>
             <form class="form-l">
             <p class="title">Welcome back</p>
                 <InputGroup className="mb-3">
@@ -41,7 +41,7 @@ function Login(){
                 <Col xs={2}></Col>
                 <Col>
                 <span class="span-l">
-                    <a href='#' style={{textDecoration:"none"}}>Forgot password?</a>
+                    <a href='#' style={{textDecoration:"none",color:"#fc8019"}}>Forgot password?</a>
                 </span>
                 </Col>
                 </Row>

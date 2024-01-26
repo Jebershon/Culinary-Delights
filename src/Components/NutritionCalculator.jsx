@@ -95,7 +95,7 @@ const NutritionCalculator = () => {
               <Card.Body>
                 <form onSubmit={handleFormSubmit}>
                   <Form.Control as="textarea" className='nutri-inp' placeholder='Eg. 0kg/g item_name' value={foodItems} onChange={(e) => setFoodItems(e.target.value)} rows={10} />
-                  <center><Button type="submit" className='card-btn mt-5'>Calculate Nutrition</Button></center>
+                  <center><Button type="submit" variant="warning" className='mt-5'>Calculate Nutrition</Button></center>
                 </form>
               </Card.Body>
             </Card>

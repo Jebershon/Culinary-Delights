@@ -17,8 +17,8 @@
     padding-right: 2rem;
 }
 .transparent-Nav{
-    backdrop-filter: blur(2px) saturate(180%);
-    -webkit-backdrop-filter: blur(2px) saturate(180%);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
     background-color: #fc7f1931;
     border: 1px solid rgba(255, 255, 255, 0.125);
 }
@@ -247,15 +247,6 @@
   .card-title{
     color: #fc8019;
   }
-  .card-btn{
-    background-color: #fc8019;
-    border: none;
-    color: black;
-  }
-  .card-btn:hover{
-    background-color: #fc7f1994;
-    color: black;
-  }
   /* -----------------------------------------------------Home-Card-CSS------------------------------------- */
   .ig{
     border-radius: 12px;
@@ -335,50 +326,12 @@
     transform: translate(2px ,2px);
   }
   /* -------------------------------------------------------------go back------------------------------------------------ */
-.sidenav {
-  height:100%;
-  width: 20%;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top:80px;
-  backdrop-filter: blur(2px) saturate(180%);
-    -webkit-backdrop-filter: blur(2px) saturate(180%);
-    background-color: rgba(17, 25, 40, 0.54);
-    border: 1px solid rgba(255, 255, 255, 0.125);
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-}
-
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-
-.main {
-  margin-left: 160px; /* Same as the width of the sidenav */
-  font-size: 28px; /* Increased text to enable scrolling */
-  padding: 0px 10px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-/* ----------------------------------------------------Side Bar----------------------------------- */
 .CartBtn {
   width: 140px;
   height: 40px;
   border-radius: 12px;
   border: none;
-  background-color: rgb(255, 208, 0);
+  background-color: #fc8019;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -450,19 +403,6 @@
 } */
 /* ------------------------------------------------------------------------------------------------------------- */
 /* ---Login-Page-css--- */
-.form-l {
-  /* backdrop-filter: blur(5px) saturate(105%);
-    -webkit-backdrop-filter: blur(2px) saturate(105%);
-    background-color: rgba(186, 77, 172, 0.05); */
-    backdrop-filter: blur(2px) saturate(180%);
-    -webkit-backdrop-filter: blur(2px) saturate(180%);
-    background-color: rgba(17, 25, 40, 0.54);
-    
-    border: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 30px;
-  border-radius: 20px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
 .title {
   text-align: center;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -475,12 +415,17 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .span-l {
+  margin-left: 50px;
   font-size: 14px;
-  color: #2d79f3;
+  color: #fc8019;
   font-weight: 500;
   cursor: pointer;
 }
-
+.span{
+text-decoration: none;
+color: #fc8019;
+cursor: grab;
+}
 .p {
   text-align: center;
   font-size: 14px;
@@ -504,7 +449,7 @@
 }
 
 .btn-l:hover {
-  border: 1px solid #2d79f3;
+  border: 1px solid #fc7f199d;
   ;
 }
 .mar{
@@ -814,4 +759,98 @@
 
 .rating > input:checked ~ label {
   color: #ffd000;
+}
+/* -------------------------------Modal--------------------------------- */
+.modal-content{
+  backdrop-filter: blur(2px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.54);
+}
+.body-blur{
+  backdrop-filter: blur(10px) saturate(180%);
+}
+/* --------------------------------remove-bootstrap-essence---------------------- */
+.rem-border:focus{
+  box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.25);
+border-color: black;
+}
+.rem-border:active {
+  color: rgb(83, 77, 77);
+  border-color: #ffffff;
+}
+
+element.style {
+}
+.input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+    margin-left: calc(var(--bs-border-width) * -1);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.input-group .btn {
+    position: relative;
+    z-index: 2;
+}
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+}
+.card-btn {
+    background-color: #fc8019;
+    border: none;
+    color: black;
+}
+.btn-warning {
+    --bs-btn-color: #000;
+    --bs-btn-bg: #fc8019;
+    --bs-btn-border-color: #fc8019;
+    --bs-btn-hover-color: #000;
+    --bs-btn-hover-bg: #fa801cd6;
+    --bs-btn-hover-border-color: #fc8019;
+    --bs-btn-focus-shadow-rgb: 217,164,6;
+    --bs-btn-active-color: #000;
+    --bs-btn-active-bg: #e07e2edf;
+    --bs-btn-active-border-color: #edab75c8;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #000;
+    --bs-btn-disabled-bg: #fc8019;
+    --bs-btn-disabled-border-color: #fc8019;
+}
+.btn-outline-warning {
+  --bs-btn-color: #fc8019;
+  --bs-btn-border-color: #fc8019;
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: #fc8019;
+  --bs-btn-hover-border-color: #fc8019;
+  --bs-btn-focus-shadow-rgb: 255,193,7;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: #fc8019;
+  --bs-btn-active-border-color: #fc8019;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fc8019;
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: #fc8019;
+  --bs-gradient: none;
+}
+.rem-border:focus{
+  color:rgb(83, 77, 77);
+  border-color: #ffffff;
+}
+.form-check-input:checked {
+  background-color: #fc8019;
+  border-color: #fc8019;
+}
+.form-check-input:focus {
+  border-color: #fc8019;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem #ffffff42;
+}
+.dropdown-item:focus .dropdown-item:focus-visible .dropdown-item:focus-within{
+  background-color: #fc7f1900;
+}
+.dropdown-item.active, .dropdown-item:active {
+  color: var(--bs-dropdown-link-active-color);
+  text-decoration: none;
+  background-color: #2d231c00;
+  box-shadow: 0 0 0 0.25rem #ffffff42;
+}
+.navbar-toggler {
+  background-color: #fc7f1983;
 }

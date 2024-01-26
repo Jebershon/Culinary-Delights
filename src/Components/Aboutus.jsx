@@ -55,8 +55,8 @@ function Aboutus(){
 
             <Container>
             <Row className='a-div1 mb-4'>
-               <Col data-aos="fade-right" data-aos-duration="2000"> <center><img src={image} width={300} height={350}></img></center></Col>
-               <Col data-aos="fade-left" data-aos-duration="2000"><p style={{fontSize:"15px"}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus perspiciatis cum repellat quod? Quos nulla perspiciatis est, optio ut soluta doloribus, ad placeat minus totam itaque officia reiciendis dolores vel.
+               <Col data-aos="fade-up" data-aos-duration="2000"> <center><img src={image} width={300} height={350}></img></center></Col>
+               <Col data-aos="fade-up" data-aos-duration="2000"><p style={{fontSize:"15px"}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus perspiciatis cum repellat quod? Quos nulla perspiciatis est, optio ut soluta doloribus, ad placeat minus totam itaque officia reiciendis dolores vel.
                Officia, maiores error est nulla perspiciatis porro, quasi dolorem consequuntur incidunt tenetur explicabo temporibus aperiam exercitationem consequatur corrupti labore debitis, quaerat veniam. Eum exercitationem quas nisi accusantium delectus laboriosam laborum!
                Harum perferendis totam cupiditate reiciendis ratione culpa blanditiis quaerat, unde molestiae numquam, obcaecati maxime assumenda possimus. Blanditiis illum doloremque excepturi quasi ut qui sunt aut asperiores ratione minima, numquam dolor?
                </p>

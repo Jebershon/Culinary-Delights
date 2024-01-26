@@ -71,8 +71,8 @@ input:hover {
 .checkbox-wrapper {
   position: relative;
   display: inline-block;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
 }
 
@@ -122,7 +122,6 @@ input:hover {
 }
 
 .checkbox-label {
-  font-family: cursive;
   font-size: 20px;
   margin: 5px;
 }

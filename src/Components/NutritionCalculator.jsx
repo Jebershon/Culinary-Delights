@@ -76,7 +76,7 @@ const NutritionCalculator = () => {
 
   return (
     <div className='a-body bg-c'>
-      <div className="transparent-Nav">
+      <div>
            <div>
            <BackBtn/>
            </div>
@@ -87,18 +87,15 @@ const NutritionCalculator = () => {
           </center>
       </div>
       
-      <br />
-      <Container>
+      <Container className='mt-5 mb-3'>
         <Row>
           <Col lg='6'>
-            <Card className='Nutri-card' data-aos="zoom-in-right">
+            <Card className='Nutri-card' data-aos="fade-up-right" data-aos-duration="2000">
               <Card.Header className='nutri-font'>Enter food items (comma-separated):</Card.Header>
               <Card.Body>
                 <form onSubmit={handleFormSubmit}>
-                  <Form.Label htmlFor="inputPassword5"></Form.Label>
-                  <Form.Control as="textarea" placeholder='Eg. 0kg/g item_name' value={foodItems} onChange={(e) => setFoodItems(e.target.value)} rows={10} />
-                  <br></br>
-                  <center><Button type="submit" className='butn-round'>Calculate Nutrition</Button></center>
+                  <Form.Control as="textarea" className='nutri-inp' placeholder='Eg. 0kg/g item_name' value={foodItems} onChange={(e) => setFoodItems(e.target.value)} rows={10} />
+                  <center><Button type="submit" className='card-btn mt-5'>Calculate Nutrition</Button></center>
                 </form>
               </Card.Body>
             </Card>
@@ -107,7 +104,7 @@ const NutritionCalculator = () => {
 
           <Col lg='6'>
             {/* Replace the spinner with the hamster animation component */}
-            <Card className='Nutri-card' data-aos="zoom-in-left">
+            <Card className='Nutri-card' data-aos="fade-up-left" data-aos-duration="2000">
               <Card.Header className='nutri-font'>Nutritional Information:</Card.Header>
               <Card.Body>
                 <center>
@@ -136,11 +133,8 @@ const NutritionCalculator = () => {
           </Col>
         </Row>
       </Container>
-      <br />
       <center>
-        <div className='foot'>
           <Footer />
-        </div>
       </center>
     </div>
   );

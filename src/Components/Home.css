@@ -19,7 +19,7 @@
 .transparent-Nav{
     backdrop-filter: blur(2px) saturate(180%);
     -webkit-backdrop-filter: blur(2px) saturate(180%);
-    background-color: rgba(17, 25, 40, 0.54);
+    background-color: #fc7f1931;
     border: 1px solid rgba(255, 255, 255, 0.125);
 }
 .nav-text{
@@ -32,19 +32,6 @@
 .nav-text:hover{
     font-weight: 400;
     color: #fc8019;
-}
-.butn-round{
-  border-radius: 2rem;
-  background-color: white;
-  color: #fc8019;
-  border-width: 3px;
-  border-color: white;
-}
-.butn-round:hover{
-    border-color:#000000 ;
-    background-color: #fc8019;
-    color: white;
-    border-width: 3px;
 }
 .nav-brand{
   text-decoration: none;
@@ -92,16 +79,25 @@
   color: white;
   box-shadow:0px 4px 8px rgba(0,0,0,0.1);
 }
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 .nutri-font{
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color: #ffffff;
     /* -webkit-text-stroke: 1px rgb(0, 0, 0); */
     font-size:30px;
 }
+
 .n-head-text{
-    color: black;
-    -webkit-text-stroke: 3px black;
+  color: #e1a16d;
+  text-shadow:
+    0 0 7px #fc8019,
+    0 0 10px #fc8019,
+    0 0 21px #fc8019,
+    0 0 42px #fc8019,
+    0 0 82px #fc8019,
+    0 0 92px #fc8019,
+    0 0 102px #fc8019;
     font-size:60px;
+    font-family: 'Dancing Script', cursive;
 }
 .scroll{
   overflow-y: scroll;
@@ -129,15 +125,19 @@
   background: #000000; 
 }
 /* ----------------------------------------Nutri-CSS----------------------------------- */
-.foot{
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  position: sticky;
+.nutri-inp{
+  color: #a5a3a3;
+  background-color: #000000;
+}
+.nutri-inp:focus{
+  box-shadow: none;
+  background-color: #000000;
+  color: #a5a3a3;
+  border-color: black;
 }
 .form-container {
     width: 400px;
-    background: linear-gradient(#212121, #212121) padding-box,
+    background: linear-gradient(#000000, #000000) padding-box,
                 linear-gradient(145deg, transparent 35%,#ee7752,#ee7752) border-box;
     border: 2px solid transparent;
     padding: 32px 24px;
@@ -150,7 +150,7 @@
     box-sizing: border-box;
     border-radius: 16px;
     background-size: 200% 100%;
-    animation: gradient .7s ease infinite;
+    animation: gradient 5s ease infinite;
   }
   
   @keyframes gradient {
@@ -229,49 +229,32 @@
     outline: none;
     border-color: #ee7752;
   }
-  
-  .form-container .form-submit-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: inherit;
-    color: #717171;
-    font-weight: 600;
-    width: 30%;
-    height: 2rem;
-    background: #313131;
-    border: 1px solid #414141;
-    padding: 12px 16px;
-    font-size: inherit;
-    gap: 10px;
-
-    cursor: pointer;
-    border-radius: 6px;
-  }
-  
-  .form-container .form-submit-btn:hover {
-    background-color: #ee7752;
-    border-color: white;
-  }
   /* -------------------------------------------------Footer--------------------------------------------- */
   .card-bg{
-    /* backdrop-filter: blur(16px) saturate(157%);
-    -webkit-backdrop-filter: blur(16px) saturate(157%);
-    background-color: rgba(0, 0, 0, 0.49); */
-    backdrop-filter: blur(2px) saturate(180%);
-    -webkit-backdrop-filter: blur(2px) saturate(180%);
-    background-color: rgba(17, 25, 40, 0.54);
     transition: transform .7s;
+    background-color: black;
+    width: 90%;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.125);
-    color: aliceblue;
-    box-shadow:4px 1px 10px #414141;
     border-style: solid;
-    border-width: 3px;
     border-color: #000000;
   }
   .card-bg:hover{
-    transform: scale(1.1);
+    transform: scale(1.08);
+  }
+  .card-text{
+    color: #777;
+  }
+  .card-title{
+    color: #fc8019;
+  }
+  .card-btn{
+    background-color: #fc8019;
+    border: none;
+    color: black;
+  }
+  .card-btn:hover{
+    background-color: #fc7f1994;
+    color: black;
   }
   /* -----------------------------------------------------Home-Card-CSS------------------------------------- */
   .ig{
@@ -282,7 +265,7 @@
     --black: #000000;
     --ch-black: #141414;
     --eer-black: #1b1b1b;
-    --night-rider: #2e2e2e;
+    --night-rider: #000000;
     --white: #ffffff;
     --af-white: #f3f3f3;
     --ch-white: #e1e1e1;

@@ -10,7 +10,7 @@ import Contactus from './Contactus';
 function Footer(){
     return(
         <div>
-            <footer class="text-center bg-dark" style={{color:"#ee7752"}}>
+            <footer class="text-center bg-black" style={{color:"#ee7752"}}>
                 <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
                     <div class="me-5 d-none d-lg-block">
                     <span>Get connected with us on social networks:</span>

@@ -6,7 +6,7 @@ const RecipeCard = ({ recipe }) => {
   const { name, description, ingredients, steps, servings, prep_time, cook_time, total_time,Avg_rating } = recipe;
   return (
     <div>
-        <Card className="recipe-card" data-aos="fade-up" data-aos-duration="1000">
+        <Card className="recipe-card" data-aos="zoom-in-up" data-aos-duration="1000">
         <Card.Body>
             <Card.Title>{name}</Card.Title>
             <Card.Text>{description}</Card.Text>

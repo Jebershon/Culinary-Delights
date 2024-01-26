@@ -24,7 +24,7 @@
     line-height: 1.625em;
 }
 .img-fluid {
-    max-width: 100%;
+    max-width: 90%;
     height: auto;
     border-radius: 10px;
 }

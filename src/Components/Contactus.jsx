@@ -1,4 +1,4 @@
-import { Container } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 
 function Contactus(){
     return(
@@ -14,7 +14,7 @@ function Contactus(){
                         <label for="textarea">How Can We Help You?</label>
                         <textarea required="" cols="50" rows="10" id="textarea" name="textarea"></textarea>
                         </div>
-                        <center><button type="submit" class="form-submit-btn">Submit</button></center>
+                        <center><Button type="submit" className='card-btn'>Submit</Button></center>
                     </form>
                     </div>
                     </Container>

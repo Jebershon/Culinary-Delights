@@ -20,48 +20,45 @@ function AdminDash() {
   return (
     <div>
       <Row>
-      <Col>
-      <div>
-        <Navbar collapseOnSelect expand="lg" className="transparent-Nav" fixed='top'>
-        <Navbar>
-            <Container>
-              <Navbar.Brand className='text-white' style={{fontSize:"20px"}}>
-              <Link to='/' className='nav-brand'>
-              <img
-                  alt="logo"
-                  src={logo}
-                  width="40"
-                  height="40"
-                  className="d-inline-block align-top brand"
-                />&nbsp;
-                <span style={{color:"#ee7752"}}>C</span>ulinary&nbsp;
-                <span style={{color:"#ee7752"}}>D</span>elights
-                </Link>
-              </Navbar.Brand>
-            </Container>
-          </Navbar>
-            <br/>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav">
-              <Nav className="me-auto nav-underline">
-                {/* <center><Nav.Link className='navi'><Link to='/' className='nav-text'><HomeOutlined style={{color:"white"}}/> Home</Link></Nav.Link></center> */}
-                <center><Nav.Link className='navi nav-text' onClick={() => handleNavClick('AddRecipe')}><LocalDining style={{color:"white"}}/> AddRecipe</Nav.Link></center>
-                <center><Nav.Link className='navi nav-text' onClick={() => handleNavClick('AddGrocery')}><LocalGroceryStore style={{color:"white"}}/> AddGrocery</Nav.Link></center>
-                <center><Nav.Link className='navi nav-text' onClick={() => handleNavClick('Chart')}><BarChart style={{color:"white"}}/> Visual Data</Nav.Link></center>
-                <center><Nav.Link className='navi nav-text' onClick={() => handleNavClick('Sold')}><Shop style={{color:"white"}}/> Sold</Nav.Link></center>
-              </Nav>
-              {/* <Nav>
-                  <center><Nav.Link className='navi' style={{color:"white"}}><Link to="./MyProfile" className='nav-text'><AccountCircleOutlined/></Link></Nav.Link></center>
-              </Nav> */}
-            </Navbar.Collapse>
-        </Navbar>
-        </div>
+        <Col>
+            <div className='mb-5'>
+              <Navbar collapseOnSelect expand="lg" className="transparent-Nav" fixed='top'>
+              <Navbar>
+                  <Container>
+                    <Navbar.Brand className='text-white' style={{fontSize:"20px"}}>
+                    <Link to='/' className='nav-brand'>
+                    <img
+                        alt="logo"
+                        src={logo}
+                        width="40"
+                        height="40"
+                        className="d-inline-block align-top brand"
+                      />&nbsp;
+                      <span style={{color:"#ee7752"}}>C</span>ulinary&nbsp;
+                      <span style={{color:"#ee7752"}}>D</span>elights
+                      </Link>
+                    </Navbar.Brand>
+                  </Container>
+                </Navbar>
+                  <br/>
+                  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                  <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="me-auto nav-underline">
+                      {/* <center><Nav.Link className='navi'><Link to='/' className='nav-text'><HomeOutlined style={{color:"white"}}/> Home</Link></Nav.Link></center> */}
+                      <center><Nav.Link className='navi nav-text' onClick={() => handleNavClick('AddRecipe')}><LocalDining style={{color:"white"}}/> AddRecipe</Nav.Link></center>
+                      <center><Nav.Link className='navi nav-text' onClick={() => handleNavClick('AddGrocery')}><LocalGroceryStore style={{color:"white"}}/> AddGrocery</Nav.Link></center>
+                      <center><Nav.Link className='navi nav-text' onClick={() => handleNavClick('Chart')}><BarChart style={{color:"white"}}/> Visual Data</Nav.Link></center>
+                      <center><Nav.Link className='navi nav-text' onClick={() => handleNavClick('Sold')}><Shop style={{color:"white"}}/> Sold</Nav.Link></center>
+                    </Nav>
+                    {/* <Nav>
+                        <center><Nav.Link className='navi' style={{color:"white"}}><Link to="./MyProfile" className='nav-text'><AccountCircleOutlined/></Link></Nav.Link></center>
+                    </Nav> */}
+                  </Navbar.Collapse>
+              </Navbar>
+              </div>
         </Col>
     </Row>
-    <br/>
-    <br/>
-    <br/>
-      <Container>
+      <Container className='mt-5'>
         {activeComponent === 'AddRecipe' && (
           <div className='mt-5 mb-3'>
             <AddRecipe />

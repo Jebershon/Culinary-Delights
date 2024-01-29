@@ -1,17 +1,24 @@
-import { Card, Table } from 'react-bootstrap';
+import { Card, Col, Container, Row, Table } from 'react-bootstrap';
 import './/Home-2.css';
 import soldGroceriesData from './purchaseDetails.js';
 function SoldDetails(){
     return(
         <div>
+        <Container>
          {soldGroceriesData.map((x)=>(
+            <Row>
+            <Col lg={12}>
             <Card className='mt-3 mb-3'>
                 <Card.Header><span className='gip'>{x.username}</span></Card.Header>
                 <Card.Text className='mt-3'><span className='gip'>Address:</span>{x.address}   ||   <span className='gip'>Email:</span>{x.userEmail}</Card.Text>
                 <hr/>
             </Card>
+            </Col>
+            </Row>
          ))}
-            <Table striped bordered hover className='mt-3 mb-3' bgcolor='dark'>
+         <Row>
+            <Col lg={12}>
+            <Table responsive="lg" striped bordered hover className='mt-3 mb-3'>
             <thead>
                 <tr>
                 <th>Username</th>
@@ -51,6 +58,9 @@ function SoldDetails(){
                 ))}
             </tbody>
             </Table>
+            </Col>
+            </Row>
+            </Container>
         </div>
     );
 }

@@ -29,28 +29,28 @@ function Home() {
       </div>
       </Row>
 <center>
-        <Row className='mt-4 p-3'>
+        <Row className='mt-4 p-2'>
           <Col lg={3}>
-          <img src='https://preview.colorlib.com/theme/cuisines/images/img_4.jpg' width="250px" height="200px" alt=""></img>
+          <img src='https://preview.colorlib.com/theme/cuisines/images/img_4.jpg' width="230px" height="200px" alt=""></img>
           </Col>
 
           <Col lg={3} data-aos="fade-up" data-aos-duration="2000" className='mt-3 mb-3'>
-          <div class="p-tag-2">
+          <div className="p-tag-2 p-1">
           <h5>Lorem ipsum dolor</h5>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae cupiditate harum dolore mollitia, quos corrupti? sit amet consectetur adipisicing sit amet consectetur adipisicing</p>
-          <Link  class="primary-btn" to='./Recipes'>recipe</Link>
+          <Link  className="primary-btn" to='./Recipes'>recipe</Link>
           </div>
           </Col>
 
           <Col lg={3}>
-          <img src='https://preview.colorlib.com/theme/cuisines/images/img_1.jpg' width="250px" height="200px" alt=""></img>
+          <img src='https://preview.colorlib.com/theme/cuisines/images/img_1.jpg' width="230px" height="200px" alt=""></img>
           </Col>
 
           <Col lg={3} data-aos="fade-up" data-aos-duration="2000" className='mt-3 mb-3'>
-          <div class="p-tag-2">
+          <div className="p-tag-2 p-1">
           <h5>Lorem ipsum dolor</h5>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae cupiditate harum dolore mollitia, quos corrupti? sit amet consectetur adipisicing sit amet consectetur adipisicing</p>
-          <Link  class="primary-btn" to='./Recipes'>recipe</Link>
+          <Link  className="primary-btn" to='./Recipes'>recipe</Link>
           </div>
           </Col>
 
@@ -59,27 +59,27 @@ function Home() {
         <Row className='mt-3 p-3'>
 
           <Col lg={3} data-aos="fade-up" data-aos-duration="2000" className='mt-3 mb-3'>
-          <div class="p-tag-2">
+          <div className="p-tag-2 p-1">
           <h5>Lorem ipsum dolor</h5>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae cupiditate harum dolore mollitia, quos corrupti? sit amet consectetur adipisicing sit amet consectetur adipisicing</p>
-          <Link  class="primary-btn" to='./Recipes'>recipe</Link>
+          <Link  className="primary-btn" to='./Recipes'>recipe</Link>
           </div>
           </Col>
 
           <Col lg={3}>
-          <img src='https://preview.colorlib.com/theme/cuisines/images/img_2.jpg' width="250px" height="200px" alt=""></img>
+          <img src='https://preview.colorlib.com/theme/cuisines/images/img_2.jpg' width="230px" height="200px" alt=""></img>
           </Col>
 
           <Col lg={3} data-aos="fade-up" data-aos-duration="2000" className='mt-3 mb-3'>
-          <div class="p-tag-2">
+          <div className="p-tag-2 p-1">
           <h5>Lorem ipsum dolor</h5>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae cupiditate harum dolore mollitia, quos corrupti? sit amet consectetur adipisicing sit amet consectetur adipisicing</p>
-          <Link  class="primary-btn" to='./Recipes'>recipe</Link>
+          <Link  className="primary-btn" to='./Recipes'>recipe</Link>
           </div>
           </Col>
 
           <Col lg={3}>
-          <img src="https://preview.colorlib.com/theme/cuisines/images/img_3.jpg" width="250px" height="200px" alt="" />
+          <img src="https://preview.colorlib.com/theme/cuisines/images/img_3.jpg" width="230px" height="200px" alt="" />
           </Col>
         </Row>
 </center>

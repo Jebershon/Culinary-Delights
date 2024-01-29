@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import Chart from 'react-apexcharts';
-import { Card, CardBody, CardHeader } from 'react-bootstrap';
+import { Card, CardBody, CardHeader, Container, Row } from 'react-bootstrap';
 import recipe_book from './Food-Recipes-details';
 const ChartComponent = () => {
   const chartRef = useRef(null);
@@ -79,18 +79,24 @@ const ChartComponent = () => {
   };
   return(
   <div>
+    <Container>
+    <Row>
     <Card bg='grey' className='mt-3 mb-3'>
         <CardHeader>Rating of Each Recipe</CardHeader>
         <CardBody>
-        <Chart options={barChartOptions} series={dataset1.map((dataset) => dataset.data)} type="area" height={400} width={1000} ref={chartRef} />
+        <Chart options={barChartOptions} series={dataset1.map((dataset) => dataset.data)} type="area" height={400} ref={chartRef} />
         </CardBody>
     </Card>
+    </Row>
+    <Row>
     <Card bg='grey' className='mt-3 mb-3'>
         <CardHeader>Category Analysis : Total products in Each Category</CardHeader>
         <CardBody>
-        <Chart options={donutChartOptions} series={dataset2[0].data} type="donut" height={400} ref={donutChartRef} />
+          <Chart options={donutChartOptions} series={dataset2[0].data} type="donut" height={400} ref={donutChartRef} /> 
         </CardBody>
     </Card>
+    </Row>
+    </Container>
   </div>);
 };
 

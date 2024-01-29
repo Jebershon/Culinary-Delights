@@ -80,10 +80,12 @@ const NutritionCalculator = () => {
            <div>
            <BackBtn/>
            </div>
+      </div>
+      <div>
            <center>
-          <div>
-              <h1 className='n-head-text'>Nutritional Calculator</h1>
-          </div>
+              <div>
+                  <h1 className='n-head-text'>Nutritional Calculator</h1>
+              </div>
           </center>
       </div>
       

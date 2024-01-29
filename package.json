@@ -25,7 +25,6 @@
     "styled-components": "^6.1.1",
     "terser": "3.14.1",
     "web-vitals": "^2.1.4",
-    "homepage": "https://culinarydelights.netlify.app/"
   },
   "scripts": {
     "predeploy": "npm run build",

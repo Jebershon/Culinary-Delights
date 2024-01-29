@@ -1,12 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import Chart from 'react-apexcharts';
-import { Card, CardBody, CardHeader, Container, Row } from 'react-bootstrap';
+import { Card, CardHeader, Container, Row } from 'react-bootstrap';
+import './/Home-2.css';
 import recipe_book from './Food-Recipes-details';
 const ChartComponent = () => {
   const chartRef = useRef(null);
-  const donutChartRef = useRef(null);
-    
-
+  const barChartRef = useRef(null);    
 
     const recipeNames = recipe_book.map((recipe) =>(recipe.name));
     console.trace(recipeNames); 
@@ -22,8 +21,6 @@ const ChartComponent = () => {
       return Math.round(sum/recipe.rating.length);
     });
 
-    console.trace(rating);
-
     const dataset1=[
       {
         name: 'Recipe rated',
@@ -34,7 +31,7 @@ const ChartComponent = () => {
     const label2= ["vegetable", "fruit", "dairy", "meat", "grains", "beverages"];
     const dataset2=[
       {
-        name: 'Total Products available in Each Category',
+        name: 'Items',
         data: [30, 50, 20,12,23,4],
       },
     ];
@@ -53,47 +50,76 @@ const ChartComponent = () => {
 
 
   useEffect(() => {
-   // Update the Donut chart
-   if (donutChartRef && donutChartRef.current && dataset2.length > 0) {
-    donutChartRef.current.chart.updateOptions({
-      labels: label2,
-    });
-    donutChartRef.current.chart.updateSeries(dataset2[0].data);
-  }
-}, [label2, dataset2]);
+    // Update the Bar chart
+    if (barChartRef && barChartRef.current && dataset2.length > 0) {
+      barChartRef.current.chart.updateOptions({
+        xaxis: {
+          categories: label2,
+        },
+      });
+      barChartRef.current.chart.updateSeries([{ data: dataset2[0].data }]);
+    }
+  }, [label2, dataset2]);
+
+
+  const BasicbarChartOptions = {
+    chart: {
+      type: 'bar',
+      height: 350,
+      background: '#F6F8FA',
+    },
+    plotOptions: {
+      bar: {
+        borderRadius: 4,
+        horizontal: true,
+      }
+    },
+    colors: ['#fc8019'],
+    dataLabels: {
+      enabled: false
+    },
+    xaxis: {
+      categories: label2,
+    },
+  };
+
 
   const barChartOptions = {
     chart: {
+      height: 350,
       type: 'area',
     },
-    datalabel1: {
+    dataLabels: {
       enabled: false,
+    },
+    colors: ['#fc8019'],
+    stroke: {
+      curve: 'smooth'
     },
     xaxis: {
       categories: label1,
     },
   };
 
-  const donutChartOptions = {
-    labels: label2,
-  };
   return(
   <div>
     <Container>
     <Row>
-    <Card bg='grey' className='mt-3 mb-3'>
-        <CardHeader>Rating of Each Recipe</CardHeader>
-        <CardBody>
-        <Chart options={barChartOptions} series={dataset1.map((dataset) => dataset.data)} type="area" height={400} ref={chartRef} />
-        </CardBody>
+    <Card className='mt-3 mb-3 chart'>
+        <CardHeader style={{color:"grey",fontSize:"20px"}}>Rating of Each Recipe</CardHeader>
+        <hr style={{color:"white"}}/>
+        <div className='chart-bg'>
+        <Chart options={barChartOptions} series={dataset1.map((dataset) => dataset)} type="area" height={400} ref={chartRef} />
+        </div>
     </Card>
     </Row>
     <Row>
-    <Card bg='grey' className='mt-3 mb-3'>
-        <CardHeader>Category Analysis : Total products in Each Category</CardHeader>
-        <CardBody>
-          <Chart options={donutChartOptions} series={dataset2[0].data} type="donut" height={400} ref={donutChartRef} /> 
-        </CardBody>
+    <Card className='mt-3 mb-3 chart'>
+        <CardHeader style={{color:"grey",fontSize:"20px"}}>Category Analysis : Total products in Each Category</CardHeader>
+        <hr style={{color:"white"}}/>
+        <div className='chart-bg'>
+          <Chart options={BasicbarChartOptions} series={dataset2.map((dataset) => dataset)} type="bar" height={400} ref={barChartRef } /> 
+        </div>
     </Card>
     </Row>
     </Container>

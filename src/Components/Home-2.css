@@ -162,7 +162,31 @@ input:hover {
 }
 /* --------------------------------------------------------------------------------- */
 .gip{
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 800;
   font-variant: small-caps;
+}
+/* --------------------------------------------table---------------------------------------- */
+.table {
+  --bs-table-color-type: initial;
+  --bs-table-bg-type: initial;
+  --bs-table-color-state: initial;
+  --bs-table-bg-state: initial;
+  --bs-table-color: #a5a3a3;
+  --bs-table-bg: black;
+  --bs-table-border-color: rgba(159, 157, 157, 0.605);
+  --bs-table-accent-bg: transparent;
+  --bs-table-striped-color: #a5a3a3;
+  --bs-table-striped-bg: black;
+  --bs-table-active-color: white;
+  --bs-table-active-bg: black;
+  --bs-table-hover-color: white;
+  --bs-table-hover-bg:black;
+  width: 100%;
+  margin-bottom: 1rem;
+  vertical-align: top;
+  border-color: white;
+}
+.gg{
+color: #c8c8d0;
 }

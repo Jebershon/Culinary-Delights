@@ -1,5 +1,6 @@
 import { Card, Col, Container, Row, Table } from 'react-bootstrap';
 import './/Home-2.css';
+import './/Home.css';
 import soldGroceriesData from './purchaseDetails.js';
 function SoldDetails(){
     return(
@@ -8,9 +9,9 @@ function SoldDetails(){
          {soldGroceriesData.map((x)=>(
             <Row>
             <Col lg={12}>
-            <Card className='mt-3 mb-3'>
-                <Card.Header><span className='gip'>{x.username}</span></Card.Header>
-                <Card.Text className='mt-3'><span className='gip'>Address:</span>{x.address}   ||   <span className='gip'>Email:</span>{x.userEmail}</Card.Text>
+            <Card className='mt-3 mb-3 Nutri-card'>
+                <Card.Header style={{color:"#fc8019",fontSize:"25px"}}><span className='gip'>{x.username}</span></Card.Header>
+                <Card.Text className='mt-3' style={{color:"#c8c8d0",fontSize:"15px"}}><span className='gip' style={{color:"white"}}>Address:</span>{x.address}   ||   <span className='gip' style={{color:"white"}}>Email:</span>{x.userEmail}</Card.Text>
                 <hr/>
             </Card>
             </Col>
@@ -18,20 +19,20 @@ function SoldDetails(){
          ))}
          <Row>
             <Col lg={12}>
-            <Table responsive="lg" striped bordered hover className='mt-3 mb-3'>
+            <Table responsive="lg" striped bordered hover className='mt-3 mb-3 table-bg'>
             <thead>
                 <tr>
-                <th>Username</th>
-                <th>User Email</th>
-                <th>Address</th>
-                <th>Recipe Name</th>
-                <th>Recipe Exists</th>
-                <th>Grocery Items</th>
-                <th>Total Price</th>
-                <th>Purchase Date</th>
-                <th>Status</th>
-                <th>Grocery ID</th>
-                <th>Recipe ID</th>
+                <th style={{color:"#fc8019"}}>Username</th>
+                <th style={{color:"#fc8019"}}>User Email</th>
+                <th style={{color:"#fc8019"}}>Address</th>
+                <th style={{color:"#fc8019"}}>Recipe Name</th>
+                <th style={{color:"#fc8019"}}>Recipe Exists</th>
+                <th style={{color:"#fc8019"}}>Grocery Items</th>
+                <th style={{color:"#fc8019"}}>Total Price</th>
+                <th style={{color:"#fc8019"}}>Purchase Date</th>
+                <th style={{color:"#fc8019"}}>Status</th>
+                <th style={{color:"#fc8019"}}>Grocery ID</th>
+                <th style={{color:"#fc8019"}}>Recipe ID</th>
                 </tr>
             </thead>
             <tbody>

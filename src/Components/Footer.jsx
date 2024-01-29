@@ -1,4 +1,4 @@
-import { Construction, FitnessCenter } from '@mui/icons-material';
+import { CameraAltOutlined, Construction, FitnessCenter } from '@mui/icons-material';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import GoogleIcon from '@mui/icons-material/Google';
@@ -59,6 +59,9 @@ function Footer(){
                         </p>
                         <p>
                             <a href="https://powertoolsrental.netlify.app/" class="text-reset"><Construction/></a>
+                        </p>
+                        <p>
+                            <a href="https://qpixel-3e00e.firebaseapp.com/" className='text-reset'><CameraAltOutlined/></a>
                         </p>
                         </div>
                     </Col>

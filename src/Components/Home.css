@@ -338,7 +338,7 @@
   }
   /* ------------------------------------------------------------------------------------------------------------ */
   .baner{
-    background: url("C:\project_college\React projects\culinary-delights\src\Components\Asserts\banner.jpg") center center/cover;
+    background: url(".\Asserts\banner.jpg") center center/cover;
     background-size: cover;
 }
 

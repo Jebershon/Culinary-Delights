@@ -3,7 +3,7 @@ import { Card, Col } from 'react-bootstrap';
 
 const GroceryPurchaseCard = ({ purchaseDetails }) => {
   return (
-        <Col lg={4} className="mt-3">
+        <Col lg={4} className="mt-3 mb-3">
           <Card className="mt-3">
             <Card.Header>
               <strong>Recipe: {purchaseDetails.recipeName}</strong>

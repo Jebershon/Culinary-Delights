@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Button, Card, Col, Dropdown, Form, FormControl, FormLabel, InputGroup, Row } from 'react-bootstrap';
+import { Button, Card, Col, Container, Dropdown, Form, FormControl, FormLabel, InputGroup, Row, Table } from 'react-bootstrap';
 import './/external.css';
 import img from './Asserts/img-def.jpg';
+import Gro_data from './Indgredients-details';
 const categories = ["vegetable", "fruit", "dairy", "meat", "grains", "beverages"];
 const quantityUnits = ["50g", "100g", "500g", "750g"];
 const measuringUnits = ["g", "kg", "liters", "pieces", "tbsp"];
@@ -34,8 +35,19 @@ export default function AddGrocery() {
     // setImageUrl('');
     // setCategory('');
   };
+  const [data, setdata] = useState(Gro_data);
+  const handleUpdateGrocery = (index) => {
+    // Implement the logic for updating a recipe
+    console.log(`Update recipe at index ${Gro_data[index]}`);
+  };
 
+  const handleDeleteGrocery = (index) => {
+    const updatedgroceryData = [...data];
+    updatedgroceryData.splice(index, 1);
+    setdata(updatedgroceryData);
+  };
   return (
+    <Container>
     <Card className='Admincard-bg'>
     <Card.Header><h1 style={{ fontVariant:"small-caps"}}>Grocery Dashboard</h1></Card.Header>
     <Card.Body>
@@ -147,5 +159,43 @@ export default function AddGrocery() {
     </Form>
     </Card.Body>
     </Card>
+
+    <Card className='Admincard-bg mt-3'>
+     <Card.Header>Grocery Details</Card.Header>
+     <hr/>
+     <Card.Body>
+     <Table striped bordered hover responsive>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Name</th>
+                <th>price</th>
+                <th>Update</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((items, index) => (
+                <tr key={index}>
+                  <td><img src={items.image_url} width={80} height={80}/></td>
+                  <td>{items.name}</td>
+                  <td>{items.price}</td>
+                  <td>
+                    <Button variant="warning" onClick={() => handleUpdateGrocery(index)}>
+                      Update
+                    </Button>
+                  </td>
+                  <td>
+                  <Button variant="danger" onClick={() => handleDeleteGrocery(index)}>
+                      Delete
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+     </Card.Body>
+    </Card>
+    </Container>
   );
 }

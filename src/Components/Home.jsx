@@ -3,9 +3,9 @@ import Container from 'react-bootstrap/Container';
 import { Link } from 'react-router-dom';
 import './/Home.css';
 import './/external.css';
-import img1 from './Asserts/img1.jpeg';
-import img2 from './Asserts/img2.jpg';
-import img3 from './Asserts/img3.jpeg';
+import img1 from './Asserts/img1.png';
+import img2 from './Asserts/img2.png';
+import img3 from './Asserts/img3.jpg';
 import CarouselSale from './Carousel-Sale.jsx';
 import Footer from './Footer.jsx';
 import Navbar from './NavBar.jsx';
@@ -15,23 +15,34 @@ function Home() {
   return (
     <div className='bg-c'>
     <Container>
-      <Row>
+      <Row className='mb-5'>
       <div>
       <Navbar/>
       </div>
       </Row>
+      <br/>
+      <br/>
 
-      <Row>
+<center>
+<Row>
       <div className='mt-5'>
       <Container>
-      <CarouselSale/>
+        <Row>
+          <Col lg={12} className='baner'>
+          <div className='baner-text'>
+          A recipe has no soul. You as the cook must bring soul to the recipe.
+          </div>
+          </Col>
+        </Row>
       </Container>
       </div>
       </Row>
+</center>
+
 <center>
-        <Row className='mt-4 p-2'>
+        <Row className='mt-5 p-2'>
           <Col lg={3}>
-          <img src='https://preview.colorlib.com/theme/cuisines/images/img_4.jpg' width="230px" height="200px" alt="image of food"></img>
+          <img src='https://preview.colorlib.com/theme/cuisines/images/img_4.jpg' width="230px" height="200px" alt="image of food" className='ig'></img>
           </Col>
 
           <Col lg={3} data-aos="fade-up" data-aos-duration="2000" className='mt-3 mb-3'>
@@ -83,12 +94,15 @@ function Home() {
           </Col>
         </Row>
 </center>
+
 <center>
     <div>
         <Row className='mt-5 mb-3 p-1'>
           <Col lg={4}>
           <Card className='card-bg'>
+                <div className='img-hover-zoom'>
                 <Card.Img variant="top" src={img3} width={100} height={300}className='ig' />
+                </div>
                 <Card.Body>
                     <Card.Title className='card-title'>Most Healthiest Food</Card.Title>
                     <Card.Text className='card-text'>
@@ -101,7 +115,9 @@ function Home() {
           </Col>
           <Col lg={4}>
           <Card className='card-bg'>
+                <div className='img-hover-zoom'>
                 <Card.Img variant="top" src={img2} width={100} height={300} className='ig'/>
+                </div>
                 <Card.Body>
                     <Card.Title className='card-title'>Vegan vs Meat Eaters</Card.Title>
                     <Card.Text className='card-text'>
@@ -114,7 +130,9 @@ function Home() {
           </Col>
           <Col lg={4}>
           <Card className='card-bg'>
+          <div className='img-hover-zoom'>
                 <Card.Img variant="top" src={img1} width={100} height={300} className='ig' />
+                </div>
                 <Card.Body>
                     <Card.Title className='card-title'>Preservative Vegetables?</Card.Title>
                     <Card.Text className='card-text'>
@@ -128,8 +146,9 @@ function Home() {
         </Row>
         </div>
 </center>
+
 <center>
-        <Row className='mt-3 mb-3 p-1' style={{backgroundColor:"black",borderRadius:'20px'}}>
+        <Row className='mb-3 p-1' style={{backgroundColor:"black",borderRadius:'20px'}}>
         <Col lg={6} className='home-left p-5'  data-aos="fade-up" data-aos-duration="2000">
         <h1 className='h1-tag'>About Our Story</h1>
         <p className='p-tag' style={{width:"85%"}}>
@@ -142,7 +161,7 @@ function Home() {
         </Col>
         </Row>
 
-        <Row className='mt-3 mb-3 p-1' style={{backgroundColor:"black",borderRadius:'20px'}}>
+        <Row className='mt-3 mb-2 p-1' style={{backgroundColor:"black",borderRadius:'20px'}}>
         <Col lg={6}   data-aos="fade-up">
         <img className="img-fluid mt-2 mb-2" src="https://img.freepik.com/free-photo/healthy-vegetables-wooden-table_1150-38014.jpg" alt="image of food"/>
         </Col>
@@ -154,7 +173,16 @@ function Home() {
         <Link  class="primary-btn" to='./Recipes'>view full Item</Link>
         </Col>
         </Row>
+
+        <Row>
+        <div className='mb-3'>
+        <Container>
+        <CarouselSale/>
+        </Container>
+        </div>
+        </Row>
 </center>
+
       </Container>
         <div>
         <Footer/>

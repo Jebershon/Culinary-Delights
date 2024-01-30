@@ -3,15 +3,18 @@ import {
   Button,
   Card,
   Col,
+  Container,
   Dropdown,
   DropdownButton,
   Form,
   FormCheck,
   InputGroup,
-  Row
+  Row,
+  Table
 } from 'react-bootstrap';
 import './/Home.css';
 import './/external.css';
+import recipe_book from './Food-Recipes-details';
 const availableIngredients = [
   "Chicken pieces",
   "Onion",
@@ -269,13 +272,26 @@ else{
     // setPrepTime('');
     // setCookTime('');
   };
+  const [recipes, setRecipes] = useState(recipe_book);
+  const handleUpdateRecipe = (index) => {
+    // Implement the logic for updating a recipe
+    console.log(`Update recipe at index ${recipe_book[index]}`);
+  };
+
+  const handleDeleteRecipe = (index) => {
+    // Implement the logic for deleting a recipe
+    const updatedRecipes = [...recipes];
+    updatedRecipes.splice(index, 1);
+    setRecipes(updatedRecipes);
+  };
   return (
+    <div>
+      <Container>
       <Card  className='Admincard-bg'>
       <Card.Header><h1 style={{ fontVariant:"small-caps"}}>Recipe Dashboard</h1></Card.Header>
       <Card.Body>
-      <Row className='mt-5'>
+      <Row>
         <Form>
-
         <InputGroup className="mb-3">
         <InputGroup.Text><Form.Label style={{ fontVariant:"small-caps"}}>Recipe's Title</Form.Label></InputGroup.Text>
           <Form.Control
@@ -546,9 +562,49 @@ else{
           </Col>
           <Col></Col>
           </Row>
+
         </Form>
       </Row>
       </Card.Body>
       </Card>
+
+        <Card className='Admincard-bg mt-3'>
+          <Card.Header>
+            <Card.Title>Recipe Details</Card.Title>
+          </Card.Header>
+          <hr/>
+          <Card.Body>
+          <Table striped bordered hover responsive>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Update</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              {recipes.map((recipe, index) => (
+                <tr key={index}>
+                  <td>{recipe.name}</td>
+                  <td>{recipe.description}</td>
+                  <td>
+                    <Button variant="warning" onClick={() => handleUpdateRecipe(index)}>
+                      Update
+                    </Button>
+                  </td>
+                  <td>
+                  <Button variant="danger" onClick={() => handleDeleteRecipe(index)}>
+                      Delete
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+          </Card.Body>
+        </Card>
+      </Container>
+      </div>
   );
 }

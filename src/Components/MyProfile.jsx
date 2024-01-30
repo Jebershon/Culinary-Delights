@@ -100,16 +100,28 @@ function UserProfile() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  let username=(storedProfile?.name);
   return (
     <div>
-           <div>
+      <div>
            <BackBtn/>
-           </div>
+      </div>
       <Container>
-
+      <Row>
+        <Col  lg={12}>
+           <center>
+              <div>
+               <h1 class="line-1 anim-typewriter"><span style={{color:"#fc8019"}}>Welcome</span> {username}!</h1>  
+              </div>
+           </center>
+        </Col>
+      </Row>
+      </Container>
+      <center>
+      <Container>
         <Row className="mt-5">
           <Col lg={3}>
-            <Card className="mt-3">
+            <Card className="mt-3 profile-bg">
               <Card.Img variant="top" src={avatar} />
               <Card.Body>
                 <Card.Title>{storedProfile?.name}</Card.Title>
@@ -120,7 +132,7 @@ function UserProfile() {
             </Card>
           </Col>
           <Col lg={9}>
-            <Card className="mt-3">
+            <Card className="mt-3 profile-bg">
               <Card.Body>
                 <Card.Title>Profile Information</Card.Title>
                 <Card.Text>
@@ -185,7 +197,7 @@ function UserProfile() {
                   <strong>Choose from Default Avatars:</strong>
                   <Row>
                     {avatars.map((avatarSrc, index) => (
-                      <Col xs={2} key={index}>
+                      <Col lg={2} key={index}>
                         <center>
                           <img
                             src={avatarSrc}
@@ -219,13 +231,12 @@ function UserProfile() {
           </Col>
         </Row>
       </Container>
-                <Modal show={show} onHide={handleClose} className='modal-bg'>
+                <Modal show={show} onHide={handleClose} className='body-blur'>
                   <Modal.Header closeButton>
                     <Modal.Title style={{color:"black"}}>Profile Information</Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
-                  <Card className="mt-3">
-                    <Form onSubmit={handleSubmit} style={{ margin: '5px' }}>
+                    <Form onSubmit={handleSubmit} className="mt-3">
                       <Form.Group controlId="name" className="mb-3">
                         <Form.Label>Name</Form.Label>
                         <Form.Control type="text" placeholder="Enter your name" value={name} onChange={handleNameChange} />
@@ -251,7 +262,6 @@ function UserProfile() {
                       </Button>
                       </center>
                     </Form>
-                  </Card>
                   </Modal.Body>
                   <Modal.Footer>
                     <Button variant="danger" onClick={handleClose}>
@@ -261,19 +271,20 @@ function UserProfile() {
                 </Modal>
       <br/>
       <Container>
-      <Card className="mt-3">
+      <Card className="mt-3 profile-bg">
             <Card.Header>
               <strong>Purchase History <History/></strong>
             </Card.Header>
               <Container>
                 <Row>
                   {purchaseDetails.map((purchase, index) => (
-                    <GroceryPurchaseCard key={index} purchaseDetails={purchase} />
+                    <GroceryPurchaseCard key={index} purchaseDetails={purchase}/>
                   ))}
                 </Row>
               </Container>
             </Card>
       </Container>
+      </center>
       <br />
       <Footer />
     </div>

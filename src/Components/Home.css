@@ -74,7 +74,7 @@
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.06);
   color: white;
-  box-shadow:0px 4px 8px rgba(0,0,0,0.1);
+  box-shadow:4px 1px 10px #414141;
 }
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 .nutri-font{
@@ -235,9 +235,9 @@
     border-style: solid;
     border-color: #000000;
   }
-  .card-bg:hover{
+  /* .card-bg:hover{
     transform: scale(1.08);
-  }
+  } */
   .card-text{
     color: #777;
   }
@@ -246,7 +246,21 @@
   }
   /* -----------------------------------------------------Home-Card-CSS------------------------------------- */
   .ig{
-    border-radius: 12px;
+    border-radius: 10px;
+  }
+  .img-hover-zoom {
+    height: 300px; /* [1.1] Set it as per your need */
+    overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+  }
+  
+  /* [2] Transition property for smooth transformation of images */
+  .img-hover-zoom .ig {
+    transition: transform .5s ease;
+  }
+  
+  /* [3] Finally, transforming the image when container gets hovered */
+  .img-hover-zoom:hover .ig {
+    transform: scale(1.5);
   }
   /* --------------------------------------------------------Home-Image-Curve-Corner---------------------------------- */
   .Btn {
@@ -322,6 +336,25 @@
   .Btn:active {
     transform: translate(2px ,2px);
   }
+  /* ------------------------------------------------------------------------------------------------------------ */
+  .baner{
+    background: url("C:\project_college\React projects\culinary-delights\src\Components\Asserts\banner.jpg") center center/cover;
+    background-size: cover;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+.baner-text{
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+    color: rgb(162, 162, 162);
+    font-size: 50px;
+    font-family: 'Dancing Script', cursive;
+}
   /* -------------------------------------------------------------go back------------------------------------------------ */
 .CartBtn {
   width: 140px;

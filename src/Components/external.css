@@ -117,3 +117,47 @@ a, a:focus, a:hover {
   .btn-outline-warning {
     --bs-btn-color: #fc8019;
   }
+  .modal-content{
+    backdrop-filter: blur(2px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.54);
+  }
+  .body-blur{
+    backdrop-filter: blur(10px) saturate(180%);
+  }
+  .form-control:focus {
+    color: rgba(184, 177, 177, 0.925);
+    background-color: black;
+    border-color: white;
+    box-shadow: 0 0 0 0.25rem #605e5c8b;
+  }
+  .profile-bg{ 
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    color: aliceblue;
+    box-shadow:4px 1px 10px #414141;
+    backdrop-filter: blur(2px) saturate(180%);
+    -webkit-backdrop-filter: blur(2px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.54);
+}
+/* ---------------------------------------font-text-writer--------------------------------- */
+.line-1{
+     position: relative;
+     top: 15px;  
+     border-right: 1px solid rgba(0, 0, 0, 0.75);
+     white-space: nowrap;
+     overflow: hidden;  
+ }
+ 
+ /* Animation */
+ .anim-typewriter{
+   animation: typewriter 4s steps(50) 1s 1 normal both,
+              blinkTextCursor 500ms steps(50) infinite normal;
+ }
+ @keyframes typewriter{
+   from{width: 0;}
+   to{width: 100%;}
+ }
+ @keyframes blinkTextCursor{
+   from{border-right-color: rgb(52, 48, 48);}
+   to{border-right-color: transparent;}
+ }

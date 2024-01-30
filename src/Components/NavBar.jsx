@@ -14,10 +14,10 @@ import './/Home.css';
 import { ColorGoo, Mail, User } from "./Asserts/Anim";
 import logo from './Asserts/dinner.png';
 function NavBar(){
-    const [index, setIndex] = useState(0);
-    const handleSelect = (selectedIndex) => {
-      setIndex(selectedIndex);
-    };
+    // const [index, setIndex] = useState(0);
+    // const handleSelect = (selectedIndex) => {
+    //   setIndex(selectedIndex);
+    // };
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -82,7 +82,7 @@ function NavBar(){
         </Modal.Body>
       </Modal>
 
-      <Modal show={show2} onHide={handleClose2} contentClassName='modal' className='body-blur'>
+      <Modal show={show2} onHide={handleClose2} className='body-blur'>
         <Modal.Body>
             <form  style={{color:"#fc8019"}}>
             <p class="title">Create Account</p>

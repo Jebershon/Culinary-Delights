@@ -3,12 +3,12 @@ import { Col, Container, Form, NavDropdown, Offcanvas, Row } from "react-bootstr
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
-import './/Home.css';
-import { Cart } from './Asserts/Anim';
-import logo from './Asserts/dinner.png';
-import CartDetails from './Cart-Details';
+import { Cart } from '../Asserts/Anim';
+import CartDetails from '../Cart-Details';
+import ingre from '../Hardcode-data/Indgredients-details';
+import '../Home.css';
+import logo from '../Asserts/dinner.png';
 import GloceryCard from "./GloceryCard";
-import ingre from './Indgredients-details';
 function Glocery() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);

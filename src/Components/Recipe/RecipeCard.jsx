@@ -1,7 +1,7 @@
 import { default as React } from 'react';
 import { Card, Col, ListGroup, ListGroupItem, Row } from 'react-bootstrap';
-import './/Home.css';
-import Anim from './Asserts/Anim.jsx';
+import Anim from '../Asserts/Anim.jsx';
+import '../Home.css';
 const RecipeCard = ({ recipe }) => {
   const { name, description, ingredients, steps, servings, prep_time, cook_time, total_time,Avg_rating } = recipe;
   return (

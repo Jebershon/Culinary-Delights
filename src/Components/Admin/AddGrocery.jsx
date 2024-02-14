@@ -1,11 +1,14 @@
+import { BarChart, LocalDining, LocalGroceryStore, Shop, StoreMallDirectory, ViewAgenda } from '@mui/icons-material';
+import axios from 'axios';
 import React, { useState } from 'react';
-import { Button, Card, Col, Container, Dropdown, Form, FormControl, FormLabel, InputGroup, Row, Table } from 'react-bootstrap';
-import './/external.css';
-import img from './Asserts/img-def.jpg';
-import Gro_data from './Indgredients-details';
+import { Button, Card, Col, Container, Dropdown, Form, FormControl, FormLabel, InputGroup, Nav, Navbar, Row } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
+import '..//external.css';
+import logo from '../Asserts/dinner.png';
+import img from '../Asserts/img-def.jpg';
 const categories = ["vegetable", "fruit", "dairy", "meat", "grains", "beverages"];
-const quantityUnits = ["50g", "100g", "500g", "750g"];
-const measuringUnits = ["g", "kg", "liters", "pieces", "tbsp"];
+const quantityUnits = ["50", "100", "500", "750"];
+const measuringUnits = ["g", "kg","ml","liters", "pieces", "tbsp"];
 
 export default function AddGrocery() {
   const [product_id, setProductId] = useState('');
@@ -15,7 +18,7 @@ export default function AddGrocery() {
   const [image_url, setImageUrl] = useState(img);
   const [category, setCategory] = useState('');
   const [unit, setUnit] = useState('');
-
+ const navigate = useNavigate();
   const handleAddGrocery = () => {
     const groceryData = {
       product_id,
@@ -27,26 +30,61 @@ export default function AddGrocery() {
       unit,
     };
     console.log('Added Grocery Data:', groceryData);
+    axios.post('http://localhost:3001/AddGrocery',groceryData)
+      .then(result => {
+        console.log(result);
+        alert("Grocery Added Successfully");
+      })
+      .catch(err => console.log(err));
     // Clear the form fields after handling the data
-    // setProductId('');
-    // setName('');
-    // setQuantity('');
-    // setPrice('');
-    // setImageUrl('');
-    // setCategory('');
-  };
-  const [data, setdata] = useState(Gro_data);
-  const handleUpdateGrocery = (index) => {
-    // Implement the logic for updating a recipe
-    console.log(`Update recipe at index ${Gro_data[index]}`);
-  };
-
-  const handleDeleteGrocery = (index) => {
-    const updatedgroceryData = [...data];
-    updatedgroceryData.splice(index, 1);
-    setdata(updatedgroceryData);
+    setProductId('');
+    setName('');
+    setQuantity('');
+    setPrice('');
+    setImageUrl(img);
+    setCategory('');
   };
   return (
+    <div>
+      <Row>
+        <Col>
+            <div className='mb-5'>
+              <Navbar collapseOnSelect expand="lg" className="transparent-Nav" fixed='top'>
+              <Navbar>
+                  <Container>
+                    <Navbar.Brand className='text-white' style={{fontSize:"20px"}}>
+                    <Link to='/' className='nav-brand'>
+                    <img
+                        alt="logo"
+                        src={logo}
+                        width="40"
+                        height="40"
+                        className="d-inline-block align-top brand"
+                      />&nbsp;
+                      <span style={{color:"#ee7752"}}>C</span>ulinary&nbsp;
+                      <span style={{color:"#ee7752"}}>D</span>elights
+                      </Link>
+                    </Navbar.Brand>
+                  </Container>
+                </Navbar>
+                  <br/>
+                  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                  <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="me-auto nav-underline">
+                    <center><Nav.Link className='navi nav-text' onClick={() => navigate('//AdminDash')}><BarChart style={{color:"white"}}/> Home</Nav.Link></center>
+                      <center><Nav.Link className='navi nav-text' onClick={() => navigate('/AdminDash/AddRecipe')}><LocalDining style={{color:"white"}}/> AddRecipe</Nav.Link></center>
+                      <center><Nav.Link className='navi nav-text' onClick={() => navigate('/AdminDash/ViewRecipe')}><ViewAgenda style={{color:"white"}}/> ViewRecipe</Nav.Link></center>
+                      <center><Nav.Link className='navi nav-text' onClick={() => navigate('/AdminDash/AddGrocery')}><LocalGroceryStore style={{color:"white"}}/> AddGrocery</Nav.Link></center>
+                      <center><Nav.Link className='navi nav-text' onClick={() => navigate('/AdminDash/ViewGrocery')}><StoreMallDirectory style={{color:"white"}}/> ViewGrocery</Nav.Link></center>
+                      <center><Nav.Link className='navi nav-text' onClick={() => navigate('/AdminDash/Sold')}><Shop style={{color:"white"}}/> Sold</Nav.Link></center>
+                    </Nav>
+                  </Navbar.Collapse>
+              </Navbar>
+              </div>
+        </Col>
+    </Row>
+
+    <div className='mt-5 mb-3'>
     <Container>
     <Card className='Admincard-bg'>
     <Card.Header><h1 style={{ fontVariant:"small-caps"}}>Grocery Dashboard</h1></Card.Header>
@@ -159,43 +197,8 @@ export default function AddGrocery() {
     </Form>
     </Card.Body>
     </Card>
-
-    <Card className='Admincard-bg mt-3'>
-     <Card.Header>Grocery Details</Card.Header>
-     <hr/>
-     <Card.Body>
-     <Table striped bordered hover responsive>
-            <thead>
-              <tr>
-                <th>Product</th>
-                <th>Name</th>
-                <th>price</th>
-                <th>Update</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.map((items, index) => (
-                <tr key={index}>
-                  <td><img src={items.image_url} width={80} height={80}/></td>
-                  <td>{items.name}</td>
-                  <td>{items.price}</td>
-                  <td>
-                    <Button variant="warning" onClick={() => handleUpdateGrocery(index)}>
-                      Update
-                    </Button>
-                  </td>
-                  <td>
-                  <Button variant="danger" onClick={() => handleDeleteGrocery(index)}>
-                      Delete
-                    </Button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-     </Card.Body>
-    </Card>
     </Container>
+    </div>
+    </div>
   );
 }

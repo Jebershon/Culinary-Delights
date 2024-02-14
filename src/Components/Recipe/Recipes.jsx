@@ -5,12 +5,12 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { Link } from 'react-router-dom';
-import './/Home.css';
-import { Cart } from './Asserts/Anim';
-import logo from './Asserts/dinner.png';
-import CartDetails from './Cart-Details';
-import recipe_book from './Food-Recipes-details';
-import Footer from './Footer';
+import { Cart } from '../Asserts/Anim';
+import logo from '../Asserts/dinner.png';
+import CartDetails from '../Cart-Details';
+import Footer from '../Footer';
+import recipe_book from '../Hardcode-data/Food-Recipes-details';
+import '../Home.css';
 import RecipeCard from './RecipeCard';
 function Recipes() {
   const [show, setShow] = useState(false);

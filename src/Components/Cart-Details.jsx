@@ -1,6 +1,6 @@
 import { Card, CloseButton, Col, Container, Row } from "react-bootstrap";
 import './/Home.css';
-import ingre from "./Indgredients-details";
+import ingre from "./Hardcode-data/Indgredients-details";
 function CartDetails(){
     return(
     <Container>

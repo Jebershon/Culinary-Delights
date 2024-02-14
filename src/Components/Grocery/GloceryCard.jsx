@@ -4,9 +4,9 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
-import './/Home-2.css';
-import './/Home.css';
-import Anim from './Asserts/Anim.jsx';
+import Anim from '../Asserts/Anim.jsx';
+import '../Home-2.css';
+import '../Home.css';
 const GloceryCard=({ingre})=>{
     const {product_id,name,quantity,price,image_url}=ingre;
     let [count, setCount] = useState(1);

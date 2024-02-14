@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import {
   Button,
@@ -7,14 +8,12 @@ import {
   Dropdown,
   DropdownButton,
   Form,
-  FormCheck,
   InputGroup,
-  Row,
-  Table
+  Row
 } from 'react-bootstrap';
-import './/Home.css';
-import './/external.css';
-import recipe_book from './Food-Recipes-details';
+import '..//Home.css';
+import '..//external.css';
+
 const availableIngredients = [
   "Chicken pieces",
   "Onion",
@@ -142,7 +141,7 @@ const availableIngredients = [
   "Custard Apple"
 ];
 
-const measuringUnits = ["g", "kg", "liters", "pieces", "tbsp"];
+const measuringUnits = ["g", "kg", "liters","ml", "pieces", "tbsp"];
 
 const CustomCheckbox = ({ label, checked, onChange }) => {
   return (
@@ -168,49 +167,49 @@ export default function AddRecipe() {
   const [description, setDescription] = useState('');
   const [isVegetarian, setIsVegetarian] = useState(false);
   const [selectedIngredients, setSelectedIngredients] = useState([]);
-  const [customIngredients, setCustomIngredients] = useState([{ name: '', quantity: '', measuringUnit: measuringUnits[0] }]);
-  let [count, setCount] = useState(0); // New state variable for step count
+  const [customIngredients, setCustomIngredients] = useState([]);
   const [preparationSteps, setPreparationSteps] = useState(['']); // Array to store preparation steps
   const [servings, setServings] = useState('');
   const [prepTime, setPrepTime] = useState('');
   const [cookTime, setCookTime] = useState('');
+  let [count, setCount] = useState(0); // New state variable for step count
 // ----
 function incrementCount() {
-  count = count + 1;
-  setCount(count);
+  setCount((prevCount) => prevCount + 1);
 }
+
 function decrementCount() {
-if(count!=0){
-  count = count - 1;
-  setCount(count);
-}
-else{
+  if (count !== 0) {
+    setCount((prevCount) => prevCount - 1);
+  } else {
     setCount(0);
+  }
 }
-}
+
   const handleStepChange = (index, value) => {
     const updatedSteps = [...preparationSteps];
     updatedSteps[index] = value;
     setPreparationSteps(updatedSteps);
-  };
+}
 // ----
-  const handleAddIngredient = (ingredient) => {
+
+const handleAddIngredient = (ingredient) => {
     if (!selectedIngredients.some((item) => item.name === ingredient)) {
       setSelectedIngredients([
         ...selectedIngredients,
         { name: ingredient, quantity: '', measuringUnit: measuringUnits[0] },
       ]);
     }
-  };
+}
 
-  const handleRemoveIngredient = (ingredient) => {
+const handleRemoveIngredient = (ingredient) => {
     const updatedIngredients = selectedIngredients.filter(
       (item) => item.name !== ingredient
     );
     setSelectedIngredients(updatedIngredients);
-  };
+}
 
-  const handleUnitChange = (ingredient, selectedUnit) => {
+const handleUnitChange = (ingredient, selectedUnit) => {
     const updatedIngredients = selectedIngredients.map((item) => {
       if (item.name === ingredient) {
         return { ...item, measuringUnit: selectedUnit };
@@ -218,22 +217,23 @@ else{
       return item;
     });
     setSelectedIngredients(updatedIngredients);
-  };
+}
 
-  const handleAddCustomIngredient = () => {
+const handleAddCustomIngredient = () => {
     setCustomIngredients([
       ...customIngredients,
       { name: '', quantity: '', measuringUnit: measuringUnits[0] },
     ]);
-  };
+}
   
-  const handleRemoveCustomIngredient = (index) => {
+const handleRemoveCustomIngredient = (index) => {
     const updatedCustomIngredients = [...customIngredients];
     updatedCustomIngredients.splice(index, 1);
     setCustomIngredients(updatedCustomIngredients);
-  };
+}
 
-  const handleAddRecipe = () => {
+const handleAddRecipe = (e) => {
+    e.preventDefault();
     const totalPrepTime = parseInt(prepTime) || 0;
     const totalCookTime = parseInt(cookTime) || 0;
   
@@ -242,48 +242,43 @@ else{
       ...customIngredients,
     ].map((ingredient, index) => ({
       name: ingredient.name,
-      quantity: ingredient.quantity,  // Use the state value directly
+      quantity: ingredient.quantity,
       measuringUnit: ingredient.measuringUnit,
     }));
   
+    const totalTime = totalPrepTime + totalCookTime;
     const recipeData = {
       name,
       description,
       isVegetarian,
       ingredients: ingredientsWithQuantity,
-      preparationSteps,
+      steps: preparationSteps, // Adjust the field name to match your MongoDB schema
       servings,
       prepTime: totalPrepTime,
       cookTime: totalCookTime,
-      totalTime: `${totalPrepTime + totalCookTime} minutes`,
+      totalTime:totalTime
     };
   
     console.log("Recipe Data:", recipeData);
   
-    // Reset state values
-    // setName('');
-    // setDescription('');
-    // setIsVegetarian(false);
-    // setSelectedIngredients([]);
-    // setCustomIngredients([{ name: '', quantity: '', measuringUnit: measuringUnits[0] }]);
-    // setPreparationSteps('');
-    // setServings('');
-    // setCount(0);
-    // setPrepTime('');
-    // setCookTime('');
-  };
-  const [recipes, setRecipes] = useState(recipe_book);
-  const handleUpdateRecipe = (index) => {
-    // Implement the logic for updating a recipe
-    console.log(`Update recipe at index ${recipe_book[index]}`);
-  };
+    axios.post('http://localhost:3001/AddRecipe', recipeData)
+      .then(result => {
+        console.log(result);
+        alert("Recipe Added Successfully");
+      })
+      .catch(err => console.log(err));
+      setName('');
+      setDescription('');
+      setIsVegetarian(false);
+      setSelectedIngredients([]);
+      setCustomIngredients([]);
+      setPreparationSteps('');
+      setServings('');
+      setCount(0);
+      setPrepTime('');
+      setCookTime('');
+}  
 
-  const handleDeleteRecipe = (index) => {
-    // Implement the logic for deleting a recipe
-    const updatedRecipes = [...recipes];
-    updatedRecipes.splice(index, 1);
-    setRecipes(updatedRecipes);
-  };
   return (
     <div>
       <Container>
@@ -291,7 +286,7 @@ else{
       <Card.Header><h1 style={{ fontVariant:"small-caps"}}>Recipe Dashboard</h1></Card.Header>
       <Card.Body>
       <Row>
-        <Form>
+        <Form onSubmit = {handleAddRecipe}>
         <InputGroup className="mb-3">
         <InputGroup.Text><Form.Label style={{ fontVariant:"small-caps"}}>Recipe's Title</Form.Label></InputGroup.Text>
           <Form.Control
@@ -300,6 +295,7 @@ else{
             value={name}
             onChange={(e) => setName(e.target.value)}
             className='rem-border'
+            required
           />
           </InputGroup>
 
@@ -312,6 +308,7 @@ else{
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             className='rem-border'
+            required
           />
           </InputGroup>
 
@@ -321,27 +318,30 @@ else{
           <div>
           <CustomCheckbox
             checked={isVegetarian}
-            onChange={() => setIsVegetarian(!isVegetarian)}/>
+            onChange={() => setIsVegetarian(!isVegetarian)}
+            />
           </div>
 
           <br/>
 
           <h2><label style={{ fontVariant:"small-caps"}}>Ingredients</label></h2>
+   
+          <Container>
           <Row>
             {availableIngredients.map((ingredient) => (
-              <Col lg={3} className='mt-4 mb-4' key={ingredient}>
-                <FormCheck
-                  label={ingredient}
-                  type="checkbox"
-                  id={`ingredient-${ingredient}`}
-                  checked={selectedIngredients.some(
-                    (item) => item.name === ingredient
-                  )}
-                  onChange={() => handleAddIngredient(ingredient)}
-                />
+              <Col key={ingredient} xs={3} className="mb-2">
+                <Button
+                  variant="outline-warning"
+                  style={{ borderRadius: "16px", width: "100%" }}
+                  onClick={() => handleAddIngredient(ingredient)}
+                >
+                  {ingredient}
+                </Button>
               </Col>
             ))}
           </Row>
+        </Container>
+
 
           <Row>
             {selectedIngredients.map((ingredient) => (
@@ -558,7 +558,7 @@ else{
           <Row>
           <Col></Col>
           <Col lg={4}>
-          <Button  onClick={handleAddRecipe} variant="warning" style={{width:"100%"}}>Add Recipe</Button>
+          <Button type='submit'  variant="warning" style={{width:"100%"}}>Add Recipe</Button>
           </Col>
           <Col></Col>
           </Row>
@@ -567,43 +567,6 @@ else{
       </Row>
       </Card.Body>
       </Card>
-
-        <Card className='Admincard-bg mt-3'>
-          <Card.Header>
-            <Card.Title>Recipe Details</Card.Title>
-          </Card.Header>
-          <hr/>
-          <Card.Body>
-          <Table striped bordered hover responsive>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Update</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              {recipes.map((recipe, index) => (
-                <tr key={index}>
-                  <td>{recipe.name}</td>
-                  <td>{recipe.description}</td>
-                  <td>
-                    <Button variant="warning" onClick={() => handleUpdateRecipe(index)}>
-                      Update
-                    </Button>
-                  </td>
-                  <td>
-                  <Button variant="danger" onClick={() => handleDeleteRecipe(index)}>
-                      Delete
-                    </Button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-          </Card.Body>
-        </Card>
       </Container>
       </div>
   );

@@ -12,8 +12,8 @@ import profile5 from './Asserts/male-1.jpg';
 import profile6 from './Asserts/male-2.jpg';
 import profile4 from './Asserts/male-avatar-profile.jpg';
 import Footer from './Footer';
-import GroceryPurchaseCard from './GroceryPurchaseCard';
-import purchaseDetails from './purchaseDetails.js';
+import GroceryPurchaseCard from './Grocery/GroceryPurchaseCard.jsx';
+import purchaseDetails from './Hardcode-data/purchaseDetails.js';
 const BackBtn=()=>{
   return(
     <div>

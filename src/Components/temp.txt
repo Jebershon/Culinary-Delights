@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import {
   Button,
   Card,
@@ -12,9 +13,9 @@ import {
   Row,
   Table
 } from 'react-bootstrap';
+import Modal from 'react-bootstrap/Modal';
 import './/Home.css';
 import './/external.css';
-import recipe_book from './Food-Recipes-details';
 const availableIngredients = [
   "Chicken pieces",
   "Onion",
@@ -169,11 +170,11 @@ export default function AddRecipe() {
   const [isVegetarian, setIsVegetarian] = useState(false);
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [customIngredients, setCustomIngredients] = useState([{ name: '', quantity: '', measuringUnit: measuringUnits[0] }]);
-  let [count, setCount] = useState(0); // New state variable for step count
   const [preparationSteps, setPreparationSteps] = useState(['']); // Array to store preparation steps
   const [servings, setServings] = useState('');
   const [prepTime, setPrepTime] = useState('');
   const [cookTime, setCookTime] = useState('');
+  let [count, setCount] = useState(0); // New state variable for step count
 // ----
 function incrementCount() {
   count = count + 1;
@@ -233,7 +234,8 @@ else{
     setCustomIngredients(updatedCustomIngredients);
   };
 
-  const handleAddRecipe = () => {
+  const handleAddRecipe = (e) => {
+    e.preventDefault();
     const totalPrepTime = parseInt(prepTime) || 0;
     const totalCookTime = parseInt(cookTime) || 0;
   
@@ -242,56 +244,243 @@ else{
       ...customIngredients,
     ].map((ingredient, index) => ({
       name: ingredient.name,
-      quantity: ingredient.quantity,  // Use the state value directly
+      quantity: ingredient.quantity,
       measuringUnit: ingredient.measuringUnit,
     }));
+  
+    const totalTimewithmin = `${totalPrepTime + totalCookTime} minutes`;
   
     const recipeData = {
       name,
       description,
       isVegetarian,
       ingredients: ingredientsWithQuantity,
-      preparationSteps,
+      steps: preparationSteps, // Adjust the field name to match your MongoDB schema
       servings,
       prepTime: totalPrepTime,
       cookTime: totalCookTime,
-      totalTime: `${totalPrepTime + totalCookTime} minutes`,
+      totalTime: totalTimewithmin,
     };
   
     console.log("Recipe Data:", recipeData);
   
+    axios.post('http://localhost:3001/AddRecipe', recipeData)
+      .then(result => {
+        console.log(result);
+        alert("Recipe Added Successfully");
+      })
+      .catch(err => console.log(err));
+      setName('');
+      setDescription('');
+      setIsVegetarian(false);
+      setSelectedIngredients([]);
+      setCustomIngredients([{ name: '', quantity: '', measuringUnit: measuringUnits[0] }]);
+      setPreparationSteps('');
+      setServings('');
+      setCount(0);
+      setPrepTime('');
+      setCookTime('');
+  }  
     // Reset state values
-    // setName('');
-    // setDescription('');
-    // setIsVegetarian(false);
-    // setSelectedIngredients([]);
-    // setCustomIngredients([{ name: '', quantity: '', measuringUnit: measuringUnits[0] }]);
-    // setPreparationSteps('');
-    // setServings('');
-    // setCount(0);
-    // setPrepTime('');
-    // setCookTime('');
-  };
-  const [recipes, setRecipes] = useState(recipe_book);
-  const handleUpdateRecipe = (index) => {
-    // Implement the logic for updating a recipe
-    console.log(`Update recipe at index ${recipe_book}`);
-  };
 
-  const handleDeleteRecipe = (index) => {
-    // Implement the logic for deleting a recipe
-    const updatedRecipes = [...recipes];
-    updatedRecipes.splice(index, 1);
-    setRecipes(updatedRecipes);
-  };
+    const [recipes, setRecipes] = useState([]);
+
+    useEffect(() => {
+      axios.get('http://localhost:3001/GetRecipe')
+        .then(result => {
+          console.log(result.data);
+          setRecipes(result.data);
+        })
+        .catch(err => console.log(err));
+    }, []); // Pass an empty dependency array to useEffect
+  
+    const [showUpdateModal, setShowUpdateModal] = useState(false);
+    const [updateRecipeIndex, setUpdateRecipeIndex] = useState(null);
+    const [id, setId] = useState("");
+  
+    const handleUpdateRecipe = (id, index) => {
+      setUpdateRecipeIndex(index);
+      setShowUpdateModal(true);
+      setId(id);
+    
+      const recipeToUpdate = recipes[index];
+    
+      if (recipeToUpdate) {
+        setName(recipeToUpdate.name || '');
+        setDescription(recipeToUpdate.description || '');
+        setIsVegetarian(recipeToUpdate.isVegetarian || false);
+        setSelectedIngredients(recipeToUpdate.ingredients || []);
+        setPreparationSteps(recipeToUpdate.steps || []);
+        setServings(recipeToUpdate.servings || '');
+        setPrepTime(recipeToUpdate.prep_time || '');
+        setCookTime(recipeToUpdate.cook_time || '');
+        setCount(recipeToUpdate.count || 0);
+        console.log(`Update recipe at index ${index}`);
+      }
+    };
+    
+  
+    const handleUpdateRecipeSubmit = () => {
+      // Implement the logic to update the recipe on the server
+      const updatedRecipe = {
+        name,
+        description,
+        isVegetarian,
+        ingredients: selectedIngredients,
+        steps: preparationSteps,
+        servings,
+        prep_time: prepTime,
+        cook_time: cookTime,
+        total_time: `${prepTime} + ${cookTime}`
+      };
+  
+      axios.put(`http://localhost:3001/UpdateRecipe/${id}`, updatedRecipe)
+        .then(result => {
+          console.log(result);
+          alert("Recipe Updated Successfully");
+        })
+        .catch(err => console.log(err));
+  
+      // Close the modal and reset the state
+      setShowUpdateModal(false);
+      setId("");
+    };
   return (
     <div>
+    <Modal show={showUpdateModal} onHide={() => setShowUpdateModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Update Recipe</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {/* Add form fields for each recipe detail */}
+          <Form>
+            <Form.Group controlId="formRecipeName">
+              <Form.Label>Recipe Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter recipe name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="formRecipeDescription">
+              <Form.Label>Description</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={5}
+                placeholder="Enter recipe description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="formIsVegetarian">
+              <Form.Check
+                type="checkbox"
+                label="Is Vegetarian"
+                checked={isVegetarian}
+                onChange={() => setIsVegetarian(!isVegetarian)}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="formIngredients">
+            <Form.Label>Ingredients</Form.Label>
+            {selectedIngredients.map((ingredient, index) => (
+              <div key={index} className="mb-3">
+                <InputGroup>
+                  <InputGroup.Text>{ingredient.name}</InputGroup.Text>
+                  <Form.Control
+                    type="text"
+                    placeholder={`Enter quantity for ${ingredient.name}`}
+                    value={ingredient.quantity}
+                    onChange={(e) => {
+                      const updatedIngredients = [...selectedIngredients];
+                      updatedIngredients[index].quantity = e.target.value;
+                      setSelectedIngredients(updatedIngredients);
+                    }}
+                  />
+                  {/* Similar DropdownButton and Remove Button as in your existing code */}
+                </InputGroup>
+              </div>
+            ))}
+          </Form.Group>
+
+          <Form.Group controlId="formPreparationSteps">
+            <Form.Label>Step by Step Instructions</Form.Label>
+            {[...Array(count)].map((_, index) => (
+              <InputGroup key={index} className="mb-3">
+                <InputGroup.Text>
+                  <Form.Label>Step {index + 1}</Form.Label>
+                </InputGroup.Text>
+                <Form.Control
+                  type="text"
+                  rows={3}
+                  placeholder={`Enter preparation step ${index + 1}`}
+                  value={preparationSteps[index]}
+                  onChange={(e) => handleStepChange(index, e.target.value)}
+                />
+              </InputGroup>
+            ))}
+          </Form.Group>
+
+          <Form.Group controlId="formServings">
+            <Form.Label>Servings</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Enter number of servings"
+              value={servings}
+              onChange={(e) => setServings(e.target.value)}
+            />
+          </Form.Group>
+           
+          <Form.Group controlId="formPrepTime">
+          <Form.Label>Prep Time (min)</Form.Label>
+          <Form.Control
+            type="number"
+            placeholder="Enter preparation time"
+            value={prepTime}
+            onChange={(e) => setPrepTime(e.target.value)}
+          />
+        </Form.Group>
+
+        <Form.Group controlId="formCookTime">
+          <Form.Label>Cooking Time (min)</Form.Label>
+          <Form.Control
+            type="number"
+            placeholder="Enter cooking time"
+            value={cookTime}
+            onChange={(e) => setCookTime(e.target.value)}
+          />
+        </Form.Group>
+
+        <Form.Group controlId="formTotalTime">
+          <Form.Label>Total Time (min)</Form.Label>
+          <Form.Control
+            type="number"
+            placeholder="Total time is calculated automatically"
+            value={Number(prepTime) + Number(cookTime)}
+            readOnly
+          />
+        </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowUpdateModal(false)}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleUpdateRecipeSubmit}>
+            Update Recipe
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
       <Container>
       <Card  className='Admincard-bg'>
       <Card.Header><h1 style={{ fontVariant:"small-caps"}}>Recipe Dashboard</h1></Card.Header>
       <Card.Body>
       <Row>
-        <Form>
+        <Form onSubmit = {handleAddRecipe}>
         <InputGroup className="mb-3">
         <InputGroup.Text><Form.Label style={{ fontVariant:"small-caps"}}>Recipe's Title</Form.Label></InputGroup.Text>
           <Form.Control
@@ -300,6 +489,7 @@ else{
             value={name}
             onChange={(e) => setName(e.target.value)}
             className='rem-border'
+            required
           />
           </InputGroup>
 
@@ -312,6 +502,7 @@ else{
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             className='rem-border'
+            required
           />
           </InputGroup>
 
@@ -321,7 +512,8 @@ else{
           <div>
           <CustomCheckbox
             checked={isVegetarian}
-            onChange={() => setIsVegetarian(!isVegetarian)}/>
+            onChange={() => setIsVegetarian(!isVegetarian)}
+            />
           </div>
 
           <br/>
@@ -558,7 +750,7 @@ else{
           <Row>
           <Col></Col>
           <Col lg={4}>
-          <Button  onClick={handleAddRecipe} variant="warning" style={{width:"100%"}}>Add Recipe</Button>
+          <Button type='submit'  variant="warning" style={{width:"100%"}}>Add Recipe</Button>
           </Col>
           <Col></Col>
           </Row>
@@ -589,12 +781,12 @@ else{
                   <td>{recipe.name}</td>
                   <td>{recipe.description}</td>
                   <td>
-                    <Button variant="warning" onClick={() => handleUpdateRecipe(index)}>
-                      Update
-                    </Button>
+                  <Button variant="warning" onClick={() => handleUpdateRecipe(recipe._id, index)}>
+                    Update
+                  </Button>
                   </td>
                   <td>
-                  <Button variant="danger" onClick={() => handleDeleteRecipe(index)}>
+                  <Button variant="danger">
                       Delete
                     </Button>
                   </td>

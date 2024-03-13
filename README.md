@@ -43,9 +43,11 @@ The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
 ### Example
-![image](https://github.com/Jebershon/Culinary-Delights/assets/123262772/bb8eee3a-559d-4fc7-aaa8-df79a191f508)
-![image](https://github.com/Jebershon/Culinary-Delights/assets/123262772/277bcbf6-4bd6-424d-b6ae-032b0f25b0c0)
-![image](https://github.com/Jebershon/Culinary-Delights/assets/123262772/7994b3aa-288c-4774-8ad1-e2e4c84304be)
+
+![image](https://github.com/Jebershon/Culinary-Delights/assets/123262772/85edad7f-f872-4286-8e64-fcc7144806dc)
+![image](https://github.com/Jebershon/Culinary-Delights/assets/123262772/e43f7993-1e33-44ef-af43-2601701ce54f)
+![image](https://github.com/Jebershon/Culinary-Delights/assets/123262772/49f537f0-60ea-4489-bd68-ea207d3e70e0)
+![image](https://github.com/Jebershon/Culinary-Delights/assets/123262772/8d8de977-6c6d-442e-b5a1-7e2de281fb20)
 
 # Setup
 To set up the project locally, follow these steps:

@@ -30,7 +30,7 @@ export default function AddGrocery() {
       unit,
     };
     console.log('Added Grocery Data:', groceryData);
-    axios.post('http://localhost:3001/AddGrocery',groceryData)
+    axios.post('https://culinary-delights-backend.onrender.com/AddGrocery',groceryData)
       .then(result => {
         console.log(result);
         alert("Grocery Added Successfully");

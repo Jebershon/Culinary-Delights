@@ -51,7 +51,7 @@ export default function UpdateRecipe() {
   let [count, setCount] = useState(0); // New state variable for step count
 // ----
 useEffect(() => {
-  axios.get('http://localhost:3001/FindRecipe/' + id)
+  axios.get('https://culinary-delights-backend.onrender.com/FindRecipe/' + id)
     .then(result => {
       const { name, description, isVegetarian, ingredients, steps, servings, prepTime, cookTime } = result.data;
       setName(name);
@@ -131,7 +131,7 @@ const handleUpdateRecipe = (e) => {
   
     console.log("Recipe Data:", recipeData);
   
-    axios.put('http://localhost:3001/UpdateRecipe/'+id, recipeData)
+    axios.put('https://culinary-delights-backend.onrender.com/UpdateRecipe/'+id, recipeData)
       .then(result => {
         console.log(result);
         alert("Recipe Updated Successfully");

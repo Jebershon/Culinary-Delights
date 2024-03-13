@@ -261,7 +261,7 @@ const handleAddRecipe = (e) => {
   
     console.log("Recipe Data:", recipeData);
   
-    axios.post('http://localhost:3001/AddRecipe', recipeData)
+    axios.post('https://culinary-delights-backend.onrender.com/AddRecipe', recipeData)
       .then(result => {
         console.log(result);
         alert("Recipe Added Successfully");

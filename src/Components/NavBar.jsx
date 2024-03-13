@@ -40,7 +40,7 @@ export default function NavBar(){
   const StoreSignup = (e) => {
     e.preventDefault();
     if (password === confirmpassword && password !== "") {
-      axios.post('http://localhost:3001/CreateUser', { name, email, password, role})
+      axios.post('https://culinary-delights-backend.onrender.com/CreateUser', { name, email, password, role})
         .then(result => {
           console.log(result);
           setShow(true);
@@ -59,7 +59,7 @@ export default function NavBar(){
  axios.defaults.withCredentials = true;
   const ValidateLogin = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3001/Login', { Login_email, Login_password })
+    axios.post('https://culinary-delights-backend.onrender.com/Login', { Login_email, Login_password })
       .then(result => {
         console.log(result);
         if (result.data.status === "Success") {

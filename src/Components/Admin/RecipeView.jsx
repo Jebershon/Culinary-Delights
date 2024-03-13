@@ -9,7 +9,7 @@ import '../Home-2.css'; // Make sure to fix the import path
 import '../Home.css';
 export default function RecipeView(){
   function handleDelete(id){
-    axios.delete('http://localhost:3001/deleteRecipe/'+id)
+    axios.delete('https://culinary-delights-backend.onrender.com/deleteRecipe/'+id)
         .then(result => {console.log(result.data); window.location.reload();})
         .catch(err => console.log(err));
   };
@@ -17,7 +17,7 @@ export default function RecipeView(){
     const [recipes, setRecipes] = useState([]);
 
     useEffect(() => {
-      axios.get('http://localhost:3001/GetRecipe')
+      axios.get('https://culinary-delights-backend.onrender.com/GetRecipe')
         .then(result => {
           console.log(result.data);
           setRecipes(result.data);

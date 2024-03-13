@@ -46,7 +46,7 @@ function UserProfile() {
 
   useEffect(() => {
     if (id) {
-      axios.get(`http://localhost:3001/FindUser/${id}`)
+      axios.get(`https://culinary-delights-backend.onrender.com/FindUser/${id}`)
         .then(result => {
           console.log("Found user:", result.data);
           const userData = result.data;
@@ -94,7 +94,7 @@ function UserProfile() {
       avatar
     };
 
-    axios.put(`http://localhost:3001/UpdateUser/${id}`, updatedProfile)
+    axios.put(`https://culinary-delights-backend.onrender.com/UpdateUser/${id}`, updatedProfile)
       .then(response => {
         console.log("Updated user profile:", response.data);
         setStoredProfile(updatedProfile);

@@ -21,7 +21,7 @@ function Glocery() {
 
  const [item,setItem] = useState([]);
   useEffect(() => {
-    axios.get('http://localhost:3001/GetGrocery')
+    axios.get('https://culinary-delights-backend.onrender.com/GetGrocery')
       .then(result => {
         console.log(result.data);
         setItem(result.data);
@@ -56,7 +56,7 @@ function Glocery() {
             ingredientURL,
             ingredientCount } = groceryItem;
 
-    axios.post(`http://localhost:3001/addToCart/${userId}`, { groceryItem })
+    axios.post(`https://culinary-delights-backend.onrender.com/addToCart/${userId}`, { groceryItem })
         .then(response => {
             const updatedCart = response.data;
             console.log(updatedCart);

@@ -9,14 +9,14 @@ import '../Home-2.css'; // Make sure to fix the import path
 import '../Home.css';
 export default function RecipeView(){
   function handleDelete(id){
-    axios.delete('http://localhost:3001/deleteGrocery/'+id)
+    axios.delete('https://culinary-delights-backend.onrender.com/deleteGrocery/'+id)
         .then(result => {console.log(result); window.location.reload();})
         .catch(err => console.log(err));
   }
   const navigate = useNavigate();
     const [Grocery, setGrocery] = useState([]);
     useEffect(() => {
-      axios.get('http://localhost:3001/GetGrocery')
+      axios.get('https://culinary-delights-backend.onrender.com/GetGrocery')
         .then(result => {
           console.log(result.data);
           setGrocery(result.data);

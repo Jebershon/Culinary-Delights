@@ -20,7 +20,7 @@ export default function UpdateGrocery() {
  const navigate = useNavigate();
 
  useEffect(() => {
-  axios.get('http://localhost:3001/FindGrocery/'+id)
+  axios.get('https://culinary-delights-backend.onrender.com/FindGrocery/'+id)
     .then(result => {console.log(result);
       setProductId(result.data.id);
       setName(result.data.name);
@@ -45,7 +45,7 @@ export default function UpdateGrocery() {
     };
     console.log('Added Grocery Data:', groceryData);
 
-    axios.put('http://localhost:3001/UpdateGrocery/'+id,groceryData)
+    axios.put('https://culinary-delights-backend.onrender.com/UpdateGrocery/'+id,groceryData)
       .then(result => {
         console.log(result);
         alert("Grocery Added Successfully");

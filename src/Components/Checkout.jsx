@@ -30,7 +30,7 @@ export default function Checkout(){
   
     useEffect(() => {
       if (id) {
-        axios.get(`http://localhost:3001/FindUser/${id}`)
+        axios.get(`https://culinary-delights-backend.onrender.com/FindUser/${id}`)
           .then(result => {
             console.log("Found user:", result.data);
             const userData = result.data;
@@ -46,7 +46,7 @@ export default function Checkout(){
     useEffect(() => {
         const token = jwtDecode(window.localStorage.getItem("token"));
         const userId = token.id;
-    axios.get(`http://localhost:3001/getCartDetails/${userId}`)
+    axios.get(`https://culinary-delights-backend.onrender.com/getCartDetails/${userId}`)
     .then(response => {
       console.log("Fetched cart details:", response.data);
         setCart(response.data);

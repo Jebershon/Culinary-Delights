@@ -24,7 +24,7 @@ function Recipes() {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:3001/GetRecipe')
+    axios.get('https://culinary-delights-backend.onrender.com/GetRecipe')
       .then(result => {
         console.log(result.data);
         setRecipes(result.data);
@@ -105,7 +105,7 @@ function Recipes() {
     const groceryItems = data.ingredients;
     
     groceryItems.forEach(item => {
-        axios.get(`http://localhost:3001/getGroceryItemsByName`, {
+        axios.get(`https://culinary-delights-backend.onrender.com/getGroceryItemsByName`, {
             params: { name: item.name }
         })
         .then(response => {
@@ -130,7 +130,7 @@ function Recipes() {
                 ingredientCount:count
             };
             console.log("Found item:", JSON.stringify(groceryItem, null, 2));
-              axios.post(`http://localhost:3001/addToCart/${userId}`, { groceryItem })
+              axios.post(`https://culinary-delights-backend.onrender.com/addToCart/${userId}`, { groceryItem })
               .then(response => {
                   const updatedCart = response.data;
                   if (updatedCart && updatedCart.name) {

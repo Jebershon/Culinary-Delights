@@ -12,7 +12,7 @@ function CartDetails() {
   useEffect(() => {
     const token = jwtDecode(window.localStorage.getItem("token"));
     const userId = token.id;
-    axios.get(`http://localhost:3001/getCartDetails/${userId}`)
+    axios.get(`https://culinary-delights-backend.onrender.com/getCartDetails/${userId}`)
       .then(response => {
         console.log("Fetched cart details:", response.data);
         // Simulate a delay of 1000ms (1 second) before setting loading to false
@@ -63,7 +63,7 @@ const handleDecrement = (itemIndex) => {
   const handleRemoveItem = (itemId, itemIndex) => {
     const token = jwtDecode(window.localStorage.getItem("token"));
     const userId = token.id;
-    axios.delete(`http://localhost:3001/removeCartItem/${userId}/${itemId}`)
+    axios.delete(`https://culinary-delights-backend.onrender.com/removeCartItem/${userId}/${itemId}`)
       .then(response => {
         console.log(response.data);
         const updatedCart = cart.filter((_, index) => index !== itemIndex);
@@ -82,7 +82,7 @@ const handleDecrement = (itemIndex) => {
     console.log("updatedPrice:", updatedPrice);
     console.log("quantity:", quantity);
     console.log("count:", count);
-    axios.put(`http://localhost:3001/updateCartItem/${userId}/${itemId}`, { count, quantity, price: updatedPrice })
+    axios.put(`https://culinary-delights-backend.onrender.com/updateCartItem/${userId}/${itemId}`, { count, quantity, price: updatedPrice })
       .then(response => {
         console.log(response.data);
         const updatedCart = cart.map(item => {

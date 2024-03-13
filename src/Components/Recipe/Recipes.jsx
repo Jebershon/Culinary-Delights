@@ -211,6 +211,7 @@ function Recipes() {
         <Offcanvas.Title><h2>Cart <Cart/></h2></Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
+        <hr style={{color:"black"}}/>
           <CartDetails/>
         </Offcanvas.Body>
       </Offcanvas>

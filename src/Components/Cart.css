@@ -134,3 +134,8 @@
       background-color: transparent;
     }
   }
+  .shadow-texture{
+    -webkit-box-shadow: -1px -1px 17px 3px rgba(189,187,189,0.69);
+    -moz-box-shadow: -1px -1px 17px 3px rgba(189,187,189,0.69);
+    box-shadow: -1px -1px 17px 3px rgba(189,187,189,0.69);
+  }

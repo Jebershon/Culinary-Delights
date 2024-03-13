@@ -1,5 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Checkout from './Components/Checkout.jsx';
+
 import Aboutus from './Components/Aboutus';
 import AddGrocery from './Components/Admin/AddGrocery.jsx';
 import AdminDash from './Components/Admin/AdminDash.jsx';
@@ -24,6 +26,7 @@ function App() {
         <Route path="/NutriCalc/*" element={<NutritionCalculator/>} />
         <Route path="/Aboutus/*" element={<Aboutus/>} />
         <Route path='/MyProfile/*' element={<MyProfile/>}/>
+        <Route path='/Checkout/' element={<Checkout/>}/>
         <Route path='/AdminDash/*' element={<ChartComponent/>}/>
         <Route path='/AdminDash/AddRecipe/*' element={<AdminDash/>}/>
         <Route path='/AdminDash/AddGrocery/*' element={<AddGrocery/>}/>

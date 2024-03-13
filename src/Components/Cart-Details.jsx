@@ -1,9 +1,12 @@
+import { ShoppingCartCheckout } from "@mui/icons-material";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import React, { useEffect, useState } from "react";
 import { Button, Card, CloseButton, Col, Container, Form, InputGroup, Row } from "react-bootstrap";
 import ".//Cart.css";
+import { useNavigate } from "react-router";
 function CartDetails() {
+  const navigate = useNavigate();
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(true); // State to manage loading
   useEffect(() => {
@@ -123,7 +126,8 @@ const handleDecrement = (itemIndex) => {
         ) : (
          cart.length > 0 ? (
           cart.map((item, index) => (
-            <Card key={index} className="mb-3">
+            <>
+            <Card key={index} className="mb-3 shadow-texture">
               <Row>
                 <Col><Card.Img src={item.ingredientURL} style={{ width: "100px", height: "100px" }} /></Col>
                 <Col><div className="mt-5">Quantity  :  {item.ingredientQuantity}g</div></Col>
@@ -153,11 +157,30 @@ const handleDecrement = (itemIndex) => {
                 </Col>
               </Row>
             </Card>
+            </>
          ))
          ) : (
+          <>
            <p>Your cart is empty</p>
+           <br/>
+           <br/>
+           <br/>
+            </>
          )
        )}
+       <Card className="mb-3 shadow-texture">
+            <InputGroup className="p-2">
+            <Form.Control
+              placeholder="Discount Code"
+            />
+            <Button variant="outline-warning">
+              Button
+            </Button>
+          </InputGroup>
+            </Card>
+            <Card className="mb-3 shadow-texture">
+            <Button className='btn btn-warning p-2' onClick={()=>{navigate('/Checkout/')}}><ShoppingCartCheckout/> Checkout</Button>
+        </Card>
       </Container>
     </Container>
   );

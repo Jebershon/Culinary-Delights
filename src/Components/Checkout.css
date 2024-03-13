@@ -1,0 +1,9 @@
+.pay{
+    border-radius: 40px;
+    border-color: aliceblue;
+    padding: 5px;
+    margin: 20px;
+    -webkit-box-shadow: 1px -1px 5px 6px rgba(217,217,217,1);
+    -moz-box-shadow: 1px -1px 5px 6px rgba(217,217,217,1);
+    box-shadow: 1px -1px 5px 6px rgba(217,217,217,1);
+    }

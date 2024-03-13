@@ -138,9 +138,6 @@ const data = (groceryItem) => {
         <hr style={{color:"black"}}/>
           <CartDetails/>
         </Offcanvas.Body>
-        <center>
-         <Button className='btn btn-warning mt-1 mb-1'><ShoppingCartCheckout/> Checkout</Button>
-        </center>
       </Offcanvas>
 
     <br/>

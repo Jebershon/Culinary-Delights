@@ -10,67 +10,99 @@ import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify'; // Import react-toastify
+import 'react-toastify/dist/ReactToastify.css'; // Import react-toastify styles
 import './/Home.css';
 import './/external.css';
 import { Mail, User } from "./Asserts/Anim";
 import logo from './Asserts/dinner.png';
+
 export default function NavBar(){
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-  const handleShow = () => {setShow(true);setShow2(false)};
+  const handleShow = () => { setShow(true); setShow2(false); };
   const navigate = useNavigate();
 
   const [show2, setShow2] = useState(false);
   const handleClose2 = () => setShow2(false);
-  const handleShow2 = () => {setShow2(true);setShow(false);};
+  const handleShow2 = () => { setShow2(true); setShow(false); };
 
-  const [name,setName] = useState("");
-  const [email,setEmail] = useState("");
-  const [password,setPassword] = useState("");
-  const [confirmpassword,setConfirmpassword] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [role,setRole] = useState("user");
+  const [confirmpassword, setConfirmpassword] = useState("");
 
-  const [Login_email,setLogin_Email] = useState("");
-  const [Login_password,setLogin_Password] = useState("");
+  const [Login_email, setLogin_Email] = useState("");
+  const [Login_password, setLogin_Password] = useState("");
 
-  const StoreSignup=(e)=>{
+  const StoreSignup = (e) => {
     e.preventDefault();
-    if(password===confirmpassword && password!=""){
-      axios.post('http://localhost:3001/CreateUser',{name,email,password})
-      .then(result=>{
-        console.log(result);
-        setShow(true);
-        setShow2(false);
-      })
-      .catch(err=>console.log(err));
-    }
-    else{
-     alert("Enter The password properly");
+    if (password === confirmpassword && password !== "") {
+      axios.post('http://localhost:3001/CreateUser', { name, email, password, role})
+        .then(result => {
+          console.log(result);
+          setShow(true);
+          setShow2(false);
+          setDisplay(true);
+          toast.success("Signup Successful!"); // Notify user with success message
+        })
+        .catch(err => {
+          console.log(err);
+          toast.error("Signup failed. Please try again."); // Notify user with error message
+        });
+    } else {
+      toast.error("Passwords do not match or are empty."); // Notify user with error message
     }
   }
-
-  const ValidateLogin=(e)=>{
+ axios.defaults.withCredentials = true;
+  const ValidateLogin = (e) => {
     e.preventDefault();
-      axios.post('http://localhost:3001/Login',{Login_email,Login_password})
-      .then(result=>{
+    axios.post('http://localhost:3001/Login', { Login_email, Login_password })
+      .then(result => {
         console.log(result);
-        if(result.data==="Success"){
-         console.log("Logged in sucessfully");
-         setShow(false);
-        }
-        else if(result.data=="Sorry Password Incorrect"){
-          alert(result.data);
-        }
-        else{
+        if (result.data.status === "Success") {
+          if(result.data.role === "admin"){
+            window.localStorage.setItem("role",true);
+            window.localStorage.setItem("token",result.data.token);
+            window.localStorage.setItem("isloggedin",true);
+            toast.success("Admin Login Successful!");
+            window.location.reload();
+            setShow(false);
+            setDisplay(true);
+          }
+          else{
+          console.log("Logged in successfully");
+          window.location.reload();
+          toast.success("Login Successful!"); 
+          window.localStorage.setItem("token",result.data.token);
+          window.localStorage.setItem("isloggedin",true);
+          setShow(false);
+          setDisplay(true);
+          }
+        } 
+        else if (result.data === "Sorry Password Incorrect") 
+        {
+          toast.error("Incorrect password. Please try again."); // Notify user with error message
+        } 
+        else {
           console.log(result.data);
           setShow(false);
           setShow2(true);
+          toast.error("Incorrect email or user does not exist. Please sign up."); // Notify user with error message
         }
       })
-      .catch(err=>console.log(err));
-    }
+      .catch(err => {
+        console.log(err);
+        toast.error("Login failed. Please try again."); // Notify user with error message
+      });
+  }
+  const [display, setDisplay] = useState(localStorage.getItem("isloggedin"));
+  const [AdminDisplay, setAdminDisplay] = useState(localStorage.getItem("role"));
     return(
       <div>
+      <ToastContainer />
       <Modal show={show} onHide={handleClose} contentClassName='modal' className='body-blur'>
         <Modal.Body>
             <form  style={{color:"#fc8019"}} onSubmit={ValidateLogin}>
@@ -178,7 +210,6 @@ export default function NavBar(){
                 </form>
         </Modal.Body>
       </Modal>
-
       <Row>
       <Col>
         <Navbar collapseOnSelect expand="lg" className="transparent-Nav" fixed='top'>
@@ -204,26 +235,44 @@ export default function NavBar(){
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto nav-underline">
                 <center><Nav.Link className='navi'><Link to='/' className='nav-text'>Home</Link></Nav.Link></center>
+                {display? (
+                  <>
                 <center><Nav.Link className='navi'><Link to='./Glocery' className='nav-text'>Grocery</Link></Nav.Link></center>
                 <center><Nav.Link className='navi'><Link to='./Recipes' className='nav-text'>Recipes</Link></Nav.Link></center>
                 <center><Nav.Link className='navi'><Link to='./NutriCalc' className='nav-text'>NutriCalc</Link></Nav.Link></center>
+                </>):(
                 <center><Nav.Link className='navi'><Link to='./Aboutus' className='nav-text'>About us</Link></Nav.Link></center>
+                )}
               </Nav>
               <br/>
+              {!display? (
+                <>
               <Nav>
                   <center><Nav.Link className='navi nav-text' style={{color:"white"}} onClick={handleShow}><Login/></Nav.Link></center>
               </Nav>
+              </>
+               ):(
                 <center>
                 <NavDropdown className='navi nav-text' title={<AccountCircle/>} id="basic-nav-dropdown" menuVariant='dark' align="end">
-                  <center>
-                    <NavDropdown.Item ><Link to="./MyProfile" className='nav-text'><AccountCircleOutlined/></Link></NavDropdown.Item>
-                    <NavDropdown.Divider/>
+                <center>
+                  {AdminDisplay?(
+                    <>
                     <NavDropdown.Item ><Link to="./AdminDash" className='nav-text'><AdminPanelSettings/></Link></NavDropdown.Item>
                     <NavDropdown.Divider/>
-                    <NavDropdown.Item ><Link to="./" className='nav-text'><Logout/></Link></NavDropdown.Item>
+                    <NavDropdown.Item ><Link to="./MyProfile" className='nav-text'><AccountCircleOutlined/></Link></NavDropdown.Item>
+                    <NavDropdown.Divider/>
+                    </>
+                    ):(
+                    <>
+                    <NavDropdown.Item ><Link to="./MyProfile" className='nav-text'><AccountCircleOutlined/></Link></NavDropdown.Item>
+                    <NavDropdown.Divider/>
+                    </>
+                    )}
+                    <NavDropdown.Item ><Link to="./" className='nav-text' onClick={()=>{setDisplay(false);localStorage.clear();toast.success("Logged Out Successfully!");}}><Logout/></Link></NavDropdown.Item>
                     </center>
                 </NavDropdown>
                 </center>
+                 )}
             </Navbar.Collapse>
         </Navbar>
         </Col>

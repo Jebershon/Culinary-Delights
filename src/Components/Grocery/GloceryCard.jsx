@@ -7,8 +7,8 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Anim from '../Asserts/Anim.jsx';
 import '../Home-2.css';
 import '../Home.css';
-const GloceryCard=({ingre})=>{
-    const {product_id,name,quantity,price,image_url}=ingre;
+const GloceryCard=({ingre,onAddToCart })=>{
+    const {id,name,quantity,price,image_url}=ingre;
     let [count, setCount] = useState(1);
     const [Data,setData]=useState(50);
     const pro_price=price/100*Data*count;
@@ -28,8 +28,19 @@ const GloceryCard=({ingre})=>{
     const handleChange = (selected) => {
         setData(selected);
       };
+      const handleAddToCart = () => {
+        const data={
+            ingredientName:name,
+            ingredientId:id,
+            ingredientPrice:pro_price,
+            ingredientQuantity:Data,
+            ingredientURL:image_url,
+            ingredientCount:count
+        }
+        onAddToCart(data);
+      };
     return(
-        <div id={product_id} data-aos="zoom-in" data-aos-duration="1000">
+        <div id={id} data-aos="zoom-in" data-aos-duration="1000">
         <Card className="recipe-card">
         <Card.Img variant="top" src={image_url} width={30} height={350} />
         <Card.Body>
@@ -83,7 +94,7 @@ const GloceryCard=({ingre})=>{
                         </div>
                     </Col>
                     <Col xs={6} className='justify-content-center'>
-                        <button className="CartBtn">
+                        <button className="CartBtn" onClick={handleAddToCart}>
                             <span className="IconCon"> 
                             <Anim/>
                             </span>

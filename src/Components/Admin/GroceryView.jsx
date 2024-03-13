@@ -8,6 +8,11 @@ import logo from '../Asserts/dinner.png';
 import '../Home-2.css'; // Make sure to fix the import path
 import '../Home.css';
 export default function RecipeView(){
+  function handleDelete(id){
+    axios.delete('http://localhost:3001/deleteGrocery/'+id)
+        .then(result => {console.log(result); window.location.reload();})
+        .catch(err => console.log(err));
+  }
   const navigate = useNavigate();
     const [Grocery, setGrocery] = useState([]);
     useEffect(() => {
@@ -82,10 +87,10 @@ export default function RecipeView(){
                   <td>{items.name}</td>
                   <td>{items.price}</td>
                   <td>
-                    <Button variant="warning">Update</Button>
+                    <Link to={`/AdminDash/UpdateGrocery/${items._id}`} className='btn btn-warning'>Update</Link>
                   </td>
                   <td>
-                    <Button variant="danger">Delete</Button>
+                    <Button variant="danger" onClick={()=>{handleDelete(items._id)}}>Delete</Button>
                   </td>
                 </tr>
               ))}

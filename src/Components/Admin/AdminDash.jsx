@@ -1,5 +1,5 @@
 import { BarChart, LocalDining, LocalGroceryStore, Shop, StoreMallDirectory, ViewAgenda } from '@mui/icons-material';
-import React from 'react';
+import React, { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -10,7 +10,9 @@ import '../Home.css';
 import AddRecipe from './AddRecipe.jsx';
 function AdminDash() {
   const navigate = useNavigate();
+
   return (
+    <>
     <div>
       <Row>
         <Col>
@@ -55,6 +57,7 @@ function AdminDash() {
           </div>
       </Container>
     </div>
+     </>
   );
 }
 

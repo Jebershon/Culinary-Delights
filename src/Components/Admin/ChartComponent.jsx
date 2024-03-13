@@ -1,39 +1,27 @@
 import { BarChart, LocalDining, LocalGroceryStore, Shop, StoreMallDirectory, ViewAgenda } from '@mui/icons-material';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Chart from 'react-apexcharts';
 import { Card, CardHeader, Col, Container, Row } from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../Asserts/dinner.png';
-import recipe_book from '../Hardcode-data/Food-Recipes-details';
 import '../Home-2.css'; // Make sure to fix the import path
 import '../Home.css';
 const ChartComponent = () => {
   const navigate = useNavigate();
-  const chartRef = useRef(null);
-  const barChartRef = useRef(null);    
+  const barChartRef = useRef(null); 
 
-    const recipeNames = recipe_book.map((recipe) =>(recipe.name));
-    console.trace(recipeNames); 
-
-    const label1= [...recipeNames];
-
-    const rating = recipe_book.map((recipe) =>{
-      let sum=0;
-      for(var i=0;i<recipe.rating.length;i++)
-      {
-      sum=recipe.rating[i]+sum;
-      }
-      return Math.round(sum/recipe.rating.length);
-    });
-
-    const dataset1=[
-      {
-        name: 'Recipe rated',
-        data: rating,
-      },
-    ];
+  const groceryData = [
+    { name: 'Alice', data: [10, 20, 30, 40, 50] }, // Sample data for Alice
+    { name: 'Bob', data: [5, 15, 25, 35, 45] },     // Sample data for Bob
+  ];
+    // Extracting names and data from the sample grocery data
+    const names = groceryData.map(item => item.name);
+    const dataSeries = groceryData.map(item => ({
+      name: item.name,
+      data: item.data,
+    }));
 
     const label2= ["vegetable", "fruit", "dairy", "meat", "grains", "beverages"];
     const dataset2=[
@@ -42,19 +30,6 @@ const ChartComponent = () => {
         data: [30, 50, 20,12,23,4],
       },
     ];
-
-  useEffect(() => {
-    // Update the Bar chart
-    if (chartRef && chartRef.current && dataset1.length > 0) {
-      chartRef.current.chart.updateOptions({
-        xaxis: {
-          categories: label1,
-        },
-      });
-      chartRef.current.chart.updateSeries([{ data: dataset1[0].data }]);
-    }
-  }, [label1, dataset1]);
-
 
   useEffect(() => {
     // Update the Bar chart
@@ -91,7 +66,7 @@ const ChartComponent = () => {
   };
 
 
-  const barChartOptions = {
+  const areaChartOptions = {
     chart: {
       height: 350,
       type: 'area',
@@ -99,17 +74,21 @@ const ChartComponent = () => {
     dataLabels: {
       enabled: false,
     },
-    colors: ['#fc8019'],
+    colors: ['#fc8019', '#00bcd4', '#4caf50', '#f44336', '#9c27b0'], // Colors for different people
     stroke: {
       curve: 'smooth'
     },
     xaxis: {
-      categories: label1,
+      categories: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5'], // Sample time periods
     },
   };
 
+  const [display,setDisplay]=useState(window.localStorage.getItem("role"));
   return(
-  <div>
+    <>
+    {display?(
+    <>
+    <div>
     <Row>
         <Col>
             <div className='mb-5'>
@@ -154,7 +133,7 @@ const ChartComponent = () => {
         <CardHeader style={{color:"grey",fontSize:"20px"}}>Rating of Each Recipe</CardHeader>
         <hr style={{color:"white"}}/>
         <div className='chart-bg'>
-        <Chart options={barChartOptions} series={dataset1.map((dataset) => dataset)} type="area" height={400} ref={chartRef} />
+        <Chart options={areaChartOptions} series={dataSeries} type="area" height={400} />
         </div>
     </Card>
     </Row>
@@ -169,7 +148,17 @@ const ChartComponent = () => {
     </Row>
     </Container>
     </div>
-  </div>);
-};
+    </div>
+    </>
+  ):(
+    <div style={{marginTop:"250px"}}>
+    <center>
+    !!!!!!!!!!!!!restricted access!!!!!!!!!!!!!
+    </center>
+    </div>
+   )}
+  </>
+  );
+}
 
 export default ChartComponent;

@@ -8,6 +8,11 @@ import logo from '../Asserts/dinner.png';
 import '../Home-2.css'; // Make sure to fix the import path
 import '../Home.css';
 export default function RecipeView(){
+  function handleDelete(id){
+    axios.delete('http://localhost:3001/deleteRecipe/'+id)
+        .then(result => {console.log(result.data); window.location.reload();})
+        .catch(err => console.log(err));
+  };
   const navigate = useNavigate();
     const [recipes, setRecipes] = useState([]);
 
@@ -82,10 +87,10 @@ export default function RecipeView(){
                   <td>{recipe.name}</td>
                   <td>{recipe.description}</td>
                   <td>
-                  <Button variant="warning"  onClick>Update</Button>
+                    <Link to={`/AdminDash/UpdateRecipe/${recipe._id}`} className='btn btn-warning'>Update</Link>
                   </td>
                   <td>
-                  <Button variant="danger">Delete</Button>
+                  <Button variant="danger" onClick={()=>{handleDelete(recipe._id)}}>Delete</Button>
                   </td>
                 </tr>
               ))}
@@ -95,5 +100,5 @@ export default function RecipeView(){
         </Card>
     </Container>
       </div>
-    </div>);
+      </div>);
 }

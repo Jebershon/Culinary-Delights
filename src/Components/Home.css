@@ -244,6 +244,108 @@
   .card-title{
     color: #fc8019;
   }
+  .site-hr 
+{
+  border-top-color:#bbb;
+  opacity:0.5
+}
+.site-hr
+{
+  margin:20px 0
+}
+.social-icons
+{
+  text-align:right
+}
+.social-icons a
+{
+  width:40px;
+  height:40px;
+  line-height:40px;
+  margin-left:6px;
+  margin-right:0;
+  border-radius:100%;
+  background-color:#33353d
+}
+
+@media (max-width:767px)
+{
+  .copyright-text,.social-icons
+  {
+    text-align:center
+  }
+}
+.social-icons
+{
+  padding-left:0;
+  margin-bottom:0;
+  list-style:none
+}
+.social-icons li
+{
+  display:inline-block;
+  margin-bottom:4px
+}
+.social-icons li.title
+{
+  margin-right:15px;
+  text-transform:uppercase;
+  color:#96a2b2;
+  font-weight:700;
+  font-size:13px
+}
+.social-icons a{
+  background-color:#eceeef;
+  color:#818a91;
+  font-size:16px;
+  display:inline-block;
+  line-height:44px;
+  width:44px;
+  height:44px;
+  text-align:center;
+  margin-right:8px;
+  border-radius:100%;
+  -webkit-transition:all .2s linear;
+  -o-transition:all .2s linear;
+  transition:all .2s linear
+}
+.social-icons a:active,.social-icons a:focus,.social-icons a:hover
+{
+  color:#fff;
+  background-color:#fc8019;
+}
+.social-icons.size-sm a
+{
+  line-height:34px;
+  height:34px;
+  width:34px;
+  font-size:14px
+}
+.social-icons a.facebook:hover
+{
+  background-color:#fc8019
+}
+.social-icons a.twitter:hover
+{
+  background-color:#fc8019
+}
+.social-icons a.linkedin:hover
+{
+  background-color:#fc8019
+}
+.social-icons a.dribbble:hover
+{
+  background-color:#fc8019
+}
+@media (max-width:767px)
+{
+  .social-icons li.title
+  {
+    display:block;
+    margin-right:0;
+    font-weight:600
+  }
+}
   /* -----------------------------------------------------Home-Card-CSS------------------------------------- */
   .ig{
     border-radius: 10px;
@@ -483,7 +585,8 @@ cursor: grab;
   ;
 }
 .mar{
-  margin-top: 30px;
+  width: 80px;
+  overflow-y: scroll;
 } 
 /* ---------------------------------------Loader-------------------------------- */
 .wheel-and-hamster {
@@ -759,37 +862,7 @@ cursor: grab;
   }
 }
 /* _----------------------------------rating----------------------------------------------_ */
-.rating:not(:checked) > input {
-  position: absolute;
-  appearance: none;
-}
 
-.rating:not(:checked) > label {
-  cursor: pointer;
-  font-size: 30px;
-  color: #ffffff;
-}
-
-.rating:not(:checked) > label:before {
-  content: "★";
-}
-
-.rating > input:checked + label:hover,
-.rating > input:checked + label:hover ~ label,
-.rating > input:checked ~ label:hover,
-.rating > input:checked ~ label:hover ~ label,
-.rating > label:hover ~ input:checked ~ label {
-  color: #ffd000;
-}
-
-.rating:not(:checked) > label:hover,
-.rating:not(:checked) > label:hover ~ label {
-  color: #ffd000;
-}
-
-.rating > input:checked ~ label {
-  color: #ffd000;
-}
 /* -------------------------------Modal--------------------------------- */
 .modal-content{
   backdrop-filter: blur(2px) saturate(180%);

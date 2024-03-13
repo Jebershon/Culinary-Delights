@@ -5,7 +5,7 @@ import { Button, Card, Col, Container, Dropdown, Form, FormControl, FormLabel, I
 import { Link, useNavigate } from 'react-router-dom';
 import '..//external.css';
 import logo from '../Asserts/dinner.png';
-import img from '../Asserts/img-def.jpg';
+import img from '../Asserts/img-def.png';
 const categories = ["vegetable", "fruit", "dairy", "meat", "grains", "beverages"];
 const quantityUnits = ["50", "100", "500", "750"];
 const measuringUnits = ["g", "kg","ml","liters", "pieces", "tbsp"];
@@ -89,7 +89,7 @@ export default function AddGrocery() {
     <Card className='Admincard-bg'>
     <Card.Header><h1 style={{ fontVariant:"small-caps"}}>Grocery Dashboard</h1></Card.Header>
     <Card.Body>
-    <Form>
+    <Form onSubmit={handleAddGrocery} >
     <Row>
       <Col lg={9}>
             <InputGroup className="mb-3">
@@ -99,6 +99,7 @@ export default function AddGrocery() {
                 placeholder="Enter product ID"
                 value={product_id}
                 onChange={(e) => setProductId(e.target.value)}
+                required
                 />
             </InputGroup>
 
@@ -109,6 +110,7 @@ export default function AddGrocery() {
                 placeholder="Enter name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                required
                 />
             </InputGroup>
 
@@ -119,6 +121,7 @@ export default function AddGrocery() {
                 placeholder="Enter price"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
+                required
                 />
             </InputGroup>
 
@@ -128,6 +131,7 @@ export default function AddGrocery() {
                 type="text"
                 placeholder="Enter image URL"
                 onChange={(e) => setImageUrl(e.target.value)}
+                required
                 />
             </InputGroup>
             </Col>
@@ -190,7 +194,7 @@ export default function AddGrocery() {
             </Row>
 
              <Row><center><Col lg={4}>
-            <Button variant="warning" className='mt-3 mb-3' onClick={handleAddGrocery} style={{ fontVariant:"small-caps" , width:"50%"}}>
+            <Button type="submit" variant="warning" className='mt-3 mb-3' style={{ fontVariant:"small-caps" , width:"50%"}}>
                 Add Grocery
             </Button></Col>
             </center></Row>

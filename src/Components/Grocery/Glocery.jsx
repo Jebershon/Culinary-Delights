@@ -1,13 +1,15 @@
-import { useState } from 'react';
-import { Col, Container, Form, NavDropdown, Offcanvas, Row } from "react-bootstrap";
+import { ShoppingCartCheckout } from '@mui/icons-material';
+import axios from 'axios';
+import { jwtDecode } from 'jwt-decode';
+import { useEffect, useState } from 'react';
+import { Button, Col, Container, Form, NavDropdown, Offcanvas, Row } from "react-bootstrap";
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import { Cart } from '../Asserts/Anim';
-import CartDetails from '../Cart-Details';
-import ingre from '../Hardcode-data/Indgredients-details';
-import '../Home.css';
 import logo from '../Asserts/dinner.png';
+import CartDetails from '../Cart-Details';
+import '../Home.css';
 import GloceryCard from "./GloceryCard";
 function Glocery() {
   const [show, setShow] = useState(false);
@@ -17,6 +19,16 @@ function Glocery() {
   const [filter, setFilter] = useState('all'); // 'all', 'meat', 'vegetable', 'grain', 'dairy'
   const [search, setSearch] = useState('');
 
+ const [item,setItem] = useState([]);
+  useEffect(() => {
+    axios.get('http://localhost:3001/GetGrocery')
+      .then(result => {
+        console.log(result.data);
+        setItem(result.data);
+      })
+      .catch(err => console.log(err));
+  }, []);
+
   const handleFilterChange = (selectedFilter) => {
     setFilter(selectedFilter);
   };
@@ -24,7 +36,7 @@ function Glocery() {
     setSearch(event.target.value);
   };
 
-  const filteredProducts = ingre.filter( (item)=> {
+  const filteredProducts = item.filter( (item)=> {
 
     const categoryMatch = filter === 'all' || item.category === filter;
 
@@ -35,6 +47,31 @@ function Glocery() {
   console.log('Filter:', filter);
   console.log('Search:', search);
   console.log('Filtered Products:', filteredProducts);
+ 
+  const addToCart = (userId, groceryItem) => {
+    const { ingredientName,
+            ingredientId,
+            ingredientPrice,
+            ingredientQuantity,
+            ingredientURL,
+            ingredientCount } = groceryItem;
+
+    axios.post(`http://localhost:3001/addToCart/${userId}`, { groceryItem })
+        .then(response => {
+            const updatedCart = response.data;
+            console.log(updatedCart);
+        })
+        .catch(error => {
+            console.error("Error adding item to cart:", error);
+        });
+};
+
+const data = (groceryItem) => {
+  const token = jwtDecode(window.localStorage.getItem("token"));
+  const userId = token.id; 
+  addToCart(userId, groceryItem);
+};
+
   return (
     <div className='bg-c'>
     <Navbar collapseOnSelect expand="lg" className="transparent-Nav" fixed="top">
@@ -69,7 +106,7 @@ function Glocery() {
             <NavDropdown.Item className='drop-bton' eventKey="all">All</NavDropdown.Item>
             <NavDropdown.Item className='drop-bton' eventKey="meat">Meat</NavDropdown.Item>
             <NavDropdown.Item className='drop-bton' eventKey="vegetable">Vegetable</NavDropdown.Item>
-            <NavDropdown.Item className='drop-bton' eventKey="grain">Grain</NavDropdown.Item>
+            <NavDropdown.Item className='drop-bton' eventKey="grains">Grain</NavDropdown.Item>
             <NavDropdown.Item className='drop-bton' eventKey="dairy">Dairy</NavDropdown.Item>
           </NavDropdown>
           </center>
@@ -93,11 +130,17 @@ function Glocery() {
 
     <Offcanvas show={show} onHide={handleClose} placement='end'>
         <Offcanvas.Header closeButton>
-        <Offcanvas.Title><h2>Cart <Cart/></h2></Offcanvas.Title>
+        <Offcanvas.Title>
+          <h2>Cart <Cart/></h2>
+        </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
+        <hr style={{color:"black"}}/>
           <CartDetails/>
         </Offcanvas.Body>
+        <center>
+         <Button className='btn btn-warning mt-1 mb-1'><ShoppingCartCheckout/> Checkout</Button>
+        </center>
       </Offcanvas>
 
     <br/>
@@ -108,7 +151,7 @@ function Glocery() {
       <Row>
         {filteredProducts?.map(item => (
         <Col lg={4}>
-        <GloceryCard key={item.product_id} ingre={item} />
+        <GloceryCard key={item.product_id} ingre={item} onAddToCart={data}/>
         </Col>
       ))} 
       </Row>

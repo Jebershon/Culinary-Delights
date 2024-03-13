@@ -7,6 +7,8 @@ import ChartComponent from './Components/Admin/ChartComponent.jsx';
 import GroceryView from './Components/Admin/GroceryView.jsx';
 import RecipeView from './Components/Admin/RecipeView.jsx';
 import SoldDetails from './Components/Admin/Sold-details.jsx';
+import UpdateGrocery from './Components/Admin/UpdateGrocery.jsx';
+import UpdateRecipe from './Components/Admin/UpdateRecipe.jsx';
 import Glocery from './Components/Grocery/Glocery.jsx';
 import Home from './Components/Home.jsx';
 import MyProfile from './Components/MyProfile.jsx';
@@ -28,6 +30,8 @@ function App() {
         <Route path='/AdminDash/ViewRecipe/*' element={<RecipeView/>}/>
         <Route path='/AdminDash/ViewGrocery/*' element={<GroceryView/>}/>
         <Route path='/AdminDash/Sold/*' element={<SoldDetails/>}/>
+        <Route path='/AdminDash/UpdateGrocery/:id' element={<UpdateGrocery/>}/>
+        <Route path='/AdminDash/UpdateRecipe/:id' element={<UpdateRecipe/>}/>
       </Routes>
       </BrowserRouter>
   );

@@ -10,7 +10,7 @@ import logo from '../Asserts/dinner.png';
 import Restriction from '../Restriction.jsx';
 import soldGroceriesData from '../Hardcode-data/purchaseDetails.js';
 function SoldDetails(){
-  const [customer,setCustomer]=-useState({});
+  const [customer,setCustomer]=-useState([]);
     const navigate = useNavigate();
     const [display,setDisplay]=useState(window.localStorage.getItem("role"));
     useEffect(()=>{

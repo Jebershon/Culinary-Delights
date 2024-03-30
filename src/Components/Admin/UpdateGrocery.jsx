@@ -4,6 +4,7 @@ import { Button, Card, Container, Dropdown, Form, FormControl, FormLabel, InputG
 import { useNavigate, useParams } from 'react-router-dom';
 import '..//external.css';
 import img from '../Asserts/img-def.png';
+import Restriction from '../Restriction.jsx';
 const categories = ["vegetable", "fruit", "dairy", "meat", "grains", "beverages"];
 const quantityUnits = ["50", "100", "500", "750"];
 const measuringUnits = ["g", "kg","ml","liters", "pieces", "tbsp"];
@@ -61,7 +62,11 @@ export default function UpdateGrocery() {
     setCategory('');
     setUnit('');
   };
+  const [display,setDisplay]=useState(window.localStorage.getItem("role"));
   return (
+    <>
+    {display?(
+    <>
     <div className='mt-5 mb-3'>
     <Container>
     <center>
@@ -177,5 +182,12 @@ export default function UpdateGrocery() {
     </center>
     </Container>
     </div>
+    </>
+  ):(
+    <div>
+    <Restriction/>
+    </div>
+   )}
+  </>
   );
 }

@@ -1,6 +1,7 @@
 import { Delete } from '@mui/icons-material';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import Restriction from '../Restriction.jsx';
 import {
   Button,
   Card,
@@ -148,8 +149,11 @@ const handleUpdateRecipe = (e) => {
       setPrepTime('');
       setCookTime('');
 }  
-
+const [display,setDisplay]=useState(window.localStorage.getItem("role"));
   return (
+    <>
+    {display?(
+    <>
     <div>
       <Container>
       <center>
@@ -360,5 +364,12 @@ const handleUpdateRecipe = (e) => {
       </center>
       </Container>
       </div>
+      </>
+  ):(
+    <div>
+    <Restriction/>
+    </div>
+   )}
+  </>
   );
 }

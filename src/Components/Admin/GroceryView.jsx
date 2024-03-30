@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import logo from '../Asserts/dinner.png';
 import '../Home-2.css'; // Make sure to fix the import path
 import '../Home.css';
+import Restriction from '../Restriction.jsx';
 export default function RecipeView(){
   function handleDelete(id){
     axios.delete('https://culinary-delights-backend.onrender.com/deleteGrocery/'+id)
@@ -23,7 +24,11 @@ export default function RecipeView(){
         })
         .catch(err => console.log(err));
     }, []);
+    const [display,setDisplay]=useState(window.localStorage.getItem("role"));
     return(
+      <>
+    {display?(
+    <>
     <div>
       <Row>
         <Col>
@@ -101,5 +106,12 @@ export default function RecipeView(){
     </Container>
     </div>
     </div>
+    </>
+  ):(
+    <div>
+    <Restriction/>
+    </div>
+   )}
+  </>
     );
 }

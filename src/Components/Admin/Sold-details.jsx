@@ -1,14 +1,30 @@
 import { BarChart, LocalDining, LocalGroceryStore, Shop, StoreMallDirectory, ViewAgenda } from '@mui/icons-material';
 import { Card, Col, Container, Navbar, Row, Table } from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '..//Home-2.css';
 import '..//Home.css';
+import axios from 'axios';
 import logo from '../Asserts/dinner.png';
+import Restriction from '../Restriction.jsx';
 import soldGroceriesData from '../Hardcode-data/purchaseDetails.js';
 function SoldDetails(){
+  const [customer,setCustomer]=-useState({});
     const navigate = useNavigate();
+    const [display,setDisplay]=useState(window.localStorage.getItem("role"));
+    useEffect(()=>{
+      axios.get('https://culinary-delights-backend.onrender.com/Customer')
+        .then(result => {
+          console.log(result.data);
+          setCustomer(result.data);
+        })
+        .catch(err => console.log(err));
+    },[]);
     return(
+        <>
+    {display?(
+       <>
         <div>
             <Row>
             <Col>
@@ -49,7 +65,7 @@ function SoldDetails(){
     </Row>
         <div className='mt-5 mb-3'>
             <Container>
-            {soldGroceriesData.map((x)=>(
+            {customer.map((x)=>(
                 <Row>
                 <Col lg={12}>
                 <Card className='mt-3 mb-3 Nutri-card'>
@@ -107,6 +123,13 @@ function SoldDetails(){
             </Container>
         </div>
     </div>
+    </>
+  ):(
+    <div>
+    <Restriction/>
+    </div>
+   )}
+  </>
     );
 }
 export default SoldDetails;

@@ -4,14 +4,17 @@ import { Col, Container, Row } from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link, useNavigate } from 'react-router-dom';
+import Restriction from '../Restriction.jsx';
 import logo from '../Asserts/dinner.png';
 import '../Home-2.css'; // Make sure to fix the import path
 import '../Home.css';
 import AddRecipe from './AddRecipe.jsx';
 function AdminDash() {
   const navigate = useNavigate();
-
+  const [display,setDisplay]=useState(window.localStorage.getItem("role"));
   return (
+    <>
+    {display?(
     <>
     <div>
       <Row>
@@ -57,6 +60,12 @@ function AdminDash() {
           </div>
       </Container>
     </div>
+    </>
+  ):(
+    <div>
+    <Restriction/>
+    </div>
+   )}
      </>
   );
 }

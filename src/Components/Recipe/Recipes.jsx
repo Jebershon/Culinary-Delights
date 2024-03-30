@@ -13,6 +13,7 @@ import CartDetails from '../Cart-Details';
 import Footer from '../Footer';
 import '../Home.css';
 import RecipeCard from './RecipeCard';
+import Restriction from '../Restriction.jsx';
 
 function Recipes() {
   const [show, setShow] = useState(false);
@@ -150,9 +151,12 @@ function Recipes() {
         });
     });
 };
-
+const [display,setDisplay]=useState(window.localStorage.getItem("role"));
 
   return (
+    <>
+    {display?(
+    <>
     <div className='bg-c'>
     <Navbar collapseOnSelect expand="lg" className="transparent-Nav" fixed="top">
     <Navbar>
@@ -251,6 +255,13 @@ function Recipes() {
       <Footer/>
     </div>
     </div>
+    </>
+  ):(
+    <div>
+    <Restriction/>
+    </div>
+   )}
+  </>
   );
 }
 

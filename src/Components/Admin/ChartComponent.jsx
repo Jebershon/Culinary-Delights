@@ -8,6 +8,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import logo from '../Asserts/dinner.png';
 import '../Home-2.css'; // Make sure to fix the import path
 import '../Home.css';
+import Restriction from '../Restriction.jsx';
 const ChartComponent = () => {
   const navigate = useNavigate();
   const barChartRef = useRef(null); 
@@ -151,10 +152,8 @@ const ChartComponent = () => {
     </div>
     </>
   ):(
-    <div style={{marginTop:"250px"}}>
-    <center>
-    !!!!!!!!!!!!!restricted access!!!!!!!!!!!!!
-    </center>
+    <div>
+    <Restriction/>
     </div>
    )}
   </>

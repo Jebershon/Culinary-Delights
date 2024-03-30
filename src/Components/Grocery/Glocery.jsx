@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import { Cart } from '../Asserts/Anim';
 import logo from '../Asserts/dinner.png';
 import CartDetails from '../Cart-Details';
+import Restriction from '../Restriction.jsx';
 import '../Home.css';
 import GloceryCard from "./GloceryCard";
 function Glocery() {
@@ -71,8 +72,11 @@ const data = (groceryItem) => {
   const userId = token.id; 
   addToCart(userId, groceryItem);
 };
-
+const [display,setDisplay]=useState(window.localStorage.getItem("role"));
   return (
+    <>
+    {display?(
+    <>
     <div className='bg-c'>
     <Navbar collapseOnSelect expand="lg" className="transparent-Nav" fixed="top">
     <Navbar>
@@ -154,6 +158,13 @@ const data = (groceryItem) => {
       </Row>
     </Container>
     </div>
+    </>
+  ):(
+    <div>
+    <Restriction/>
+    </div>
+   )}
+  </>
   );
 }
 

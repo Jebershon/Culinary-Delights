@@ -5,6 +5,7 @@ import { Button, Card, Col, Container, Dropdown, Form, FormControl, FormLabel, I
 import { Link, useNavigate } from 'react-router-dom';
 import '..//external.css';
 import logo from '../Asserts/dinner.png';
+import Restriction from '../Restriction.jsx';
 import img from '../Asserts/img-def.png';
 const categories = ["vegetable", "fruit", "dairy", "meat", "grains", "beverages"];
 const quantityUnits = ["50", "100", "500", "750"];
@@ -44,7 +45,11 @@ export default function AddGrocery() {
     setImageUrl(img);
     setCategory('');
   };
+  const [display,setDisplay]=useState(window.localStorage.getItem("role"));
   return (
+    <>
+    {display?(
+    <>
     <div>
       <Row>
         <Col>
@@ -204,5 +209,12 @@ export default function AddGrocery() {
     </Container>
     </div>
     </div>
+    </>
+    ):(
+    <div>
+    <Restriction/>
+    </div>
+   )}
+  </>
   );
 }

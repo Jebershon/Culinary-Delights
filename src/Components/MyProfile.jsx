@@ -11,7 +11,7 @@ import './/external.css';
 import Footer from './Footer';
 import GroceryPurchaseCard from './Grocery/GroceryPurchaseCard.jsx';
 import purchaseDetails from './Hardcode-data/purchaseDetails.js';
-
+import Restriction from './Restriction.jsx';
 const BackBtn = () => {
   return (
     <div>
@@ -35,6 +35,7 @@ function UserProfile() {
   const [id, setId] = useState("");
   const navigate = useNavigate();
   useEffect(() => {
+    if(window.localStorage.getItem("token")){
     const token = jwtDecode(window.localStorage.getItem("token"));
     if (token.id) {
       setId(token.id);
@@ -42,6 +43,10 @@ function UserProfile() {
     else {
       setId(" ");
     }
+  }
+  else{
+    
+  }
   }, []);
 
   useEffect(() => {
@@ -108,8 +113,12 @@ function UserProfile() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [display,setDisplay]=useState(window.localStorage.getItem("role"));
 
   return (
+    <>
+    {display?(
+    <>
     <div>
       <ToastContainer />
       <div>
@@ -277,6 +286,13 @@ function UserProfile() {
 
       <Footer />
     </div>
+    </>
+  ):(
+    <div>
+    <Restriction/>
+    </div>
+   )}
+  </>
   );
 }
 

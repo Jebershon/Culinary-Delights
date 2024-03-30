@@ -9,6 +9,7 @@ import Row from 'react-bootstrap/Row';
 import Table from 'react-bootstrap/Table';
 import './/Home.css';
 import Footer from './Footer.jsx';
+import Restriction from './Restriction.jsx';
 const BackBtn=()=>{
   return(
     <div>
@@ -73,8 +74,11 @@ const NutritionCalculator = () => {
     e.preventDefault();
     fetchNutritionData();
   };
-
+  const [display,setDisplay]=useState(window.localStorage.getItem("role"));
   return (
+    <>
+    {display?(
+    <>
     <div className='a-body bg-c'>
       <div>
            <div>
@@ -139,6 +143,13 @@ const NutritionCalculator = () => {
           <Footer />
       </center>
     </div>
+    </>
+  ):(
+    <div>
+    <Restriction/>
+    </div>
+   )}
+  </>
   );
 };
 

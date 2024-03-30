@@ -13,7 +13,7 @@ import {
 } from 'react-bootstrap';
 import '..//Home.css';
 import '..//external.css';
-
+import Restriction from '../Restriction.jsx';
 const availableIngredients = [
   "Chicken pieces",
   "Onion",
@@ -278,8 +278,11 @@ const handleAddRecipe = (e) => {
       setPrepTime('');
       setCookTime('');
 }  
-
+const [display,setDisplay]=useState(window.localStorage.getItem("role"));
   return (
+    <>
+    {display?(
+    <>
     <div>
       <Container>
       <Card  className='Admincard-bg'>
@@ -569,5 +572,12 @@ const handleAddRecipe = (e) => {
       </Card>
       </Container>
       </div>
+       </>
+       ):(
+         <div>
+         <Restriction/>
+         </div>
+        )}
+       </>
   );
 }

@@ -65,12 +65,12 @@ function SoldDetails(){
     </Row>
         <div className='mt-5 mb-3'>
             <Container>
-            {customer.map((x)=>(
+            {customer.map((items, index)=>(
                 <Row>
                 <Col lg={12}>
                 <Card className='mt-3 mb-3 Nutri-card'>
-                    <Card.Header style={{color:"#fc8019",fontSize:"25px"}}><span className='gip'>{x.username}</span></Card.Header>
-                    <Card.Text className='mt-3' style={{color:"#c8c8d0",fontSize:"15px"}}><span className='gip' style={{color:"white"}}>Address:</span>{x.address}   ||   <span className='gip' style={{color:"white"}}>Email:</span>{x.userEmail}</Card.Text>
+                    <Card.Header style={{color:"#fc8019",fontSize:"25px"}}><span className='gip'>{items.name}</span></Card.Header>
+                    <Card.Text className='mt-3' style={{color:"#c8c8d0",fontSize:"15px"}}><span className='gip' style={{color:"white"}}>Address:</span>{items.location}   ||   <span className='gip' style={{color:"white"}}>Email:</span>{items.email}</Card.Text>
                     <hr/>
                 </Card>
                 </Col>

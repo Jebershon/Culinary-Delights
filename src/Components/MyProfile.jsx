@@ -113,7 +113,7 @@ function UserProfile() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [display,setDisplay]=useState(window.localStorage.getItem("role"));
+  const [display,setDisplay]=useState(window.localStorage.getItem("isloggedin"));
 
   return (
     <>

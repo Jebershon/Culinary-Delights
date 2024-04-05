@@ -74,7 +74,7 @@ const NutritionCalculator = () => {
     e.preventDefault();
     fetchNutritionData();
   };
-  const [display,setDisplay]=useState(window.localStorage.getItem("role"));
+  const [display,setDisplay]=useState(window.localStorage.getItem("isloggedin"));
   return (
     <>
     {display?(

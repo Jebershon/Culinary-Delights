@@ -72,7 +72,7 @@ const data = (groceryItem) => {
   const userId = token.id; 
   addToCart(userId, groceryItem);
 };
-const [display,setDisplay]=useState(window.localStorage.getItem("role"));
+const [display,setDisplay]=useState(window.localStorage.getItem("isloggedin"));
   return (
     <>
     {display?(

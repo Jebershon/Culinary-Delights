@@ -151,7 +151,7 @@ function Recipes() {
         });
     });
 };
-const [display,setDisplay]=useState(window.localStorage.getItem("role"));
+const [display,setDisplay]=useState(window.localStorage.getItem("isloggedin"));
 
   return (
     <>

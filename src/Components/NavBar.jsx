@@ -37,6 +37,26 @@ export default function NavBar(){
   const [Login_email, setLogin_Email] = useState("");
   const [Login_password, setLogin_Password] = useState("");
 
+  // const StoreSignup = (e) => {
+  //   e.preventDefault();
+  //   if (password === confirmpassword && password !== "") {
+  //     axios.post('https://culinary-delights-backend.onrender.com/CreateUser', { name, email, password, role})
+  //       .then(result => {
+  //         console.log(result);
+  //         setShow(true);
+  //         setShow2(false);
+  //         setDisplay(true);
+  //         toast.success("Signup Successful!"); // Notify user with success message
+  //       })
+  //       .catch(err => {
+  //         console.log(err);
+  //         toast.error("Signup failed. Please try again."); // Notify user with error message
+  //       });
+  //   } else {
+  //     toast.error("Passwords do not match or are empty."); // Notify user with error message
+  //   }
+  // }
+
   const StoreSignup = (e) => {
     e.preventDefault();
     if (password === confirmpassword && password !== "") {
@@ -46,16 +66,21 @@ export default function NavBar(){
           setShow(true);
           setShow2(false);
           setDisplay(true);
-          toast.success("Signup Successful!"); // Notify user with success message
+          toast.success("Signup Successful!"); 
         })
         .catch(err => {
           console.log(err);
-          toast.error("Signup failed. Please try again."); // Notify user with error message
+          if (err.response && err.response.status === 400 && err.response.data.error === 'User already exists') {
+            toast.error("User already exists. Please log in instead."); 
+          } else {
+            toast.error("Signup failed. Please try again."); 
+          }
         });
     } else {
-      toast.error("Passwords do not match or are empty."); // Notify user with error message
+      toast.error("Passwords do not match or are empty."); 
     }
   }
+
  axios.defaults.withCredentials = true;
   const ValidateLogin = (e) => {
     e.preventDefault();

@@ -37,6 +37,7 @@ export default function NavBar(){
   const [Login_email, setLogin_Email] = useState("");
   const [Login_password, setLogin_Password] = useState("");
   const [loading, setLoading] = useState(false);
+  const [loading1, setLoading1] = useState(false);
 
   const Loader = () => {
     return (
@@ -49,10 +50,12 @@ export default function NavBar(){
   };
 
   const StoreSignup = (e) => {
+    setLoading1(true);
     e.preventDefault();
     if (password === confirmpassword && password !== "") {
       axios.post('https://culinary-delights-backend.onrender.com/CreateUser', { name, email, password, role})
         .then(result => {
+          setLoading1(false);
           console.log(result);
           setShow(true);
           setShow2(false);
@@ -60,6 +63,7 @@ export default function NavBar(){
           toast.success("Signup Successful!"); 
         })
         .catch(err => {
+          setLoading1(true);
           console.log(err);
           if (err.response && err.response.status === 400 && err.response.data.error === 'User already exists') {
             toast.error("User already exists. Please log in instead."); 
@@ -222,7 +226,9 @@ export default function NavBar(){
                 className='rem-border'/>
                </InputGroup>
                 <br/>
-                <Button type="submit" variant='warning' size="lg"  style={{width:"100%"}}>Sign Up</Button>
+                {loading1 ? <center><Loader /></center> : (
+                  <Button type="submit" variant='warning' size="lg"  style={{width:"100%"}}>Sign Up</Button>
+                )}
                 <p class="p">Already have an account?<span onClick={handleShow} class="span">Sign In</span></p>
                 {/* <p class="p line">Or With</p>
                 <div class="flex-row">

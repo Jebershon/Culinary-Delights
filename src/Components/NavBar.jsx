@@ -40,11 +40,11 @@ export default function NavBar(){
 
   const Loader = () => {
     return (
-<div class="loader">
-  <div class="bubble"></div>
-  <div class="bubble"></div>
-  <div class="bubble"></div>
-</div>
+    <div class="loader">
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+    </div>
     );
   };
 
@@ -162,7 +162,7 @@ export default function NavBar(){
                 </Col>
                 </Row>
                 <br/>
-                {loading ? <Loader /> : (
+                {loading ? <center><Loader /></center> : (
                   <Button type='submit' variant='warning' size="lg" style={{width:"100%"}}>Sign In</Button>
                 )}
                 <p class="p">Don't have an account?<a class="span" onClick={handleShow2}>Sign Up</a></p>

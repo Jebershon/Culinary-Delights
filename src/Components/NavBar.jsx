@@ -41,11 +41,14 @@ export default function NavBar(){
 
   const Loader = () => {
     return (
-    <div class="loader">
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-    </div>
+      <div class="typing-indicator">
+      <div class="typing-circle"></div>
+      <div class="typing-circle"></div>
+      <div class="typing-circle"></div>
+      <div class="typing-shadow"></div>
+      <div class="typing-shadow"></div>
+      <div class="typing-shadow"></div>
+  </div>
     );
   };
 

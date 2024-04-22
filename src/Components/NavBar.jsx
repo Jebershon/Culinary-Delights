@@ -36,26 +36,22 @@ export default function NavBar(){
 
   const [Login_email, setLogin_Email] = useState("");
   const [Login_password, setLogin_Password] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  // const StoreSignup = (e) => {
-  //   e.preventDefault();
-  //   if (password === confirmpassword && password !== "") {
-  //     axios.post('https://culinary-delights-backend.onrender.com/CreateUser', { name, email, password, role})
-  //       .then(result => {
-  //         console.log(result);
-  //         setShow(true);
-  //         setShow2(false);
-  //         setDisplay(true);
-  //         toast.success("Signup Successful!"); // Notify user with success message
-  //       })
-  //       .catch(err => {
-  //         console.log(err);
-  //         toast.error("Signup failed. Please try again."); // Notify user with error message
-  //       });
-  //   } else {
-  //     toast.error("Passwords do not match or are empty."); // Notify user with error message
-  //   }
-  // }
+  const Loader = () => {
+    return (
+  <div class="dot-spinner">
+      <div class="dot-spinner__dot"></div>
+      <div class="dot-spinner__dot"></div>
+      <div class="dot-spinner__dot"></div>
+      <div class="dot-spinner__dot"></div>
+      <div class="dot-spinner__dot"></div>
+      <div class="dot-spinner__dot"></div>
+      <div class="dot-spinner__dot"></div>
+      <div class="dot-spinner__dot"></div>
+  </div>
+    );
+  };
 
   const StoreSignup = (e) => {
     e.preventDefault();
@@ -77,15 +73,17 @@ export default function NavBar(){
           }
         });
     } else {
-      toast.error("Passwords do not match or are empty."); 
+      toast.error("Passwords do not match / empty."); 
     }
   }
 
  axios.defaults.withCredentials = true;
   const ValidateLogin = (e) => {
+    setLoading(true);
     e.preventDefault();
     axios.post('https://culinary-delights-backend.onrender.com/Login', { Login_email, Login_password })
       .then(result => {
+        setLoading(false);
         console.log(result);
         if (result.data.status === "Success") {
           if(result.data.role === "admin"){
@@ -120,6 +118,7 @@ export default function NavBar(){
       })
       .catch(err => {
         console.log(err);
+        setLoading(false); 
         toast.error("Login failed. Please try again."); // Notify user with error message
       });
   }
@@ -168,7 +167,9 @@ export default function NavBar(){
                 </Col>
                 </Row>
                 <br/>
-                <Button type='submit' variant='warning' size="lg" style={{width:"100%"}}>Sign In</Button>
+                {loading ? <Loader /> : (
+                  <Button type='submit' variant='warning' size="lg" style={{width:"100%"}}>Sign In</Button>
+                )}
                 <p class="p">Don't have an account?<a class="span" onClick={handleShow2}>Sign Up</a></p>
                 {/* <p class="p line">Or With</p>
                 <div class="flex-row">
